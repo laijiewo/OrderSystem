@@ -30,11 +30,11 @@ create table person
 
 create table deliver
 (
-    OrderID               int      not null
+    OrderID               int                                       not null
         primary key,
-    Deli_PersonID         int      not null,
-    DeliveryStatus        char     not null,
-    EstimatesDeliveryTime datetime not null,
+    Deli_PersonID         int                                       not null,
+    DeliveryStatus        enum ('delivering', 'waiting', 'resting') not null,
+    EstimatesDeliveryTime datetime                                  not null,
     constraint Deliver_order_OrderID_fk
         foreign key (OrderID) references `order` (OrderID),
     constraint Deliver_person_PersonID_fk
@@ -109,6 +109,8 @@ create table user
     constraint User_person_PersonID_fk
         foreign key (PersonID) references person (PersonID)
 );
+
+
 
 
 
