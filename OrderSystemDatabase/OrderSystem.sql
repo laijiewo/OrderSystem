@@ -1,116 +1,114 @@
-create table `order`
+create database orderSystem;
+USE orderSystem;
+    create table `order`
 (
-    OrderID       int(8)     not null
+    OrderID       CHAR(8)     not null
         primary key,
-    Date          date       not null,
-    PaymentStatus tinyint(1) not null,
-    U_PersonID    int(6)     not null
+    Date          DATETIME       not null,
+    PaymentStatus ENUM ('PAID', 'UNPAID') not null,
+    PersonID    CHAR(6)     not null,
+    UNIQUE (OrderID),
+    FOREIGN KEY (PersonID) REFERENCES person(PersonID) ON DELETE CASCADE
 );
 
 create table orderlist
 (
-    OrderID  int(8) not null
+    OrderID  CHAR(8) not null
         primary key,
-    DishID   int(4) not null,
-    Comments char   null,
-    constraint DishID
-        unique (DishID)
+    DishID   CHAR(4) not null,
+    Comments VARCHAR(100)   null,
+    FOREIGN KEY (OrderID) REFERENCES `order`(OrderID) ON DELETE CASCADE,
+    FOREIGN KEY (DishID) REFERENCES dish(DishID) ON DELETE CASCADE
 );
 
 create table person
 (
-    PersonID    int(6)                  not null
+    PersonID    CHAR(6)                  not null
         primary key,
     Fname       char                    not null,
     Lname       char                    not null,
     password    int                     not null,
     PhoneNumber int                     not null,
-    Gender      enum ('male', 'female') not null
+    Gender      enum ('male', 'female') not null,
+    UNIQUE (PersonID)
 );
 
 create table deliver
 (
-    OrderID               int                                       not null
+    OrderID               char(8)                                       not null
         primary key,
-    Deli_PersonID         int                                       not null,
-    DeliveryStatus        enum ('delivering', 'waiting', 'resting') not null,
-    EstimatesDeliveryTime datetime                                  not null,
+    Deli_PersonID         char(6)                                       not null,
+    DeliveryStatus        enum ('DELIVERING', 'WAITING_FOR_DELIVERY', 'ARRIVED') not null,
     constraint Deliver_order_OrderID_fk
-        foreign key (OrderID) references `order` (OrderID),
+        foreign key (OrderID) references `order` (OrderID) ON DELETE CASCADE,
     constraint Deliver_person_PersonID_fk
         foreign key (Deli_PersonID) references person (PersonID)
 );
-
-create table deliveryperson
+create table deliveryPerson
 (
-    PersonID     int  not null
+    PersonID     CHAR(8)  not null
         primary key,
     DeliveryArea char not null,
-    Status       char not null,
+    Status       ENUM ('DELIVERING', 'WAITING', 'RESTING') not null,
     constraint DeliveryPerson_person_PersonID_fk
-        foreign key (PersonID) references person (PersonID)
+        foreign key (PersonID) references person (PersonID) ON DELETE CASCADE
 );
 
 create table restaurant
 (
-    RestaurantID       int(7) not null
+    RestaurantID       CHAR(7) not null
         primary key,
     RestaurantName     char   not null,
     Address            char   not null,
     ContactInformation char   not null,
     BusinessHours      char   not null,
-    M_PersonID         int(6) not null
+    M_PersonID         int(6) not null,
+    UNIQUE (RestaurantID)
 );
 
 create table dish
 (
-    DishID         int(4)     not null
+    DishID         CHAR(4)     not null
         primary key,
     Name           char       not null,
     Price          float      not null,
-    Availability   tinyint(1) null,
+    Availability   ENUM('AVAILABLE', 'UNAVAILABLE') NOT null,
     Category       char       not null,
-    D_RestaurantID int(7)     not null,
+    D_RestaurantID CHAR(7)     not null,
     constraint D_RestaurantID
         foreign key (D_RestaurantID) references restaurant (RestaurantID)
 );
 
-create table restaurantmanager
+create table restaurantManager
 (
-    PersonID           int(6) not null
+    PersonID           CHAR(6) not null
         primary key,
-    DateofStartManager date   not null,
-    RestaurantID       int(7) not null,
-    constraint restaurantmanager_person_PersonID_fk
-        foreign key (PersonID) references person (PersonID),
-    constraint restaurantmanager_restaurant_RestaurantID_fk
-        foreign key (RestaurantID) references restaurant (RestaurantID)
+    DateOfStartManager date   not null,
+    RestaurantID       CHAR(7) not null,
+    constraint restaurantManager_person_PersonID_fk
+        foreign key (PersonID) references person (PersonID) ON DELETE CASCADE,
+    constraint restaurantManager_restaurant_RestaurantID_fk
+        foreign key (RestaurantID) references restaurant (RestaurantID) ON DELETE CASCADE
 );
 
 create table review
 (
-    R_PersonID    int(6) not null
-        primary key,
-    Date          date   not null,
+    R_PersonID    CHAR(6) not null,
+    Date          DATETIME   not null,
     Rating        float  not null,
     ReviewContent char   null,
-    RestaurantID  int(7) not null,
-    constraint Date
-        unique (Date),
-    constraint review_restaurant_RestaurantID_fk
-        foreign key (RestaurantID) references restaurant (RestaurantID)
+    RestaurantID  CHAR(7) not null,
+    PRIMARY KEY (R_PersonID, Date),
+    foreign key (R_PersonID) references person(PersonID) ON DELETE CASCADE,
+    foreign key (RestaurantID) references restaurant (RestaurantID) ON DELETE CASCADE
 );
 
 create table user
 (
-    PersonID int not null
+    PersonID CHAR(6) not null
         primary key,
-    Address  int null,
-    constraint User_person_PersonID_fk
-        foreign key (PersonID) references person (PersonID)
+    Address CHAR null,
+    phongNumber int(11) not null,
+    foreign key (PersonID) references person (PersonID) ON DELETE CASCADE
 );
-
-
-
-
 
