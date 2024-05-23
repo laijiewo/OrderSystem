@@ -39,10 +39,8 @@ create table deliver
         primary key,
     Deli_PersonID         char(6)                                       not null,
     DeliveryStatus        enum ('DELIVERING', 'WAITING_FOR_DELIVERY', 'ARRIVED') not null,
-    constraint Deliver_order_OrderID_fk
-        foreign key (OrderID) references `order` (OrderID) ON DELETE CASCADE,
-    constraint Deliver_person_PersonID_fk
-        foreign key (Deli_PersonID) references person (PersonID)
+    foreign key (OrderID) references `order` (OrderID) ON DELETE CASCADE,
+    foreign key (Deli_PersonID) references person (PersonID)
 );
 create table deliveryPerson
 (
@@ -50,8 +48,7 @@ create table deliveryPerson
         primary key,
     DeliveryArea char not null,
     Status       ENUM ('DELIVERING', 'WAITING', 'RESTING') not null,
-    constraint DeliveryPerson_person_PersonID_fk
-        foreign key (PersonID) references person (PersonID) ON DELETE CASCADE
+    foreign key (PersonID) references person (PersonID) ON DELETE CASCADE
 );
 
 create table restaurant
@@ -75,8 +72,7 @@ create table dish
     Availability   ENUM('AVAILABLE', 'UNAVAILABLE') NOT null,
     Category       char       not null,
     D_RestaurantID CHAR(7)     not null,
-    constraint D_RestaurantID
-        foreign key (D_RestaurantID) references restaurant (RestaurantID)
+    foreign key (D_RestaurantID) references restaurant (RestaurantID)
 );
 
 create table restaurantManager
@@ -85,10 +81,8 @@ create table restaurantManager
         primary key,
     DateOfStartManager date   not null,
     RestaurantID       CHAR(7) not null,
-    constraint restaurantManager_person_PersonID_fk
-        foreign key (PersonID) references person (PersonID) ON DELETE CASCADE,
-    constraint restaurantManager_restaurant_RestaurantID_fk
-        foreign key (RestaurantID) references restaurant (RestaurantID) ON DELETE CASCADE
+    foreign key (PersonID) references person (PersonID) ON DELETE CASCADE,
+    foreign key (RestaurantID) references restaurant (RestaurantID) ON DELETE CASCADE
 );
 
 create table review
