@@ -11,7 +11,7 @@ USE orderSystem;
     FOREIGN KEY (PersonID) REFERENCES person(PersonID) ON DELETE CASCADE
 );
 
-create table orderlist
+create table orderList
 (
     OrderID  CHAR(8) not null
         primary key,
