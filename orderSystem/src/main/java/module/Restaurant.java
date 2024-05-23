@@ -1,14 +1,14 @@
 package module;
 
 public class Restaurant {
-    private final int RestaurantID;
+    private final String RestaurantID;
     private String RestaurantName;
     private String RestaurantAddress;
     private String Contact_Information;
     private String Business_Hours;
-    private int M_PersonID;
+    private String M_PersonID;
 
-    public Restaurant(int RestaurantID, String RestaurantName, String RestaurantAddress, String Contact_Information, String Business_Hours, int M_PersonID) {
+    public Restaurant(String RestaurantID, String RestaurantName, String RestaurantAddress, String Contact_Information, String Business_Hours, String M_PersonID) {
         this.RestaurantID = RestaurantID;
         this.RestaurantName = RestaurantName;
         this.RestaurantAddress = RestaurantAddress;
@@ -18,7 +18,7 @@ public class Restaurant {
     }
 
 
-    public int getRestaurantID() {
+    public String  getRestaurantID() {
         return RestaurantID;
     }
 
@@ -38,7 +38,7 @@ public class Restaurant {
         return Business_Hours;
     }
 
-    public int getM_PersonID() {
+    public String getM_PersonID() {
         return M_PersonID;
     }
 
@@ -58,7 +58,7 @@ public class Restaurant {
         this.Business_Hours = Business_Hours;
     }
 
-    public void setM_PersonID(int M_PersonID) {
+    public void setM_PersonID(String M_PersonID) {
         this.M_PersonID = M_PersonID;
     }
 
