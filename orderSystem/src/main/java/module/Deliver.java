@@ -1,12 +1,6 @@
 package module;
 
 public class Deliver {
-    enum DeliverStatus {
-        DELIVERED,
-        NOT_DELIVERED,
-        ON_HOLD,
-        DELIVERING;
-    }
     private final int OrderID;
     private int Deli_PersonID;
     private DeliverStatus status;

@@ -1,11 +1,6 @@
 package module;
 
 public class DeliveryPerson extends Person{
-    enum DeliveryStatus {
-        DELIVERING,
-        WAITING,
-        RESTING;
-    }
     private String deliveryArea;
     private DeliveryStatus deliveryStatus;
     public DeliveryPerson(String PersonID, String LastName, String FirsName, String PhoneNumber, String password, Gender Gender, String deliveryArea, DeliveryStatus deliveryStatus) {
