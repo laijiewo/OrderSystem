@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="941c3bf8-2ac3-4ad9-a7b7-98eb55178d0d" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/OrderSystemDatabase/OrderSystem.sql" beforeDir="false" afterPath="$PROJECT_DIR$/OrderSystemDatabase/OrderSystem.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orderSystem/src/main/java/dao/dishDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/orderSystem/src/main/java/dao/dishDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orderSystem/src/main/java/dao/orderDAO.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/orderSystem/src/main/java/dao/restaurantDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/orderSystem/src/main/java/dao/restaurantDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orderSystem/src/main/java/module/Restaurant.java" beforeDir="false" afterPath="$PROJECT_DIR$/orderSystem/src/main/java/module/Restaurant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orderSystem/src/main/java/dao/reviewDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/orderSystem/src/main/java/module/Dish.java" beforeDir="false" afterPath="$PROJECT_DIR$/orderSystem/src/main/java/module/Dish.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

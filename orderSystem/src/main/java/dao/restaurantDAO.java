@@ -53,9 +53,9 @@ public class restaurantDAO {
         try {
             Connection conn = JDBCTool.getConnection();
             Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM restaurant WHERE RestaurantName LIKE %Name%");
+            String statement = "SELECT * FROM restaurant WHERE RestaurantName LIKE '%"+Name+"%'";
+            ResultSet rs = st.executeQuery(statement);
             while(rs.next()) {
-
                 String RestaurantID = rs.getString("RestaurantID");
                 String RestaurantName = rs.getString("RestaurantName");
                 String Address = rs.getString("Address");
@@ -120,9 +120,6 @@ public class restaurantDAO {
             s.printStackTrace();
             return false;
         }
-
-
-
     }
 
 }

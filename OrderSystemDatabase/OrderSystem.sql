@@ -42,7 +42,6 @@ create table dish
     Name           char       not null,
     Price          float      not null,
     Availability   ENUM('AVAILABLE', 'UNAVAILABLE') NOT null,
-    Category       char       not null,
     D_RestaurantID CHAR(7)     not null,
     foreign key (D_RestaurantID) references restaurant (RestaurantID)
 );

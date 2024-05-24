@@ -1,14 +1,14 @@
 package module;
 
 public class Dish {
-    private final int DishId;
+    private final String DishId;
     private String DishName;
     private double DishPrice;
     private boolean DishAvailability;
-    private final int D_RestaurantId;
+    private final String D_RestaurantId;
 
 
-    public Dish(int DishId, String DishName, double DishPrice, boolean DishAvailability, int D_RestaurantId) {
+    public Dish(String DishId, String DishName, double DishPrice, boolean DishAvailability, String D_RestaurantId) {
         this.DishId = DishId;
         this.DishName = DishName;
         this.DishPrice = DishPrice;
@@ -16,7 +16,7 @@ public class Dish {
         this.D_RestaurantId = D_RestaurantId;
     }
 
-    public int getDishId() {
+    public String getDishId() {
         return DishId;
     }
 
@@ -33,7 +33,7 @@ public class Dish {
         return DishAvailability;
     }
 
-    public int getD_RestaurantId() {
+    public String getD_RestaurantId() {
         return D_RestaurantId;
     }
 
@@ -48,4 +48,5 @@ public class Dish {
     public void setDishAvailability(boolean DishAvailability) {
         this.DishAvailability = DishAvailability;
     }
+
 }
