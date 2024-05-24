@@ -1,13 +1,13 @@
 package module;
 
 import java.time.LocalDate;
-import java.util.Date;
+//import java.util.Date;
 
 public class RestaurantManager extends Person {
     private int RestaurantID;
-    private final Date startManagementDate;
-    public RestaurantManager(int PersonID, String LastName, String FirsName, String PhoneNumber, Gender Gender, int RestaurantID, Date startManagementDate) {
-        super(PersonID, LastName, FirsName, PhoneNumber, Gender);
+    private final LocalDate startManagementDate;
+    public RestaurantManager(int PersonID, String LastName, String FirstName, String PhoneNumber, Gender Gender, int RestaurantID, LocalDate startManagementDate) {
+        super(PersonID, LastName, FirstName, PhoneNumber, Gender);
         this.RestaurantID = RestaurantID;
         this.startManagementDate = startManagementDate;
     }
@@ -16,7 +16,7 @@ public class RestaurantManager extends Person {
         return RestaurantID;
     }
 
-    public Date getStartManagementDate() {
+    public LocalDate getStartManagementDate() {
         return startManagementDate;
     }
 
