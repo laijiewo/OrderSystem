@@ -4,10 +4,7 @@ import JDBC.JDBCTool;
 import module.Gender;
 import module.User;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class userDAO {
     public static void main(String[] args) {
@@ -23,42 +20,41 @@ public class userDAO {
 
         try {
             conn = JDBCTool.getConnection();
-            Statement st = conn.createStatement();
-            String pid = null;
-            String p = null;
-            String lName = null;
-            String fName = null;
-            String phone = null;
-            Gender gender = null;
-            ResultSet rs = st.executeQuery("SELECT * FROM person WHERE PersonID='"+username+"' AND password='"+password+"'");
+            String query = "SELECT * FROM person WHERE PersonID=? AND password=?";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1, username);
+            ps.setString(2, password);
 
-            System.out.println("SELECT * FROM user WHERE PersonID='"+username+"' AND password='"+password+"'");
-            if(rs.next()) {
-                pid = rs.getString("PersonID");
-                p = rs.getString("password");
-                lName = rs.getString("lname");
-                fName = rs.getString("fname");
-                phone = rs.getString("PhoneNumber");
-                gender = Gender.valueOf(rs.getString("gender"));
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                String pid = rs.getString("PersonID");
+                String p = rs.getString("password");
+                String lName = rs.getString("lname");
+                String fName = rs.getString("fname");
+                String phone = rs.getString("PhoneNumber");
+                Gender gender = Gender.valueOf(rs.getString("gender"));
 
+                String userQuery = "SELECT * FROM user WHERE PersonID=?";
+                PreparedStatement ps1 = conn.prepareStatement(userQuery);
+                ps1.setString(1, username);
 
-            }
-            ResultSet rs1 = st.executeQuery("SELECT * FROM user WHERE PersonID='"+username+"'");
-            if(rs1.next()) {
-                String address = rs1.getString("address");
-                User u = new User(pid,lName,fName,phone, p, gender, address);
-                return u;
+                ResultSet rs1 = ps1.executeQuery();
+                if (rs1.next()) {
+                    String address = rs1.getString("address");
+                    User u = new User(pid, lName, fName, phone, p, gender, address);
+                    return u;
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
-            if(conn!=null)
+        } finally {
+            if (conn != null) {
                 try {
                     conn.close();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
+            }
         }
 
         return null;
