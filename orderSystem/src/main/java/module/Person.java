@@ -1,16 +1,14 @@
 package module;
 
 public class Person {
-    enum Gender {
-        MALE, FEMALE
-    }
-    private final int PersonID;
+    private final String PersonID;
     private final String LastName;
     private final String FirsName;
     private String PhoneNumber;
+    private String password;
     private final Gender Gender;
 
-    public Person(int PersonID, String LastName, String FirsName, String PhoneNumber, Gender Gender) {
+    public Person(String PersonID, String LastName, String FirsName, String PhoneNumber, String password, Gender Gender) {
         this.PersonID = PersonID;
         this.LastName = LastName;
         this.FirsName = FirsName;
@@ -18,7 +16,7 @@ public class Person {
         this.Gender = Gender;
     }
 
-    public int getPersonID() {
+    public String getPersonID() {
         return PersonID;
     }
 

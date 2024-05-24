@@ -8,8 +8,8 @@ public class DeliveryPerson extends Person{
     }
     private String deliveryArea;
     private DeliveryStatus deliveryStatus;
-    public DeliveryPerson(int PersonID, String LastName, String FirsName, String PhoneNumber, Gender Gender, String deliveryArea, DeliveryStatus deliveryStatus) {
-        super(PersonID, LastName, FirsName, PhoneNumber, Gender);
+    public DeliveryPerson(String PersonID, String LastName, String FirsName, String PhoneNumber, String password, Gender Gender, String deliveryArea, DeliveryStatus deliveryStatus) {
+        super(PersonID, LastName, FirsName, PhoneNumber, password, Gender);
         this.deliveryArea = deliveryArea;
         this.deliveryStatus = deliveryStatus;
     }
