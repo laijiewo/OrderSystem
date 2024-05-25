@@ -5,9 +5,9 @@ create table person
 (
     PersonID    CHAR(6)                  not null
         primary key,
-    Fname       char                    not null,
-    Lname       char                    not null,
-    password    char                    not null,
+    Fname       VARCHAR(50)                    not null,
+    Lname       VARCHAR(50)              not null,
+    password    VARCHAR(25)              not null,
     PhoneNumber     CHAR(11)            not null,
     Gender      enum ('male', 'female') not null,
     UNIQUE (PersonID)
@@ -17,20 +17,20 @@ create table restaurant
 (
     RestaurantID       CHAR(7) not null
         primary key,
-    RestaurantName     char   not null,
-    Address            char   not null,
-    ContactInformation char   not null,
-    BusinessHours      char   not null,
-    M_PersonID         CHAR(6) not null,
+    RestaurantName     VARCHAR(20)   not null,
+    Address            VARCHAR(50)   not null,
+    ContactInformation VARCHAR(50)   not null,
+    BusinessHours      VARCHAR(50)   not null,
+    M_PersonID         CHAR(6)       not null,
     UNIQUE (RestaurantID)
 );
     create table `order`
 (
-    OrderID       CHAR(8)     not null
+    OrderID       CHAR(8)        not null
         primary key,
     Date          DATETIME       not null,
-    PaymentStatus ENUM ('PAID', 'UNPAID') not null,
-    PersonID    CHAR(6)     not null,
+    PaymentStatus boolean        not null,
+    PersonID      CHAR(6)        not null,
     UNIQUE (OrderID),
     FOREIGN KEY (PersonID) REFERENCES person(PersonID) ON DELETE CASCADE
 );
@@ -39,9 +39,9 @@ create table dish
 (
     DishID         CHAR(4)     not null
         primary key,
-    Name           char       not null,
-    Price          float      not null,
-    Availability   boolean NOT null,
+    Name           VARCHAR(50)        not null,
+    Price          float       not null,
+    Availability   boolean     not null,
     D_RestaurantID CHAR(7)     not null,
     foreign key (D_RestaurantID) references restaurant (RestaurantID)
 );
@@ -70,7 +70,7 @@ create table deliveryPerson
 (
     PersonID     CHAR(8)  not null
         primary key,
-    DeliveryArea char not null,
+    DeliveryArea VARCHAR(50) not null,
     Status       ENUM ('DELIVERING', 'WAITING', 'RESTING') not null,
     foreign key (PersonID) references person (PersonID) ON DELETE CASCADE
 );
@@ -93,7 +93,7 @@ create table review
     R_PersonID    CHAR(6) not null,
     Date          DATETIME   not null,
     Rating        float  not null,
-    ReviewContent char   null,
+    ReviewContent VARCHAR(100)   null,
     RestaurantID  CHAR(7) not null,
     PRIMARY KEY (R_PersonID, Date),
     foreign key (R_PersonID) references person(PersonID) ON DELETE CASCADE,
@@ -104,7 +104,7 @@ create table user
 (
     PersonID CHAR(6) not null
         primary key,
-    Address CHAR null,
+    Address VARCHAR(50) null,
     phongNumber CHAR(11) not null,
     foreign key (PersonID) references person (PersonID) ON DELETE CASCADE
 );
