@@ -7,20 +7,14 @@ import module.User;
 import java.sql.*;
 
 public class userDAO {
-    public static void main(String[] args) {
-        User u = login("123456", "123456");
-        if (u == null) {
-            System.out.println("Login failed");
-        } else {
-            System.out.println("Login success");
-        }
-    }
-    public static User login(String username, String password) {
+    public User login(String username, String password) {
         Connection conn = null;
 
         try {
             conn = JDBCTool.getConnection();
-            String query = "SELECT * FROM person WHERE PersonID=? AND password=?";
+            String query = "SELECT * FROM person AS p " +
+                    "LEFT JOIN user AS u ON p.PersonID = u.PersonID " +
+                    "WHERE p.PersonID=? AND password=?";
             PreparedStatement ps = conn.prepareStatement(query);
             ps.setString(1, username);
             ps.setString(2, password);
@@ -57,6 +51,10 @@ public class userDAO {
             }
         }
 
+        return null;
+    }
+    public User register(String PersonID, String LastName, String FirsName, String PhoneNumber, String password, Gender Gender, String address) {
+        Connection conn = JDBCTool.getConnection();
         return null;
     }
 }
