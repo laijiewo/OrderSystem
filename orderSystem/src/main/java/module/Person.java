@@ -13,6 +13,7 @@ public class Person {
         this.LastName = LastName;
         this.FirsName = FirsName;
         this.PhoneNumber = PhoneNumber;
+        this.password = password;
         this.Gender = Gender;
     }
 
