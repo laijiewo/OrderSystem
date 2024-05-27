@@ -105,7 +105,6 @@ create table user
     PersonID CHAR(6) not null
         primary key,
     Address VARCHAR(50) null,
-    phongNumber CHAR(11) not null,
     foreign key (PersonID) references person (PersonID) ON DELETE CASCADE
 );
 
