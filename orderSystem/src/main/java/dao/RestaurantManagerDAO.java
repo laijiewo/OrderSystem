@@ -24,7 +24,7 @@ public class RestaurantManagerDAO {
         try {
             conn = JDBCTool.getConnection();
             String query = "SELECT * FROM person AS p " +
-                    "LEFT JOIN restaurantmanager AS r ON p.PersonID = r.PersonID " +
+                    "LEFT JOIN restaurantmanager AS u ON p.PersonID = u.PersonID " +
                     "WHERE p.PersonID=? AND password=?";
             PreparedStatement ps = conn.prepareStatement(query);
             ps.setString(1, username);
@@ -37,10 +37,10 @@ public class RestaurantManagerDAO {
                 String lName = rs.getString("lname");
                 String fName = rs.getString("fname");
                 String phone = rs.getString("PhoneNumber");
-                Gender gender = Gender.valueOf(rs.getString("Gender"));
-                int address = rs.getInt("address");
+                Gender gender = Gender.valueOf(rs.getString("Gender").toUpperCase());
+                String RestaurantID = rs.getString("RestaurantID");
                 Date dateOfStartManager = rs.getDate("DateOfStartManager");
-                return new RestaurantManager(pid, lName, fName, phone, p, gender, address, dateOfStartManager);
+                return new RestaurantManager(pid, lName, fName, phone, p, gender, RestaurantID, dateOfStartManager);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -61,7 +61,7 @@ public class RestaurantManagerDAO {
         Connection conn = null;
         try {
             conn = JDBCTool.getConnection();
-            String query = "INSERT INTO person (PersonID, fname, lname, password, PhoneNumber, Gender) VALUES (?,?,?,?,?,?)";
+            String query = "INSERT INTO person (PersonID, lname, fname, password, PhoneNumber, gender) VALUES (?,?,?,?,?,?)";
             PreparedStatement ps = conn.prepareStatement(query);
             ps.setString(1, PersonID);
             ps.setString(2, FirstName);
@@ -70,6 +70,8 @@ public class RestaurantManagerDAO {
             ps.setString(5, PhoneNumber);
             ps.setString(6, Gender.toString());
             ps.executeUpdate();
+
+            restaurantDAO.addRestaurant(restaurantID, restaurantName, address, contactInformation, businessHours, PersonID);
 
             query = "INSERT INTO restaurantmanager (PersonID, DateOfStartManager, RestaurantID) VALUES (?,?,?)";
             PreparedStatement ps1 = conn.prepareStatement(query);

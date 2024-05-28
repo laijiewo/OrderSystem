@@ -37,22 +37,22 @@ public class RestaurantManagerDAOTest {
     }
     @Test
     public void testLogin() {
-        Person manager = restaurantManagerDAO.login("testUser", "testPassword");
-        assertNull(manager);
-        assertEquals("testUser", manager.getPersonID());
-        assertEquals("testPassword", manager.getPassword());
+        Person manager = restaurantManagerDAO.login("111111", "password");
+        assertNotNull(manager);
+        assertEquals("111111", manager.getPersonID());
+        assertEquals("password", manager.getPassword());
         // Add more assertions as necessary
     }
 
     @Test
     public void testRegister() {
-        boolean result = restaurantManagerDAO.register("testID", "LastName","FirstName", "1314233445","password", Gender.MALE,"1234",  "Delicious", "Street1", "235666868","24",Date.valueOf("2004-04-22"));
+        boolean result = restaurantManagerDAO.register("111111", "LastName","FirstName", "1314233445","password", Gender.MALE,"1234",  "Delicious", "Street1", "235666868","24",Date.valueOf("2004-04-22"));
         assertTrue(result);
 
-        Person user = restaurantManagerDAO.login("testID", "testPassword");
+        Person user = restaurantManagerDAO.login("111111", "password");
         assertNotNull(user);
-        assertEquals("testID", user.getPersonID());
-        assertEquals("testPassword", user.getPassword());
+        assertEquals("111111", user.getPersonID());
+        assertEquals("password", user.getPassword());
         // Add more assertions as necessary
     }
 

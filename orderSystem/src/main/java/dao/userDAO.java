@@ -26,7 +26,7 @@ public class userDAO {
                 String lName = rs.getString("lname");
                 String fName = rs.getString("fname");
                 String phone = rs.getString("PhoneNumber");
-                Gender gender = Gender.valueOf(rs.getString("gender"));
+                Gender gender = Gender.valueOf(rs.getString("gender").toUpperCase());
                 String address = rs.getString("address");
                 return new User(pid, lName, fName, phone, p, gender, address);
             }
