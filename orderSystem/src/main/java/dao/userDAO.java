@@ -10,7 +10,7 @@ import java.util.Locale;
 
 public class userDAO extends personDAO {
     @Override
-    public User login(String username, String password) {
+    public User login(String username, String password) throws Exception {
         Connection conn = null;
 
         try {
@@ -46,7 +46,7 @@ public class userDAO extends personDAO {
         }
         return null;
     }
-    public boolean register(String PersonID, String LastName, String FirsName, String password, String PhoneNumber, Gender Gender, String address) {
+    public boolean register(String PersonID, String LastName, String FirsName, String password, String PhoneNumber, Gender Gender, String address) throws Exception {
         Connection conn = null;
         try {
             conn = JDBCTool.getConnection();
