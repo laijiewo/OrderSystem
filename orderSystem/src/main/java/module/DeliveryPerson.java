@@ -1,6 +1,10 @@
 package module;
-
+import module.enums.*;
 public class DeliveryPerson extends Person{
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
     private String deliveryArea;
     private DeliveryStatus deliveryStatus;
     public DeliveryPerson(String PersonID, String LastName, String FirsName, String PhoneNumber, String password, Gender Gender, String deliveryArea, DeliveryStatus deliveryStatus) {

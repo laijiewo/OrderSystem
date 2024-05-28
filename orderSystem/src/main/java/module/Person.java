@@ -1,6 +1,10 @@
 package module;
-
+import module.enums.Gender;
 public class Person {
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
     private final String PersonID;
     private final String LastName;
     private final String FirsName;
@@ -32,6 +36,12 @@ public class Person {
 
     public String getPhoneNumber() {
         return PhoneNumber;
+    }
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
     }
     public void setPhoneNumber(String PhoneNumber) {
         this.PhoneNumber = PhoneNumber;

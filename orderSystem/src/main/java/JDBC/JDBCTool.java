@@ -20,7 +20,11 @@ public class JDBCTool {
         return conn;
     }
     public static Connection getConnection() {
+<<<<<<< HEAD
         return JDBCTool.getConnection("localhost", "ordersystem", "root", "Ljw200411260011");
+=======
+        return JDBCTool.getConnection("localhost", "ordersystem", "root", "password");
+>>>>>>> main
     }
 
 }

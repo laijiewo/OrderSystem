@@ -1,16 +1,16 @@
 package module;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Review {
-    private final int R_PersonID;
+    private final String R_PersonID;
     private final Date R_Date;
-    private final int Rating;
+    private final float Rating;
     private final String Comment;
-    private final int R_RestaurantID;
+    private final String R_RestaurantID;
 
 
-    public Review(int R_PersonID, Date R_Date, int Rating, String Comment, int R_RestaurantID) {
+    public Review(String R_PersonID, Date R_Date, float Rating, String Comment, String R_RestaurantID) {
         this.R_PersonID = R_PersonID;
         this.R_Date = R_Date;
         this.Rating = Rating;
@@ -18,16 +18,16 @@ public class Review {
         this.R_RestaurantID = R_RestaurantID;
     }
 
-    public int getR_PersonID() {
+    public String getR_PersonID() {
         return R_PersonID;
     }
 
 
     public Date getR_Date() {
-        return R_Date;
+        return  R_Date;
     }
 
-    public int getRating() {
+    public float getRating() {
         return Rating;
     }
 
@@ -35,7 +35,7 @@ public class Review {
         return Comment;
     }
 
-    public int getR_RestaurantID() {
+    public String getR_RestaurantID() {
         return R_RestaurantID;
     }
 }

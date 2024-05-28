@@ -1,21 +1,26 @@
 package module;
-
+import module.enums.DeliverStatus;
 public class Deliver {
+<<<<<<< HEAD
     private final int OrderID;
     private int Deli_PersonID;
+=======
+    private final String OrderID;
+    private String Deli_PersonID;
+>>>>>>> main
     private DeliverStatus status;
 
-    public Deliver(int OrderID, int Deli_PersonID, DeliverStatus status) {
+    public Deliver(String OrderID, String Deli_PersonID, DeliverStatus status) {
         this.OrderID = OrderID;
         this.Deli_PersonID = Deli_PersonID;
         this.status = status;
     }
 
-    public int getOrderID() {
+    public String getOrderID() {
         return OrderID;
     }
 
-    public int getDeli_PersonID() {
+    public String getDeli_PersonID() {
         return Deli_PersonID;
     }
 

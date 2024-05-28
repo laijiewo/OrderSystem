@@ -1,5 +1,7 @@
 package module;
 
+import module.enums.Gender;
+
 public class User extends Person {
     private String address;
 

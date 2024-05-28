@@ -1,6 +1,7 @@
 package module;
 
 import java.util.Date;
+import module.enums.Gender;
 
 public class RestaurantManager extends Person {
     private int RestaurantID;
