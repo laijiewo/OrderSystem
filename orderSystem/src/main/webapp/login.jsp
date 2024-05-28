@@ -25,7 +25,7 @@
     }
     else{
         session.setAttribute("user", u);
-
+        response.sendRedirect("RestaurantList.jsp");
     }
 
 %>

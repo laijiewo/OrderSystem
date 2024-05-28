@@ -10,7 +10,7 @@ import java.util.Locale;
 
 public class userDAO extends personDAO {
     @Override
-    public User login(String username, String password) {
+    public User login(String username, String password) throws Exception {
         Connection conn = null;
 
         try {
@@ -46,15 +46,15 @@ public class userDAO extends personDAO {
         }
         return null;
     }
-    public boolean register(String PersonID, String LastName, String FirsName, String password, String PhoneNumber, Gender Gender, String address) {
+    public boolean register(String PersonID, String LastName, String FirsName, String password, String PhoneNumber, Gender Gender, String address) throws Exception {
         Connection conn = null;
         try {
             conn = JDBCTool.getConnection();
-            String query = "INSERT INTO person (PersonID, lname, fname, password, PhoneNumber, gender) VALUES (?,?,?,?,?,?)";
+            String query = "INSERT INTO person (PersonID, fname, lname, password, PhoneNumber, gender) VALUES (?,?,?,?,?,?)";
             PreparedStatement ps = conn.prepareStatement(query);
             ps.setString(1, PersonID);
-            ps.setString(2, LastName);
-            ps.setString(3, FirsName);
+            ps.setString(2, FirsName);
+            ps.setString(3, LastName);
             ps.setString(4, password);
             ps.setString(5, PhoneNumber);
             ps.setString(6, Gender.toString());
@@ -67,6 +67,7 @@ public class userDAO extends personDAO {
             ps.executeUpdate();
             return true;
         } catch (SQLException e) {
+            e.printStackTrace();
             throw new RuntimeException(e);
         } finally {
             if (conn != null) {

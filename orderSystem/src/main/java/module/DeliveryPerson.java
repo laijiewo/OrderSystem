@@ -7,6 +7,7 @@ public class DeliveryPerson extends Person{
         super(PersonID, LastName, FirsName, PhoneNumber, password, Gender);
         this.deliveryArea = deliveryArea;
         this.deliveryStatus = deliveryStatus;
+        personType = personEnum.DELIVERY_PERSON;
     }
     public String getDeliveryArea() {
         return deliveryArea;
