@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Locale;
 
 public abstract class personDAO {
     public abstract Person login(String username, String password);
@@ -89,7 +90,7 @@ public abstract class personDAO {
             ps.setString(1, PersonID);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                return Gender.valueOf(rs.getString("gender"));
+                return Gender.valueOf(rs.getString("gender").toUpperCase(Locale.ROOT));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

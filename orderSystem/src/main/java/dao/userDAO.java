@@ -6,6 +6,7 @@ import module.enums.Gender;
 import module.User;
 
 import java.sql.*;
+import java.util.Locale;
 
 public class userDAO extends personDAO {
     @Override
@@ -28,7 +29,7 @@ public class userDAO extends personDAO {
                 String lName = rs.getString("lname");
                 String fName = rs.getString("fname");
                 String phone = rs.getString("PhoneNumber");
-                Gender gender = Gender.valueOf(rs.getString("gender"));
+                Gender gender = Gender.valueOf(rs.getString("Gender").toUpperCase(Locale.ROOT));
                 String address = rs.getString("address");
                 return new User(pid, lName, fName, phone, p, gender, address);
             }

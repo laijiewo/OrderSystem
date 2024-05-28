@@ -1,6 +1,7 @@
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import module.enums.*;
 import dao.*;
 
 public class userDAOTest {
@@ -15,7 +16,7 @@ public class userDAOTest {
     }
     @Test
     public void registerTest() {
-        assertTrue(userDAO.register("133456", "J", "D", "123456", "723857128", Gender.valueOf("male"), "a"));
+        assertTrue(userDAO.register("133456", "J", "D", "123456", "723857128", Gender.valueOf("MALE"), "a"));
         assertTrue(login("133456", "123456"));
     }
     @Test
@@ -30,7 +31,7 @@ public class userDAOTest {
     }
     @Test
     public void genderTest() {
-        assertEquals(Gender.valueOf("male"), userDAO.getGender("133456"));
+        assertEquals(Gender.valueOf("MALE"), userDAO.getGender("133456"));
     }
     @Test
     public void getNamesTest() {
