@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="orderSystem:war exploded" />
+      <artifact name="orderSystem:war" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
@@ -10,8 +10,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="941c3bf8-2ac3-4ad9-a7b7-98eb55178d0d" name="更改" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/orderSystem/src/main/java/dao/adminFunctions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/orderSystem/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/orderSystem/pom.xml" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/9d48c21f-d18d-428f-a2aa-aea41dfd0e38.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JDBCconnector/mysql-connector-j-8.3.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orderSystem/src/main/java/dao/orderDAOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderSystemDatabase/OrderSystem.sql" beforeDir="false" afterPath="$PROJECT_DIR$/OrderSystemDatabase/OrderSystem(1).sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orderSystem/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/orderSystem/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orderSystem/src/main/java/JDBC/JDBCTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/orderSystem/src/main/java/JDBC/JDBCTool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orderSystem/src/main/java/dao/orderDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/orderSystem/src/main/java/dao/orderDAO.java" afterDir="false" />
+>>>>>>> main
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +53,12 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+<<<<<<< HEAD
+=======
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+>>>>>>> main
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -49,35 +70,106 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+<<<<<<< HEAD
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Tomcat 服务器.未命名.executor": "Run",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "Jie__Mao",
+=======
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.orderDAOTest.executor": "Run",
+    "JUnit.orderDAOTest.testGetOrderList.executor": "Run",
+    "JavaScript 调试.index.jsp (1).executor": "Run",
+    "JavaScript 调试.index.jsp.executor": "Debug",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Tomcat 服务器.Tomcat 9.0.87.executor": "Run",
+    "Tomcat 服务器.index.jsp (1).executor": "Debug",
+    "Tomcat 服务器.index.jsp.executor": "Run",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+>>>>>>> main
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/Eclipse2/mysql-connector-j-8.3.0 (2)/mysql-connector-j-8.3.0",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "项目",
+    "project.structure.last.edited": "模块",
     "project.structure.proportion": "0.15",
+<<<<<<< HEAD
     "project.structure.side.proportion": "0.27701148",
+=======
+    "project.structure.side.proportion": "0.43793103",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "SQL Dialects",
+>>>>>>> main
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql_aurora_aws"
+    ]
   }
 }]]></component>
+  <component name="RunDashboard">
+    <option name="excludedTypes">
+      <set>
+        <option value="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" />
+      </set>
+    </option>
+  </component>
   <component name="RunManager">
+<<<<<<< HEAD
+=======
+    <configuration name="orderDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="orderSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dao" />
+      <option name="MAIN_CLASS_NAME" value="dao.orderDAOTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="orderDAOTest.testGetOrderList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="orderSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dao" />
+      <option name="MAIN_CLASS_NAME" value="dao.orderDAOTest" />
+      <option name="METHOD_NAME" value="testGetOrderList" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+>>>>>>> main
     <configuration name="Tomcat 9.0.87" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.87" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
-        <artifact name="orderSystem:war exploded">
+        <artifact name="orderSystem:war">
           <settings>
-            <option name="CONTEXT_PATH" value="/orderSystem_war_exploded" />
+            <option name="CONTEXT_PATH" value="/orderSystem_war" />
           </settings>
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="ff76fc1b-9681-4e32-a72c-43801e7ab904" />
+        <option name="BASE_DIRECTORY_NAME" value="cd7cbf9f-841d-44e5-81aa-d8d872eaa755" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -85,7 +177,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="35848" />
+        <option name="DEBUG_PORT" value="11226" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -150,10 +242,21 @@
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="orderSystem:war exploded" />
+          <artifact name="orderSystem:war" />
         </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JUnit.orderDAOTest" />
+      <item itemvalue="JUnit.orderDAOTest.testGetOrderList" />
+      <item itemvalue="Tomcat 服务器.Tomcat 9.0.87" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.orderDAOTest.testGetOrderList" />
+        <item itemvalue="JUnit.orderDAOTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -171,14 +274,26 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1716381841297</updated>
+<<<<<<< HEAD
       <workItem from="1716381842442" duration="5257000" />
       <workItem from="1716470129775" duration="6547000" />
+=======
+      <workItem from="1716381842442" duration="2159000" />
+      <workItem from="1716530112888" duration="1207000" />
+      <workItem from="1716617927131" duration="735000" />
+      <workItem from="1716702690521" duration="1196000" />
+      <workItem from="1716801545815" duration="1224000" />
+      <workItem from="1716802798835" duration="1558000" />
+      <workItem from="1716807333168" duration="228000" />
+      <workItem from="1716813215982" duration="4841000" />
+>>>>>>> main
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+<<<<<<< HEAD
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -189,5 +304,10 @@
         </entry>
       </map>
     </option>
+=======
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+>>>>>>> main
   </component>
 </project>

@@ -1,15 +1,15 @@
 package module;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Order {
-    private final int orderId;
+    private final String orderId;
     private final Date orderDate;
     private boolean isPaid;
-    private final int U_PersonId;
+    private final String U_PersonId;
 
 
-    public Order(int orderId, Date orderDate, boolean isPaid, int U_PersonId) {
+    public Order(String orderId, Date orderDate, boolean isPaid, String U_PersonId) {
         this.orderId = orderId;
         this.orderDate = orderDate;
         this.isPaid = isPaid;
@@ -17,7 +17,7 @@ public class Order {
     }
 
 
-    public int getOrderId() {
+    public String getOrderId() {
         return orderId;
     }
 
@@ -29,7 +29,7 @@ public class Order {
         return isPaid;
     }
 
-    public int getU_PersonId() {
+    public String getU_PersonId() {
         return U_PersonId;
     }
 

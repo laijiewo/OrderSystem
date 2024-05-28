@@ -1,24 +1,24 @@
 package module;
-
+import module.enums.Gender;
 public class Person {
-    enum Gender {
-        MALE, FEMALE
-    }
-    private final int PersonID;
+
+    private final String PersonID;
     private final String LastName;
     private final String FirsName;
     private String PhoneNumber;
+    private String password;
     private final Gender Gender;
 
-    public Person(int PersonID, String LastName, String FirsName, String PhoneNumber, Gender Gender) {
+    public Person(String PersonID, String LastName, String FirsName, String PhoneNumber, String password, Gender Gender) {
         this.PersonID = PersonID;
         this.LastName = LastName;
         this.FirsName = FirsName;
         this.PhoneNumber = PhoneNumber;
+        this.password = password;
         this.Gender = Gender;
     }
 
-    public int getPersonID() {
+    public String getPersonID() {
         return PersonID;
     }
 
@@ -33,6 +33,12 @@ public class Person {
 
     public String getPhoneNumber() {
         return PhoneNumber;
+    }
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
     }
     public void setPhoneNumber(String PhoneNumber) {
         this.PhoneNumber = PhoneNumber;
