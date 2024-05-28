@@ -52,7 +52,6 @@ public class DeliveryPersonDAO {
                 }
             }
         }
-
         return null;
     }
 }

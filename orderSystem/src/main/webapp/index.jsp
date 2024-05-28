@@ -34,6 +34,14 @@
             left: 50%;
             transform: translateX(-50%);
         }
+        img {
+            margin-right: 20px; /* 调整图片和文本之间的间距 */
+            max-width: 250px;
+            position: absolute;
+            top: 20px;
+            left: 130px;
+            transform: translateX(-50%);
+        }
 
         .login-page {
             width: 450px;
@@ -100,6 +108,7 @@
     </style>
 </head>
 <body>
+<img src="<%= request.getContextPath() + "/photos/logo.png" %>" alt="logo">
 <div class="container">
     <div class="info">
         <h2>COMP2004J Group 14 Order System</h2>
@@ -116,6 +125,7 @@
         </form>
     </div>
 </div>
+
 <%@ include file="footer.html" %>
 </body>
 </html>
