@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #A4c97c;
+            background-color: rgb(224, 210, 163);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -17,35 +17,43 @@
         }
 
         .container {
-            max-width: 100%;
-            margin: 0 auto;
-            height: 400px;
+            max-width: 1400px;
+            margin-top: 0;
+            height: 130px;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background-color: #308192;
+            background-color: rgb(92, 147, 148);
             font-size: 30px;
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         .login-page {
-            width: 360px;
+            width: 450px;
             padding: 8% 0 0;
             margin: 0 auto;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
+            position: absolute;
+            top: 340px;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
         .form {
             position: relative;
             z-index: 1;
-            background: #F1cc74;
-            max-width: 360px;
+            background: rgb(139, 166, 147);
+            max-width: 500px;
             margin: 0 auto 10px;
             padding: 45px;
             text-align: center;
@@ -70,7 +78,7 @@
             font-family: Arial, sans-serif;
             text-transform: uppercase;
             outline: 0;
-            background: #E38D62;
+            background: rgb(70, 96, 117);
             width: 100%;
             border: 0;
             padding: 15px;
@@ -95,7 +103,7 @@
 <div class="container">
     <div class="info">
         <h2>COMP2004J Group 14 Order System</h2>
-        <h2>Login Page</h2>
+        <h2>User Login Page</h2>
     </div>
 </div>
 <div class="login-page">

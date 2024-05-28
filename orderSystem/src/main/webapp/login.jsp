@@ -11,6 +11,7 @@
 
 
 <%
+    userDAO userDAO = new userDAO();
     String username = request.getParameter("username");
     String password = request.getParameter("password");
 
@@ -24,7 +25,7 @@
     }
     else{
         session.setAttribute("user", u);
-        response.sendRedirect("employeeList.jsp");
+
     }
 
 %>
@@ -33,7 +34,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Insert title </title>
+    <title>Waring</title>
 </head>
 <body>
 Wrong password!!!!!!
