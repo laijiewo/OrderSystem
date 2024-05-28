@@ -11,6 +11,7 @@
 <%@ page import="module.Person" %>
 <%@ page import="module.enums.personEnum" %>
 <%@ page import="module.DeliveryPerson" %>
+<%@ page import="module.RestaurantManager" %>
 
 
 <%
@@ -34,8 +35,8 @@
         }
     } else if (select.equals("RestaurantManager")) {
         try {
-            userDAO userDAO = new userDAO();
-            User u = userDAO.login(username, password);
+            RestaurantManagerDAO restaurantManagerDAO = new RestaurantManagerDAO();
+            RestaurantManager rm = restaurantManagerDAO.login(username, password);
             response.sendRedirect("RestaurantList.jsp");
         } catch (Exception e) {
             response.sendRedirect("index.jsp");

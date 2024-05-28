@@ -30,7 +30,7 @@
         userDAO user = new userDAO();
         try {
                 if (user.register(personID, LName, FName, password, phoneNumber, module.enums.Gender.valueOf(gender), address)) {
-                        response.sendRedirect("login.jsp");
+                        response.sendRedirect("index.jsp");
                 } else {
                         response.sendRedirect("userRegister.jsp");
                 }

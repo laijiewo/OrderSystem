@@ -13,7 +13,7 @@
     if (select.equals("User")) {
         response.sendRedirect("userRegister.jsp");
     } else if (select.equals("RestaurantManager")) {
-        response.sendRedirect("deliveryPersonRegister.jsp");
+        response.sendRedirect("restaurantManagerRegister.jsp");
     } else {
         response.sendRedirect("deliveryPersonRegister.jsp");
     }

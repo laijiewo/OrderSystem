@@ -30,7 +30,7 @@
     DeliveryPersonDAO deliveryPersonDAO = new DeliveryPersonDAO();
     try {
         if (deliveryPersonDAO.register(personID, LName, FName, password, phoneNumber, module.enums.Gender.valueOf(gender), DeliveryArea)) {
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("index.jsp");
         } else {
             System.out.println("wrong input");
             response.sendRedirect("deliveryPersonRegister.jsp");
