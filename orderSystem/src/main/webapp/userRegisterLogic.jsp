@@ -35,7 +35,7 @@
                         response.sendRedirect("userRegister.jsp");
                 }
         } catch (Exception e) {
-            response.sendRedirect("userRegister.jsp");
+                response.sendRedirect("userRegister.jsp");
         }
 %>
 

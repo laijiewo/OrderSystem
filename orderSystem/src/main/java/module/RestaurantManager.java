@@ -2,6 +2,7 @@ package module;
 
 import java.util.Date;
 import module.enums.Gender;
+import module.enums.personEnum;
 
 public class RestaurantManager extends Person {
     private int RestaurantID;
@@ -10,6 +11,7 @@ public class RestaurantManager extends Person {
         super(PersonID, LastName, FirsName, PhoneNumber, password, Gender);
         this.RestaurantID = RestaurantID;
         this.startManagementDate = startManagementDate;
+        personType = personEnum.RESTAURANT_MANAGER;
     }
 
     public int getRestaurantID() {
