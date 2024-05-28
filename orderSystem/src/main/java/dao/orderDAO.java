@@ -17,7 +17,7 @@ public class orderDAO {
         try {
             conn = JDBCTool.getConnection();
             st = conn.createStatement();
-            rs = st.executeQuery("SELECT * FROM `order`;");
+            rs = st.executeQuery("SELECT * FROM `order`");
             while (rs.next()) {
                 String OrderID = rs.getString("OrderID");
                 String PersonID = rs.getString("PersonID");
@@ -36,7 +36,7 @@ public class orderDAO {
         return orders;
     }
 
-    public Order getOrderByID(String OrderID) throws SQLException {
+    public static Order getOrderByID(String OrderID) throws SQLException {
         Order order = null;
         Connection conn = null;
         PreparedStatement ps = null;
@@ -63,7 +63,7 @@ public class orderDAO {
         return order;
     }
 
-    public List<Order> getOrdersByPersonID(String PersonID) throws SQLException {
+    public static List<Order> getOrdersByPersonID(String PersonID) throws SQLException {
         List<Order> orders = new ArrayList<>();
         Connection conn = null;
         PreparedStatement ps = null;
@@ -92,7 +92,7 @@ public class orderDAO {
         return orders;
     }
 
-    public boolean insertOrder(Order o) throws SQLException {
+    public static boolean insertOrder(Order o) throws SQLException {
         Connection conn = null;
         PreparedStatement ps = null;
         try {
@@ -114,7 +114,7 @@ public class orderDAO {
         }
     }
 
-    public boolean updateOrder(Order o) throws SQLException {
+    public static boolean updateOrder(Order o) throws SQLException {
         Connection conn = null;
         PreparedStatement ps = null;
         try {
@@ -136,7 +136,7 @@ public class orderDAO {
         }
     }
 
-    public boolean deleteOrderByID(String OrderID) throws SQLException {
+    public static boolean deleteOrderByID(String OrderID) throws SQLException {
         Connection conn = null;
         PreparedStatement ps = null;
         try {
@@ -155,4 +155,5 @@ public class orderDAO {
         }
     }
 }
+
 
