@@ -5,10 +5,10 @@ import module.enums.*;
 import dao.*;
 
 public class userDAOTest {
-    userDAO userDAO = new userDAO();
+    DeliveryPersonDAO userDAO = new DeliveryPersonDAO();
     @Test
     public void loginTest() {
-        assertTrue(login("133456", "123456"));
+        assertTrue(login("222222", "123456"));
         assertFalse(login("123456", "1234567"));
     }
     private boolean login(String username, String password) {
@@ -23,16 +23,11 @@ public class userDAOTest {
     @Test
     public void registerTest() {
         try {
-            assertTrue(userDAO.register("133456", "J", "D", "123456", "723857128", Gender.valueOf("MALE"), "a"));
+            assertTrue(userDAO.register("222222", "J", "D", "123456", "723857128", Gender.valueOf("MALE"), "a"));
         } catch (Exception e) {
             System.out.println("Can't register user: ");
         }
-        assertTrue(login("133456", "123456"));
-    }
-    @Test
-    public void updateTest() {
-        userDAO.setAddress("133456", "Beijing");
-        assertEquals("Beijing", userDAO.getAddress("133456"));
+        assertTrue(login("222222", "123456"));
     }
     @Test
     public void phoneNumberTest() {

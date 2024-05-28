@@ -2,6 +2,7 @@ package dao;
 
 import JDBC.JDBCTool;
 import module.Person;
+import module.User;
 import module.enums.Gender;
 
 import java.sql.Connection;
@@ -10,8 +11,41 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Locale;
 
-public abstract class personDAO {
-    public abstract Person login(String username, String password) throws Exception;
+public class personDAO {
+    public Person login(String username, String password) throws Exception {
+        Connection conn = null;
+
+        try {
+            conn = JDBCTool.getConnection();
+            String query = "SELECT * FROM person AS p " +
+                    "WHERE p.PersonID=? AND password=?";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1, username);
+            ps.setString(2, password);
+
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                String pid = rs.getString("PersonID");
+                String p = rs.getString("password");
+                String lName = rs.getString("lname");
+                String fName = rs.getString("fname");
+                String phone = rs.getString("PhoneNumber");
+                Gender gender = Gender.valueOf(rs.getString("Gender").toUpperCase(Locale.ROOT));
+                return new Person(pid, lName, fName, phone, p, gender);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return null;
+    }
     public void setPhoneNumber(String PersonID, String PhoneNumber) {
         Connection conn = null;
         try {

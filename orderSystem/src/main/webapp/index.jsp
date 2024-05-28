@@ -21,7 +21,7 @@
         <form class="login-form" method="post" action="login.jsp">
             <p style="text-align: center;">Please enter your username and password:</p>
             <label>
-                <select name="role" required onchange="changePage()">
+                <select name="role" required>
                     <option value="">Select Role</option>
                     <option value="User">User</option>
                     <option value="RestaurantManager">Restaurant Manager</option>
