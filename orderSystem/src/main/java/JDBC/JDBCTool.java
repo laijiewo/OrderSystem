@@ -20,7 +20,7 @@ public class JDBCTool {
 
     //TODO Question 1 Check user name and password
     public static Connection getConnection() {
-        return JDBCTool.getConnection("localhost", "employee", "localhost", "password");
+        return JDBCTool.getConnection("localhost", "ordersystem", "localhost", "password");
     }
 
 }
