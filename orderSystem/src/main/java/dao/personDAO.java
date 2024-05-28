@@ -1,8 +1,8 @@
 package dao;
 
 import JDBC.JDBCTool;
-import module.Gender;
 import module.Person;
+import module.enums.Gender;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

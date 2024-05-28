@@ -2,8 +2,7 @@ package dao;
 
 import JDBC.JDBCTool;
 import module.*;
-import module.Gender;
-import module.User;
+import module.enums.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

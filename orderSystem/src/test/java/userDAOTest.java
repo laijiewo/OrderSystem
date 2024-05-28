@@ -1,6 +1,5 @@
 import static org.junit.Assert.*;
 
-import module.Gender;
 import org.junit.Test;
 import dao.*;
 

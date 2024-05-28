@@ -1,10 +1,6 @@
 package module;
 import module.enums.Gender;
 public class Person {
-<<<<<<< HEAD
-=======
-
->>>>>>> main
     private final String PersonID;
     private final String LastName;
     private final String FirsName;
