@@ -32,7 +32,7 @@ create table restaurant
     PaymentStatus boolean        not null,
     PersonID      CHAR(6)        not null,
     UNIQUE (OrderID),
-    FOREIGN KEY (PersonID) REFERENCES person(PersonID) ON DELETE CASCADE
+    FOREIGN KEY (PersonID) REFERENCES person(PersonID) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 create table dish
@@ -53,8 +53,8 @@ create table orderlist
         primary key,
     DishID   CHAR(4) not null,
     Comments VARCHAR(100)   null,
-    FOREIGN KEY (OrderID) REFERENCES `order`(OrderID) ON DELETE CASCADE,
-    FOREIGN KEY (DishID) REFERENCES dish(DishID) ON DELETE CASCADE
+    FOREIGN KEY (OrderID) REFERENCES `order`(OrderID) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (DishID) REFERENCES dish(DishID) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 create table deliver
@@ -63,7 +63,7 @@ create table deliver
         primary key,
     Deli_PersonID         char(6)                                       not null,
     DeliveryStatus        enum ('DELIVERING', 'WAITING_FOR_DELIVERY', 'ARRIVED') not null,
-    foreign key (OrderID) references `order` (OrderID) ON DELETE CASCADE,
+    foreign key (OrderID) references `order` (OrderID) ON DELETE CASCADE ON UPDATE CASCADE,
     foreign key (Deli_PersonID) references person (PersonID)
 );
 create table deliveryPerson
@@ -72,7 +72,7 @@ create table deliveryPerson
         primary key,
     DeliveryArea VARCHAR(50) not null,
     Status       ENUM ('DELIVERING', 'WAITING', 'RESTING') not null,
-    foreign key (PersonID) references person (PersonID) ON DELETE CASCADE
+    foreign key (PersonID) references person (PersonID) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
@@ -84,8 +84,8 @@ create table restaurantManager
         primary key,
     DateOfStartManager date   not null,
     RestaurantID       CHAR(7) not null,
-    foreign key (PersonID) references person (PersonID) ON DELETE CASCADE,
-    foreign key (RestaurantID) references restaurant (RestaurantID) ON DELETE CASCADE
+    foreign key (PersonID) references person (PersonID) ON DELETE CASCADE ON UPDATE CASCADE,
+    foreign key (RestaurantID) references restaurant (RestaurantID) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 create table review
@@ -96,8 +96,8 @@ create table review
     ReviewContent VARCHAR(100)   null,
     RestaurantID  CHAR(7) not null,
     PRIMARY KEY (R_PersonID, Date),
-    foreign key (R_PersonID) references person(PersonID) ON DELETE CASCADE,
-    foreign key (RestaurantID) references restaurant (RestaurantID) ON DELETE CASCADE
+    foreign key (R_PersonID) references person(PersonID) ON DELETE CASCADE ON UPDATE CASCADE,
+    foreign key (RestaurantID) references restaurant (RestaurantID) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 create table user
@@ -105,6 +105,6 @@ create table user
     PersonID CHAR(6) not null
         primary key,
     Address VARCHAR(50) null,
-    foreign key (PersonID) references person (PersonID) ON DELETE CASCADE
+    foreign key (PersonID) references person (PersonID) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
