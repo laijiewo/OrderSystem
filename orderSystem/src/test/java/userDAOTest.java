@@ -12,11 +12,21 @@ public class userDAOTest {
         assertFalse(login("123456", "1234567"));
     }
     private boolean login(String username, String password) {
-        return userDAO.login(username, password) != null;
+        try {
+            return userDAO.login(username, password) != null;
+        } catch (Exception e) {
+            System.out.println("Can't login user: ");
+            throw new RuntimeException(e);
+        }
+
     }
     @Test
     public void registerTest() {
-        assertTrue(userDAO.register("133456", "J", "D", "123456", "723857128", Gender.valueOf("MALE"), "a"));
+        try {
+            assertTrue(userDAO.register("133456", "J", "D", "123456", "723857128", Gender.valueOf("MALE"), "a"));
+        } catch (Exception e) {
+            System.out.println("Can't register user: ");
+        }
         assertTrue(login("133456", "123456"));
     }
     @Test

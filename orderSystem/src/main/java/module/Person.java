@@ -1,5 +1,6 @@
 package module;
 import module.enums.Gender;
+import module.enums.personEnum;
 public class Person {
     private final String PersonID;
     private final String LastName;
@@ -7,6 +8,8 @@ public class Person {
     private String PhoneNumber;
     private String password;
     private final Gender Gender;
+    personEnum personType;
+
 
     public Person(String PersonID, String LastName, String FirsName, String PhoneNumber, String password, Gender Gender) {
         this.PersonID = PersonID;
@@ -21,7 +24,9 @@ public class Person {
         return PersonID;
     }
 
-
+    public personEnum getPersonType() {
+        return personType;
+    }
     public String getLastName() {
         return LastName;
     }
