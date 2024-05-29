@@ -63,16 +63,17 @@ create table deliver
         primary key,
     Deli_PersonID         char(6)                                       not null,
     DeliveryStatus        enum ('DELIVERING', 'WAITING_FOR_DELIVERY', 'ARRIVED') not null,
-    foreign key (OrderID) references `order` (OrderID) ON DELETE CASCADE ON UPDATE CASCADE,
+    foreign key (OrderID) references `order` (OrderID) ON DELETE CASCADE,
     foreign key (Deli_PersonID) references person (PersonID)
 );
 create table deliveryPerson
 (
     PersonID     CHAR(8)  not null
         primary key,
-    DeliveryArea VARCHAR(50) not null,
+    DeliveryArea ENUM ('FIRST_TEACHING_BUILDING', 'SECOND_TEACHING_BUILDING', 'THIRD_TEACHING_BUILDING', 'Fourth_TEACHING_BUILDING',
+    'GYM', 'LIBRARY') not null,
     Status       ENUM ('DELIVERING', 'WAITING', 'RESTING') not null,
-    foreign key (PersonID) references person (PersonID) ON DELETE CASCADE ON UPDATE CASCADE
+    foreign key (PersonID) references person (PersonID) ON DELETE CASCADE
 );
 
 
