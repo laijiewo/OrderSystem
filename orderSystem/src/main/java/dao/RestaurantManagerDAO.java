@@ -21,7 +21,7 @@ public class RestaurantManagerDAO extends personDAO {
         try {
             conn = JDBCTool.getConnection();
             String query = "SELECT * FROM person AS p " +
-                    "LEFT JOIN restaurantmanager AS u ON p.PersonID = u.PersonID " +
+                    "RIGHT JOIN restaurantmanager AS u ON p.PersonID = u.PersonID " +
                     "WHERE p.PersonID=? AND password=?";
             PreparedStatement ps = conn.prepareStatement(query);
             ps.setString(1, username);

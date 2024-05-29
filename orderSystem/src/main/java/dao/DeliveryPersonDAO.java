@@ -18,7 +18,7 @@ public class DeliveryPersonDAO extends personDAO {
         try {
             conn = JDBCTool.getConnection();
             String query = "SELECT * FROM person AS p " +
-                    "LEFT JOIN deliveryperson AS dp ON p.PersonID = dp.PersonID " +
+                    "RIGHT JOIN deliveryperson AS dp ON p.PersonID = dp.PersonID " +
                     "WHERE p.PersonID=? AND password=?";
             PreparedStatement ps = conn.prepareStatement(query);
             ps.setString(1, username);
