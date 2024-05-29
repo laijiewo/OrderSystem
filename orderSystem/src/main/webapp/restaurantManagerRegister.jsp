@@ -38,7 +38,7 @@
                 <div class="flex-item"><input type="text" placeholder="First Name" name="First Name" required/></div>
                 <div class="flex-item"><input type="text" placeholder="Last Name" name="Last Name" required/></div>
                 <div class="flex-item"><input type="text" placeholder="RestaurantID" name="RestaurantID" required/></div>
-                <div class="flex-item"><input type="password" placeholder="RestaurantName" name="RestaurantName" required/></div>
+                <div class="flex-item"><input type="text" placeholder="RestaurantName" name="RestaurantName" required/></div>
                 <div class="flex-item"><input type="text" placeholder="Address" name="Address" required/></div>
                 <div class="flex-item"><input type="text" placeholder="Contact Information" name="Contact Information" required/></div>
                 <div class="flex-item"><input type="text" placeholder="Business Hours" name="Business Hours" required/></div>

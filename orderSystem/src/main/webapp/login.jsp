@@ -67,7 +67,7 @@
                 return;
             }
             session.setAttribute("deliveryPerson", dp);
-            response.sendRedirect("RestaurantList.jsp");
+            response.sendRedirect("Delivery.jsp");
         } catch (Exception e) {
             response.sendRedirect("index.jsp");
         }

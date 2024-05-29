@@ -114,11 +114,11 @@ public class dishDAO {
             Connection conn = JDBCTool.getConnection();
             PreparedStatement ps = conn.prepareStatement("update dish set Name=?," +
                     "Price=?,Availability=?,D_RestaurantID=? where DishID = ?");
-            ps.setString(2, r.getDishName());
-            ps.setDouble(3,r.getDishPrice());
-            ps.setBoolean(4,r.isDishAvailability());
-            ps.setString(5,r.getD_RestaurantId());
-            ps.setString(1, r.getDishId());
+            ps.setString(1, r.getDishName());
+            ps.setDouble(2,r.getDishPrice());
+            ps.setBoolean(3,r.isDishAvailability());
+            ps.setString(4,r.getD_RestaurantId());
+            ps.setString(5, r.getDishId());
             return ps.execute();
         }catch (SQLException s){
             s.printStackTrace();

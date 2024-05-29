@@ -26,10 +26,11 @@
     } catch (SQLException e) {
         throw new RuntimeException(e);
     }
+    session.setAttribute("restaurant", restaurant);
     String restaurantName = restaurant.getRestaurantName();
     Date startDate = restaurantManager.getStartManagementDate();
     dishDAO dishDAO = new dishDAO();
-    List<Dish> dishList = null;
+    List<Dish> dishList;
     try {
         dishList = dishDAO.getDishesByRestaurantID(RestaurantID);
     } catch (SQLException e) {
@@ -48,20 +49,24 @@
 </head>
 <body>
 <div class="header">
-    <h1><% out.println(restaurantName); %></h1>
+    <h1 style="font: 50px hold"><% out.println(restaurantName); %></h1>
 </div>
 <div class="container">
     <div class="sidebar">
-        <h2>Restaurant Information</h2>
-        <div class="category">Restaurant Manager: <%out.print("\n");%><%out.print(restaurantManager.getFirsName() + " " + restaurantManager.getLastName());%><%out.print("\n");%></div>
-        <div class="category">Start Management Date: <%out.print("\n");%><%out.print(startDate);%><%out.print("\n");%></div>
-        <div class="category">Contact Information: <%out.print("\n");%><%out.print(restaurant.getContact_Information());%><%out.print("\n");%></div>
-        <div class="category">Restaurant Address: <%out.print("\n");%><%out.print(restaurant.getRestaurantAddress());%><%out.print("\n");%></div>
-        <div class="category">Business hours: <%out.print("\n");%><%out.print(restaurant.getBusiness_Hours());%><%out.print("\n");%></div>
+        <h2 style="color: #f2f2f2">Restaurant Information:</h2>
+        <div class="category">Restaurant Manager: </div>
+        <div class="category1"><%out.print(restaurantManager.getFirsName() + " " + restaurantManager.getLastName());%></div>
+        <div class="category">Start Management Date: </div>
+        <div class="category1"><%out.print(startDate);%></div>
+        <div class="category">Contact Information: </div>
+        <div class="category1">Phone: <%out.print(restaurant.getContact_Information());%></div>
+        <div class="category">Restaurant Address: </div>
+        <div class="category1"><%out.print(restaurant.getRestaurantAddress());%></div>
+        <div class="category">Business hours: </div>
+        <div class="category1"><%out.print(restaurant.getBusiness_Hours());%></div>
     </div>
-    <button class="button" onclick="location.href='addDish.jsp'">Add Dish</button>
     <div class="content">
-        <h2>DISHES</h2>
+        <b><h2 style="font: 35px hold">DISHES:</h2></b>
         <div class="products">
             <%
                 for (Dish dish : dishList) {
@@ -73,6 +78,12 @@
                     <p>DishID: <%= dish.getDishId() %></p>
                     <p class="price">￥<%= dish.getDishPrice() %></p>
                 </div>
+                <div class="update-Available-buttons">
+                    <button class="button" onclick="location.href='updateDish.jsp?dishID=<%= dish.getDishId() %>'">Update Dish</button>
+                </div>
+                <div class="delete-Dish-buttons">
+                    <button class="button" onclick="location.href='deleteDish.jsp?dishID=<%= dish.getDishId() %>'">Delete</button>
+                </div>
             </div>
             <%
                 }
@@ -80,8 +91,9 @@
         </div>
     </div>
 </div>
-<div class="footer">
-    <p>&copy; 2024 Restaurants</p>
+<div class="button-container">
+    <button class="button" onclick="location.href='addDish.jsp'">Add Dish</button>
 </div>
+<%@ include file="footer.html" %>
 </body>
 </html>
