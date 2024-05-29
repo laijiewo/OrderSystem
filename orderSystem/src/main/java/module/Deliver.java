@@ -1,11 +1,11 @@
 package module;
-import module.enums.DeliverStatus;
+import module.enums.OderStatus;
 public class Deliver {
     private final String OrderID;
     private String Deli_PersonID;
-    private DeliverStatus status;
+    private OderStatus status;
 
-    public Deliver(String OrderID, String Deli_PersonID, DeliverStatus status) {
+    public Deliver(String OrderID, String Deli_PersonID, OderStatus status) {
         this.OrderID = OrderID;
         this.Deli_PersonID = Deli_PersonID;
         this.status = status;
@@ -19,11 +19,11 @@ public class Deliver {
         return Deli_PersonID;
     }
 
-    public DeliverStatus getStatus() {
+    public OderStatus getStatus() {
         return status;
     }
 
-    public void setStatus(DeliverStatus status) {
+    public void setStatus(OderStatus status) {
         this.status = status;
     }
 }

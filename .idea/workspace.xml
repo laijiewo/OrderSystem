@@ -9,20 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="941c3bf8-2ac3-4ad9-a7b7-98eb55178d0d" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0fbc243e-6066-4a99-8206-2a4841df5e4c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0fbc243e-6066-4a99-8206-2a4841df5e4c.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9d48c21f-d18d-428f-a2aa-aea41dfd0e38.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9d48c21f-d18d-428f-a2aa-aea41dfd0e38/storage_v2/_src_/schema/ordersystem._cYSmA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orderSystem/src/main/java/JDBC/JDBCTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/orderSystem/src/main/java/JDBC/JDBCTool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orderSystem/src/main/webapp/RestaurantList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/orderSystem/src/main/webapp/RestaurantList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orderSystem/src/main/webapp/RestaurantListStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/orderSystem/src/main/webapp/RestaurantListStyle.css" afterDir="false" />
-    </list>
+    <list default="true" id="941c3bf8-2ac3-4ad9-a7b7-98eb55178d0d" name="更改" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,9 +36,6 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
-  </component>
-  <component name="PerforceDirect.Settings">
-    <option name="CHARSET" value="无" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -97,7 +81,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/GithubDesktop/OrderSystem/JDBCconnector/mysql-connector-j-8.3.0.jar",
+    "last_opened_file_path": "C:/Users/牛奕欣/Documents/GitHub/OrderSystem",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -138,6 +122,19 @@
     </configuration>
     <configuration name="index.jsp" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/orderSystem_war_exploded/index.jsp">
       <method v="2" />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="docs" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="docs" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="RestaurantList.jsp" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 9.0.87" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/RestaurantList.jsp" />
@@ -361,11 +358,23 @@
       <workItem from="1716904112396" duration="4221000" />
       <workItem from="1716910582258" duration="215000" />
       <workItem from="1716912711828" duration="9337000" />
+      <workItem from="1716972371097" duration="155000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
