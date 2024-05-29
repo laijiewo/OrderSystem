@@ -1,6 +1,6 @@
 package module.enums;
 
-public enum DeliverStatus {
+public enum OderStatus {
     DELIVERED,
     NOT_DELIVERED,
     ON_HOLD,
