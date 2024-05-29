@@ -1,30 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-<<<<<<< HEAD
-=======
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="orderSystem:war" />
+      <artifact name="orderSystem:war exploded" />
     </artifacts-to-build>
   </component>
->>>>>>> main
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="941c3bf8-2ac3-4ad9-a7b7-98eb55178d0d" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/9d48c21f-d18d-428f-a2aa-aea41dfd0e38.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JDBCconnector/mysql-connector-j-8.3.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orderSystem/src/main/java/dao/orderDAOTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0fbc243e-6066-4a99-8206-2a4841df5e4c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0fbc243e-6066-4a99-8206-2a4841df5e4c.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9d48c21f-d18d-428f-a2aa-aea41dfd0e38.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9d48c21f-d18d-428f-a2aa-aea41dfd0e38/storage_v2/_src_/schema/ordersystem._cYSmA.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderSystemDatabase/OrderSystem.sql" beforeDir="false" afterPath="$PROJECT_DIR$/OrderSystemDatabase/OrderSystem(1).sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orderSystem/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/orderSystem/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/orderSystem/src/main/java/JDBC/JDBCTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/orderSystem/src/main/java/JDBC/JDBCTool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orderSystem/src/main/java/dao/orderDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/orderSystem/src/main/java/dao/orderDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orderSystem/src/main/webapp/RestaurantList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/orderSystem/src/main/webapp/RestaurantList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orderSystem/src/main/webapp/RestaurantListStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/orderSystem/src/main/webapp/RestaurantListStyle.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,17 +32,14 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Jsp File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-<<<<<<< HEAD
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
-=======
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -56,13 +50,15 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="PerforceDirect.Settings">
+    <option name="CHARSET" value="无" />
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
->>>>>>> main
   <component name="ProjectId" id="2gp5n3EFWPPthnBo3zSsz0Fsotl" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -74,24 +70,35 @@
     "Downloaded.Files.Path.Enabled": "false",
     "JUnit.orderDAOTest.executor": "Run",
     "JUnit.orderDAOTest.testGetOrderList.executor": "Run",
+    "JUnit.orderTest.executor": "Run",
+    "JUnit.restaurantDAOTest.executor": "Run",
+    "JavaScript 调试.Restaurant.jsp.executor": "Debug",
+    "JavaScript 调试.RestaurantList.jsp (1).executor": "Debug",
+    "JavaScript 调试.RestaurantList.jsp.executor": "Run",
+    "JavaScript 调试.footer.html.executor": "Debug",
     "JavaScript 调试.index.jsp (1).executor": "Run",
     "JavaScript 调试.index.jsp.executor": "Debug",
+    "JavaScript 调试.login.jsp.executor": "Debug",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-<<<<<<< HEAD
-    "git-widget-placeholder": "Jie__Mao",
-=======
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Tomcat 服务器.RestaurantList.jsp (1).executor": "Debug",
+    "Tomcat 服务器.RestaurantList.jsp (2).executor": "Run",
+    "Tomcat 服务器.RestaurantList.jsp (3).executor": "Debug",
+    "Tomcat 服务器.RestaurantList.jsp (4).executor": "Debug",
+    "Tomcat 服务器.RestaurantList.jsp.executor": "Run",
     "Tomcat 服务器.Tomcat 9.0.87.executor": "Run",
     "Tomcat 服务器.index.jsp (1).executor": "Debug",
-    "Tomcat 服务器.index.jsp.executor": "Run",
+    "Tomcat 服务器.index.jsp.executor": "Debug",
+    "Tomcat 服务器.login.jsp.executor": "Debug",
+    "Tomcat 服务器.registerLogic.jsp.executor": "Run",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
->>>>>>> main
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/Eclipse2/mysql-connector-j-8.3.0 (2)/mysql-connector-j-8.3.0",
+    "last_opened_file_path": "E:/GithubDesktop/OrderSystem/JDBCconnector/mysql-connector-j-8.3.0.jar",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -101,7 +108,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.43793103",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "SQL Dialects",
+    "settings.editor.selected.configurable": "liveEdit",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -110,8 +117,11 @@
     ]
   }
 }]]></component>
-<<<<<<< HEAD
-=======
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\GithubDesktop\OrderSystem\orderSystem\src\main\webapp" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="excludedTypes">
       <set>
@@ -119,49 +129,27 @@
       </set>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="orderDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="orderSystem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="dao.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="dao" />
-      <option name="MAIN_CLASS_NAME" value="dao.orderDAOTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+  <component name="RunManager" selected="JavaScript 调试.Restaurant.jsp">
+    <configuration name="RestaurantList.jsp" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/orderSystem_war_exploded/RestaurantList.jsp">
+      <method v="2" />
     </configuration>
-    <configuration name="orderDAOTest.testGetOrderList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="orderSystem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="dao.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="dao" />
-      <option name="MAIN_CLASS_NAME" value="dao.orderDAOTest" />
-      <option name="METHOD_NAME" value="testGetOrderList" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="Restaurant.jsp" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/orderSystem_war_exploded/Restaurant.jsp">
+      <method v="2" />
     </configuration>
-    <configuration name="Tomcat 9.0.87" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.87" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
-      <option name="UPDATING_POLICY" value="restart-server" />
+    <configuration name="index.jsp" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/orderSystem_war_exploded/index.jsp">
+      <method v="2" />
+    </configuration>
+    <configuration name="RestaurantList.jsp" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 9.0.87" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/RestaurantList.jsp" />
       <deployment>
-        <artifact name="orderSystem:war">
+        <artifact name="orderSystem:war exploded">
           <settings>
-            <option name="CONTEXT_PATH" value="/orderSystem_war" />
+            <option name="CONTEXT_PATH" value="/orderSystem_war_exploded" />
           </settings>
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="cd7cbf9f-841d-44e5-81aa-d8d872eaa755" />
+        <option name="BASE_DIRECTORY_NAME" value="2ecf5552-52af-4063-982f-097fe8307664" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -169,7 +157,65 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="11226" />
+        <option name="DEBUG_PORT" value="51461" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="orderSystem:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <configuration name="Tomcat 9.0.87" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.87" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="orderSystem:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/orderSystem_war_exploded" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="4290165d-5738-41e4-9455-c5936eafd069" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="8028" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -234,28 +280,64 @@
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="orderSystem:war" />
+          <artifact name="orderSystem:war exploded" />
         </option>
       </method>
     </configuration>
-    <list>
-      <item itemvalue="JUnit.orderDAOTest" />
-      <item itemvalue="JUnit.orderDAOTest.testGetOrderList" />
-      <item itemvalue="Tomcat 服务器.Tomcat 9.0.87" />
-    </list>
+    <configuration name="registerLogic.jsp" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 9.0.87" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/registerLogic.jsp" />
+      <deployment>
+        <artifact name="orderSystem:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/orderSystem_war_exploded" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="3cac61ec-07ea-48f5-9901-b72dccca0199" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="orderSystem:war exploded" />
+        </option>
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.orderDAOTest.testGetOrderList" />
-        <item itemvalue="JUnit.orderDAOTest" />
+        <item itemvalue="JavaScript 调试.Restaurant.jsp" />
+        <item itemvalue="JavaScript 调试.RestaurantList.jsp" />
+        <item itemvalue="Tomcat 服务器.registerLogic.jsp" />
+        <item itemvalue="JavaScript 调试.index.jsp" />
+        <item itemvalue="Tomcat 服务器.RestaurantList.jsp" />
       </list>
     </recent_temporary>
   </component>
->>>>>>> main
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
       </set>
     </attachedChunks>
   </component>
@@ -268,16 +350,17 @@
       <option name="presentableId" value="Default" />
       <updated>1716381841297</updated>
       <workItem from="1716381842442" duration="2159000" />
-<<<<<<< HEAD
-=======
       <workItem from="1716530112888" duration="1207000" />
       <workItem from="1716617927131" duration="735000" />
       <workItem from="1716702690521" duration="1196000" />
       <workItem from="1716801545815" duration="1224000" />
       <workItem from="1716802798835" duration="1558000" />
       <workItem from="1716807333168" duration="228000" />
-      <workItem from="1716813215982" duration="4841000" />
->>>>>>> main
+      <workItem from="1716813215982" duration="11808000" />
+      <workItem from="1716884331510" duration="8025000" />
+      <workItem from="1716904112396" duration="4221000" />
+      <workItem from="1716910582258" duration="215000" />
+      <workItem from="1716912711828" duration="9337000" />
     </task>
     <servers />
   </component>

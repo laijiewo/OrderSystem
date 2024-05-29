@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="dataSourceStorageLocal" created-in="IU-232.10300.40">
-    <data-source name="ordersystem@localhost" uuid="9d48c21f-d18d-428f-a2aa-aea41dfd0e38">
-      <database-info product="MySQL" version="5.7.44-log" jdbc-version="4.2" driver-name="Amazon Web Services (AWS) JDBC Driver for MySQL" driver-version="aws-mysql-connector-java-1.1.9 (Revision: 122bff765e786a47605d9586910f911cb87f3733)" dbms="MYSQL" exact-version="5.7.44" exact-driver-version="1.1">
+  <component name="dataSourceStorageLocal" created-in="IU-241.17011.79">
+    <data-source name="ordersystem@localhost" uuid="0fbc243e-6066-4a99-8206-2a4841df5e4c">
+      <database-info product="MySQL" version="5.7.44-log" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-j-8.2.0 (Revision: 06a1f724497fd81c6a659131fda822c9e5085b6c)" dbms="MYSQL" exact-version="5.7.44" exact-driver-version="8.2">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
       </database-info>

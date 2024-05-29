@@ -53,10 +53,16 @@
                 <li>Class3</li>
             </ul>
         </div>
+
         <div class="main">
             <% for (Restaurant restaurant : paginatedList) { %>
             <div class="card">
-                <h2><%= restaurant.getRestaurantName() %></h2>
+                <img src="photos/头像.jpg" alt="产品图片">
+                <div class="card-details">
+                    <h3><%= restaurant.getRestaurantName() %></h3>
+                    <p>Address: <%= restaurant.getRestaurantAddress() %></p>
+                    <p class="information">Contact information: <%= restaurant.getContact_Information() %></p>
+                </div>
             </div>
             <% } %>
         </div>
