@@ -36,6 +36,7 @@
     <link rel="stylesheet" href="RestaurantListStyle.css">
 </head>
 <body>
+<%@ include file="exitButton.html" %>
 <img src="<%= request.getContextPath() + "/photos/logo.png" %>" alt="logo">
 <div class="container">
     <div class="header">
@@ -57,9 +58,8 @@
 
         <div class="main">
             <% for (Restaurant restaurant : paginatedList) { %>
-            <button class="button" onclick="location.href='Restaurant.jsp'">
+            <button class="button" onclick="location.href='Restaurant.jsp?restaurantID=<%=restaurant.getRestaurantID()%>'">
                 <div class="card">
-                    <img src="photos/头像.jpg" alt="产品图片">
                     <div class="card-details">
                         <h3><%= restaurant.getRestaurantName() %></h3>
                         <p>Address: <%= restaurant.getRestaurantAddress() %></p>
