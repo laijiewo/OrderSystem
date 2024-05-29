@@ -48,27 +48,30 @@ public class restaurantDAO {
         }
         return restaurant;
     }
-    public List<Restaurant> getRestaurantsByName(String Name) throws SQLException{
-        List<Restaurant> restaurants = new ArrayList<Restaurant>();
-        try {
-            Connection conn = JDBCTool.getConnection();
-            Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM restaurant WHERE RestaurantName LIKE %Name%");
-            while(rs.next()) {
+    public List<Restaurant> getRestaurantsByName(String name) throws SQLException {
+        if(name == null || name.equals("")) {
+            return getRestaurantList();
+        }
+        List<Restaurant> restaurants = new ArrayList<>();
+        String sql = "SELECT * FROM restaurant WHERE RestaurantName LIKE ?";
 
-                String RestaurantID = rs.getString("RestaurantID");
-                String RestaurantName = rs.getString("RestaurantName");
-                String Address = rs.getString("Address");
-                String ContactInformation = rs.getString("ContactInformation");
-                String BusinessHours = rs.getString("BusinessHours");
-                String M_PersonID = rs.getString("M_PersonID");
-                Restaurant r = new Restaurant(RestaurantID, RestaurantName, Address, ContactInformation, BusinessHours, M_PersonID);
+        try (Connection conn = JDBCTool.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
 
-                restaurants.add(r);
+            ps.setString(1, "%" + name + "%");
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    String restaurantID = rs.getString("RestaurantID");
+                    String restaurantName = rs.getString("RestaurantName");
+                    String address = rs.getString("Address");
+                    String contactInformation = rs.getString("ContactInformation");
+                    String businessHours = rs.getString("BusinessHours");
+                    String m_PersonID = rs.getString("M_PersonID");
+
+                    Restaurant restaurant = new Restaurant(restaurantID, restaurantName, address, contactInformation, businessHours, m_PersonID);
+                    restaurants.add(restaurant);
+                }
             }
-            rs.close();
-            st.close();
-            conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

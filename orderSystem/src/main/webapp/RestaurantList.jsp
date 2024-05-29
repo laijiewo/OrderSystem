@@ -6,117 +6,77 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.util.List" %>
+<%@ page import="dao.restaurantDAO" %>
+<%@ page import="module.Restaurant" %>
+<%@ page import="java.util.*, javax.servlet.*, javax.servlet.http.*, javax.servlet.jsp.*" %>
+
+<%
+    int currentPage = 1;  // 修改变量名称
+    int recordsPerPage = 6;
+    String searchName = request.getParameter("searchName") != null ? request.getParameter("searchName") : "";
+
+    if (request.getParameter("page") != null) {
+        currentPage = Integer.parseInt(request.getParameter("page"));
+    }
+
+    restaurantDAO dao = new restaurantDAO();
+    List<Restaurant> restaurantList = dao.getRestaurantsByName(searchName);
+    int start = (currentPage - 1) * recordsPerPage;
+    int end = Math.min(start + recordsPerPage, restaurantList.size());
+
+    List<Restaurant> paginatedList = restaurantList.subList(start, end);
+%>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant List</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: rgb(224, 210, 163);
-            margin: 0;
-            padding: 0;
-        }
-        .header {
-            background-color: rgb(92, 147, 148);
-            padding: 20px;
-            text-align: center;
-            color: #fff;
-        }
-        .header h1 {
-            margin: 0;
-        }
-        .container {
-            display: flex;
-            margin: 20px;
-        }
-        .sidebar {
-            width: 20%;
-            background-color: #ffffff;
-            padding: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .content {
-            width: 80%;
-            padding: 10px;
-        }
-        .category {
-            margin-bottom: 10px;
-        }
-        .products {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        .product {
-            width: 30%;
-            margin: 1%;
-            background-color: #ffffff;
-            padding: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            border-radius: 10px;
-        }
-        .product img {
-            max-width: 100%;
-            border-radius: 10px;
-        }
-        .product h3 {
-            margin: 10px 0;
-            color: rgb(70, 96, 117);
-        }
-        .product p {
-            margin: 0 0 10px;
-        }
-        .product .price {
-            color: rgb(92, 147, 148);
-            font-weight: bold;
-        }
-        .footer {
-            background-color: rgb(92, 147, 148);
-            padding: 20px;
-            text-align: center;
-            color: #fff;
-        }
-    </style>
+    <link rel="stylesheet" href="RestaurantListStyle.css">
 </head>
 <body>
-<div class="header">
-    <h1>Restaurants</h1>
-</div>
 <div class="container">
-    <div class="sidebar">
-        <h2>Classes</h2>
-        <div class="category">Class1</div>
-        <div class="category">Class2</div>
-        <div class="category">Class3</div>
+    <div class="header">
+        <h1>Restaurants</h1>
+        <form method="GET" action="RestaurantList.jsp">
+            <input type="text" name="searchName" value="<%= searchName %>" placeholder="Search Restaurants">
+            <button type="submit">Search</button>
+        </form>
     </div>
     <div class="content">
-        <h2>HOT RESTAURANTS</h2>
-        <div class="products">
-            <div class="product">
-                <img src="https://via.placeholder.com/150" alt="产品图片">
-                <h3>Restaurant1</h3>
-                <p>description of restaurant1</p>
-                <p class="price">￥12.00/person</p>
+        <div class="sidebar">
+            <h2>Classes</h2>
+            <ul>
+                <li>Class1</li>
+                <li>Class2</li>
+                <li>Class3</li>
+            </ul>
+        </div>
+        <div class="main">
+            <% for (Restaurant restaurant : paginatedList) { %>
+            <div class="card">
+                <h2><%= restaurant.getRestaurantName() %></h2>
             </div>
-            <div class="product">
-                <img src="https://via.placeholder.com/150" alt="产品图片">
-                <h3>Restaurant2</h3>
-                <p>description of restaurant2</p>
-                <p class="price">￥12.00/person</p>
-            </div>
-            <div class="product">
-                <img src="https://via.placeholder.com/150" alt="产品图片">
-                <h3>Restaurant3</h3>
-                <p>description of restaurant3</p>
-                <p class="price">￥12.00/person</p>
-            </div>
+            <% } %>
         </div>
     </div>
+    <div class="pagination">
+        <%
+            int noOfRecords = restaurantList.size();
+            int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+            if (currentPage > 1) {
+        %>
+        <a href="RestaurantList.jsp?page=<%= currentPage - 1 %>&searchName=<%= searchName %>">&lt; Previous</a>
+        <% } %>
+        <% if (currentPage < noOfPages) { %>
+        <a href="RestaurantList.jsp?page=<%= currentPage + 1 %>&searchName=<%= searchName %>">Next &gt;</a>
+        <% } %>
+    </div>
 </div>
-<div class="footer">
-    <p>&copy; 2024 Restaurants</p>
-</div>
+<%@ include file="footer.html" %>
 </body>
 </html>
+
+
+

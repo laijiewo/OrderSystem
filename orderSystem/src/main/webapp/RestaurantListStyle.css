@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(224, 210, 163);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 60px; /* 留出空间给footer */
+}
+
+.header {
+    background-color: rgb(92, 147, 148);
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+img {
+    margin-right: 20px; /* 调整图片和文本之间的间距 */
+    max-width: 250px;
+}
+
+.content {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar {
+    background-color: #f8f8f8;
+    padding: 20px;
+    min-width: 200px;
+}
+
+.main {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card {
+    background: rgb(139, 166, 147);
+    margin: 10px;
+    padding: 20px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    border-radius: 10px;
+    text-align: center;
+    flex: 1 1 calc(33% - 40px);
+    box-sizing: border-box;
+}
+
+.card h2 {
+    margin: 0;
+    color: #FFFFFF;
+}
+
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination a {
+    margin: 0 5px;
+    padding: 10px 20px;
+    background: rgb(70, 96, 117);
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.pagination a:hover {
+    background: #43A047;
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}

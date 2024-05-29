@@ -43,8 +43,33 @@ public class dishDAO {
         return dish;
     }
 
-    public List<Dish> getDishsByName(String Name) throws SQLException{
-        List<Dish> dishs = new ArrayList<Dish>();
+    public List<Dish> getDishesByRestaurantID(String RestaurantID) throws SQLException {
+        List<Dish> dishes = new ArrayList<Dish>();
+        try {
+            Connection conn = JDBCTool.getConnection();
+            Statement st = conn.createStatement();
+            String statement = "SELECT * FROM dish WHERE dish.D_RestaurantID = '" + RestaurantID + "'";
+            ResultSet rs = st.executeQuery(statement);
+            while(rs.next()) {
+                String DishID = rs.getString("DishID");
+                String DName = rs.getString("Name");
+                double Price = rs.getDouble("Price");
+                boolean Availability = rs.getBoolean("Availability");
+                String D_RestaurantID = rs.getString("D_RestaurantID");
+                Dish d = new Dish(DishID, DName, Price, Availability, D_RestaurantID);
+                dishes.add(d);
+            }
+            rs.close();
+            st.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return  dishes;
+    }
+
+    public List<Dish> getDishesByName(String Name) throws SQLException{
+        List<Dish> dishes = new ArrayList<Dish>();
         try {
             Connection conn = JDBCTool.getConnection();
             Statement st = conn.createStatement();
@@ -57,7 +82,7 @@ public class dishDAO {
                 boolean Availability = rs.getBoolean("Availability");
                 String D_RestaurantID = rs.getString("D_RestaurantID");
                 Dish d = new Dish(DishID, DName, Price, Availability, D_RestaurantID);
-                dishs.add(d);
+                dishes.add(d);
             }
             rs.close();
             st.close();
@@ -65,7 +90,7 @@ public class dishDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return dishs;
+        return dishes;
     }
 
     public boolean insertDish(Dish r) throws SQLException {
