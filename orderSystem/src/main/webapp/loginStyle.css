@@ -27,7 +27,7 @@ body {
     transform: translateX(-50%);
 }
 img {
-    margin-right: 20px; /* 调整图片和文本之间的间距 */
+    margin-right: 20px;
     max-width: 250px;
     position: absolute;
     top: 20px;

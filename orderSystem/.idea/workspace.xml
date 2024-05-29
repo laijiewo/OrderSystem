@@ -10,18 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3ddc0cf3-c706-4df5-9d3c-f0cb5a2ed8a3" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/deleteDish.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/exitButton.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/updateRestaurant.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/updateRestaurantLogic.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/RestaurantManagerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/RestaurantManagerDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/restaurantDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/restaurantDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/restaurantDAOTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/RestaurantListStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/RestaurantListStyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/RestaurantStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/RestaurantStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/loginStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/loginStyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/restaurantManageScreen.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/restaurantManageScreen.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/restaurantManagerRegisterLogic.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/restaurantManagerRegisterLogic.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +25,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
-        <option value="Jsp File" />
         <option value="HTML File" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>

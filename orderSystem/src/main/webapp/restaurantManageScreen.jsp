@@ -51,6 +51,7 @@
 <%@ include file="exitButton.html" %>
 <div class="header">
     <h1 style="font: 50px hold"><% out.println(restaurantName); %></h1>
+    <img src="<%= request.getContextPath() + "/photos/logo.png" %>" alt="logo">
 </div>
 <div class="container">
     <div class="sidebar">
