@@ -1,5 +1,13 @@
-<%-- Created by IntelliJ IDEA. User: 牛奕欣 Date: 2024/5/28 Time: 21:05 To change this template use File | Settings | File Templates. --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.util.List" %>
+<%@ page import="dao.DeliveryDAO" %>
+<%@ page import="module.Deliver" %>
+<%@ page import="module.enums.OderStatus" %>
+<%
+  // Create an instance of DeliveryDAO
+  DeliveryDAO deliveryDAO = new DeliveryDAO();
+  // Get all delivers
+  List<Deliver> delivers = deliveryDAO.getAllDelivers();
+%>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -51,11 +59,15 @@
       gap: 1%;
     }
     .order-detail {
-      width: 30%; /* Adjusted to fit two items per row */
+      width: calc(50% - 10px);
+      height: 200px;
       background-color: #ffffff;
       padding: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       margin-bottom: 20px;
     }
     .order-detail h3 {
@@ -89,22 +101,18 @@
   </style>
   <script>
     function updateOrderStatus(orderId, newStatus) {
-      // Create an AJAX request
       var xhr = new XMLHttpRequest();
       xhr.open("POST", "updateOrderStatus", true);
       xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-      // Define the callback function
       xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
-          // Update the status on the page
           document.getElementById("status-" + orderId).innerText = "Status: " + newStatus;
         } else if (xhr.readyState == 4) {
           alert("Failed to update order status.");
         }
       };
 
-      // Send the request with the orderId and newStatus
       xhr.send("orderId=" + orderId + "&newStatus=" + newStatus);
     }
   </script>
@@ -125,39 +133,22 @@
   <div class="content">
     <h2>Active Orders</h2>
     <div class="order-list">
+      <%
+        for (Deliver deliver : delivers) {
+      %>
       <div class="order-detail">
-        <h3>Order1</h3>
-        <p>Restaurant: Restaurant1</p>
-        <p>Address: Address1</p>
-        <p id="status-1" class="status">Status: In Progress</p>
+        <h3>Order <%= deliver.getOrderID() %></h3>
+        <p>Delivery Person ID: <%= deliver.getDeli_PersonID() %></p>
+        <p id="status-<%= deliver.getOrderID() %>" class="status">Status: <%= deliver.getStatus() %></p>
         <div class="update-buttons">
-          <button class="update-button" onclick="updateOrderStatus(1, 'Pending')">Mark as Pending</button>
-          <button class="update-button" onclick="updateOrderStatus(1, 'In Progress')">Mark as In Progress</button>
-          <button class="update-button" onclick="updateOrderStatus(1, 'Completed')">Mark as Completed</button>
+          <button class="update-button" onclick="updateOrderStatus('<%= deliver.getOrderID() %>', 'NOT_DELIVERED')">Mark as Not Delivered</button>
+          <button class="update-button" onclick="updateOrderStatus('<%= deliver.getOrderID() %>', 'DELIVERING')">Mark as Delivering</button>
+          <button class="update-button" onclick="updateOrderStatus('<%= deliver.getOrderID() %>', 'DELIVERED')">Mark as Delivered</button>
         </div>
       </div>
-      <div class="order-detail">
-        <h3>Order2</h3>
-        <p>Restaurant: Restaurant2</p>
-        <p>Address: Address2</p>
-        <p id="status-2" class="status">Status: Pending</p>
-        <div class="update-buttons">
-          <button class="update-button" onclick="updateOrderStatus(2, 'Pending')">Mark as Pending</button>
-          <button class="update-button" onclick="updateOrderStatus(2, 'In Progress')">Mark as In Progress</button>
-          <button class="update-button" onclick="updateOrderStatus(2, 'Completed')">Mark as Completed</button>
-        </div>
-      </div>
-      <div class="order-detail">
-        <h3>Order3</h3>
-        <p>Restaurant: Restaurant3</p>
-        <p>Address: Address3</p>
-        <p id="status-3" class="status">Status: Completed</p>
-        <div class="update-buttons">
-          <button class="update-button" onclick="updateOrderStatus(3, 'Pending')">Mark as Pending</button>
-          <button class="update-button" onclick="updateOrderStatus(3, 'In Progress')">Mark as In Progress</button>
-          <button class="update-button" onclick="updateOrderStatus(3, 'Completed')">Mark as Completed</button>
-        </div>
-      </div>
+      <%
+        }
+      %>
     </div>
   </div>
 </div>

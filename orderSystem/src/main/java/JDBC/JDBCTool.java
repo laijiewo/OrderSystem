@@ -11,7 +11,7 @@ public class JDBCTool {
         Connection conn = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://"+url+"/"+dbname, "root","Ljw200411260011");
+            conn = DriverManager.getConnection("jdbc:mysql://"+url+"/"+dbname, "root","nyxNYX@4150445");
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
