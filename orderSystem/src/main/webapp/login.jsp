@@ -23,12 +23,24 @@
     out.print(username);
     out.print(password);
 
-    Person p = personDAO.login(username, password);
+    try {
+        if (personDAO.login(username, password) == null) {
+            response.sendRedirect("index.jsp");
+            return;
+        }
+    } catch (Exception e) {
+        response.sendRedirect("index.jsp");
+    }
 
     if (select.equals("User")) {
         try {
             userDAO userDAO = new userDAO();
             User u = userDAO.login(username, password);
+            if (u == null) {
+                response.sendRedirect("index.jsp");
+                return;
+            }
+            session.setAttribute("user", u);
             response.sendRedirect("RestaurantList.jsp");
         } catch (Exception e) {
             response.sendRedirect("index.jsp");
@@ -37,7 +49,12 @@
         try {
             RestaurantManagerDAO restaurantManagerDAO = new RestaurantManagerDAO();
             RestaurantManager rm = restaurantManagerDAO.login(username, password);
-            response.sendRedirect("RestaurantList.jsp");
+            if (rm == null) {
+                response.sendRedirect("index.jsp");
+                return;
+            }
+            session.setAttribute("restaurantManager", rm);
+            response.sendRedirect("restaurantManageScreen.jsp");
         } catch (Exception e) {
             response.sendRedirect("index.jsp");
         }
@@ -45,6 +62,11 @@
         try {
             DeliveryPersonDAO deliveryPersonDAO = new DeliveryPersonDAO();
             DeliveryPerson dp = deliveryPersonDAO.login(username, password);
+            if (dp == null) {
+                response.sendRedirect("index.jsp");
+                return;
+            }
+            session.setAttribute("deliveryPerson", dp);
             response.sendRedirect("RestaurantList.jsp");
         } catch (Exception e) {
             response.sendRedirect("index.jsp");

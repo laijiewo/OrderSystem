@@ -12,10 +12,11 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RestaurantManagerDAO {
+public class RestaurantManagerDAO extends personDAO {
 
     // Login method
-    public RestaurantManager login(String username, String password) {
+    @Override
+    public RestaurantManager login(String username, String password) throws Exception {
         Connection conn = null;
         try {
             conn = JDBCTool.getConnection();

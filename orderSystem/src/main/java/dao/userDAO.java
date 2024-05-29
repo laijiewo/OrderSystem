@@ -2,6 +2,7 @@ package dao;
 
 import JDBC.JDBCTool;
 
+import module.enums.DeliveryArea;
 import module.enums.Gender;
 import module.User;
 
@@ -30,7 +31,7 @@ public class userDAO extends personDAO {
                 String fName = rs.getString("fname");
                 String phone = rs.getString("PhoneNumber");
                 Gender gender = Gender.valueOf(rs.getString("Gender").toUpperCase(Locale.ROOT));
-                String address = rs.getString("address");
+                DeliveryArea address = DeliveryArea.valueOf(rs.getString("address"));
                 return new User(pid, lName, fName, phone, p, gender, address);
             }
         } catch (SQLException e) {
@@ -46,7 +47,7 @@ public class userDAO extends personDAO {
         }
         return null;
     }
-    public boolean register(String PersonID, String LastName, String FirsName, String password, String PhoneNumber, Gender Gender, String address) throws Exception {
+    public boolean register(String PersonID, String LastName, String FirsName, String password, String PhoneNumber, Gender Gender, DeliveryArea address) throws Exception {
         Connection conn = null;
         try {
             conn = JDBCTool.getConnection();
@@ -63,7 +64,7 @@ public class userDAO extends personDAO {
             query = "INSERT INTO user (PersonID, address) VALUES (?,?)";
             ps = conn.prepareStatement(query);
             ps.setString(1, PersonID);
-            ps.setString(2, address);
+            ps.setString(2, address.toString());
             ps.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -79,13 +80,13 @@ public class userDAO extends personDAO {
             }
         }
     }
-    public void setAddress(String PersonID, String address) {
+    public void setAddress(String PersonID, DeliveryArea address) {
         Connection conn = null;
         try {
             conn = JDBCTool.getConnection();
             String query = "UPDATE user SET address=? WHERE PersonID=?";
             PreparedStatement ps = conn.prepareStatement(query);
-            ps.setString(1, address);
+            ps.setString(1, address.toString());
             ps.setString(2, PersonID);
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -100,7 +101,7 @@ public class userDAO extends personDAO {
             }
         }
     }
-    public String getAddress(String PersonID) {
+    public DeliveryArea getAddress(String PersonID) {
         Connection conn = null;
         try {
             conn = JDBCTool.getConnection();
@@ -109,7 +110,7 @@ public class userDAO extends personDAO {
             ps.setString(1, PersonID);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                return rs.getString("address");
+                return DeliveryArea.valueOf(rs.getString("address"));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

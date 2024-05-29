@@ -14,7 +14,7 @@
 
 
 <%
-    String RestaurantID = "1234560";
+    String RestaurantID = "2222";
     restaurantDAO restaurantDAO = new restaurantDAO();
     String restaurantName = restaurantDAO.getRestaurantByID(RestaurantID).getRestaurantName();
     dishDAO dishDAO = new dishDAO();

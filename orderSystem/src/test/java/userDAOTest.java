@@ -23,7 +23,7 @@ public class userDAOTest {
     @Test
     public void registerTest() {
         try {
-            assertTrue(userDAO.register("222222", "J", "D", "123456", "723857128", Gender.valueOf("MALE"), "a"));
+            assertTrue(userDAO.register("222222", "J", "D", "123456", "723857128", Gender.valueOf("MALE"), DeliveryArea.GYM));
         } catch (Exception e) {
             System.out.println("Can't register user: ");
         }

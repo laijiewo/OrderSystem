@@ -1,6 +1,6 @@
 package module;
 
-import java.util.Date;
+import java.sql.Date;
 import module.enums.Gender;
 import module.enums.personEnum;
 

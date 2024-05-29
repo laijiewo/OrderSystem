@@ -7,8 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="dao.*" %>
-<%@ page import="module.enums.Gender" %>
-<%@ page import="module.User" %>
+
+<%@ page import="module.enums.*" %>
 
 <%
     String personID = request.getParameter("PeronID");
@@ -17,7 +17,7 @@
     String gender = request.getParameter("Gender");
     String FName = request.getParameter("First Name");
     String LName = request.getParameter("Last Name");
-    String DeliveryArea = request.getParameter("Delivery Area");
+    DeliveryArea deliveryArea = DeliveryArea.valueOf(request.getParameter("Delivery Area"));
 
     out.print(personID);
     out.print(password);
@@ -25,11 +25,11 @@
     out.print(gender);
     out.print(FName);
     out.print(LName);
-    out.print(DeliveryArea);
+    out.print(deliveryArea);
 
     DeliveryPersonDAO deliveryPersonDAO = new DeliveryPersonDAO();
     try {
-        if (deliveryPersonDAO.register(personID, LName, FName, password, phoneNumber, module.enums.Gender.valueOf(gender), DeliveryArea)) {
+        if (deliveryPersonDAO.register(personID, LName, FName, password, phoneNumber, Gender.valueOf(gender), deliveryArea)) {
             response.sendRedirect("index.jsp");
         } else {
             System.out.println("wrong input");

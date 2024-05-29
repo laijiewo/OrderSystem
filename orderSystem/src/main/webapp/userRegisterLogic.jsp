@@ -9,6 +9,7 @@
 <%@ page import="dao.*" %>
 <%@ page import="module.enums.Gender" %>
 <%@ page import="module.User" %>
+<%@ page import="module.enums.DeliveryArea" %>
 
 <%
         String personID = request.getParameter("PeronID");
@@ -17,7 +18,7 @@
         String gender = request.getParameter("Gender");
         String FName = request.getParameter("First Name");
         String LName = request.getParameter("Last Name");
-        String address = request.getParameter("address");
+        DeliveryArea address = DeliveryArea.valueOf(request.getParameter("address"));
 
         out.print(personID);
         out.print(password);

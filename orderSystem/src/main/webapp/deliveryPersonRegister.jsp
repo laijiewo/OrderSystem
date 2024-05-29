@@ -35,9 +35,21 @@
                         <option value="FEMALE">FEMALE</option>
                     </select>
                 </label></div>
+                <div class="flex-item">
+                    <label>
+                        <select name="Delivery Area" required>
+                            <option value="">Select Address</option>
+                            <option value="FIRST_TEACHING_BUILDING">First Teaching Building</option>
+                            <option value="SECOND_TEACHING_BUILDING">Second Teaching Building</option>
+                            <option value="THIRD_TEACHING_BUILDING">Third Teaching Building</option>
+                            <option value="FOURTH_TEACHING_BUILDING">Fourth Teaching Building</option>
+                            <option value="GYM">Gym</option>
+                            <option value="LIBRARY">Library</option>
+                        </select>
+                    </label>
+                </div>
                 <div class="flex-item"><input type="text" placeholder="First Name" name="First Name" required/></div>
                 <div class="flex-item"><input type="text" placeholder="Last Name" name="Last Name" required/></div>
-                <div class="flex-item"><input type="text" placeholder="Delivery Area" name="Delivery Area" required/></div>
             </div>
             <button type="submit">register</button>
         </form>

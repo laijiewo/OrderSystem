@@ -32,6 +32,8 @@ public class personDAO {
                 String phone = rs.getString("PhoneNumber");
                 Gender gender = Gender.valueOf(rs.getString("Gender").toUpperCase(Locale.ROOT));
                 return new Person(pid, lName, fName, phone, p, gender);
+            } else {
+                return null;
             }
         } catch (SQLException e) {
             e.printStackTrace();

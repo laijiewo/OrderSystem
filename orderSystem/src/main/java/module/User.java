@@ -1,23 +1,22 @@
 package module;
 
-import module.enums.Gender;
-import module.enums.personEnum;
+import module.enums.*;
 
 public class User extends Person {
-    private String address;
+    private DeliveryArea address;
 
 
-    public User(String PersonID, String LastName, String FirsName, String PhoneNumber, String password, Gender Gender, String address) {
+    public User(String PersonID, String LastName, String FirsName, String PhoneNumber, String password, Gender Gender, DeliveryArea address) {
         super(PersonID, LastName, FirsName, PhoneNumber, password, Gender);
         this.address = address;
         personType = personEnum.USER;
     }
 
-    public String getAddress() {
+    public DeliveryArea getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(DeliveryArea address) {
         this.address = address;
     }
 }

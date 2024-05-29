@@ -11,7 +11,8 @@ import java.sql.SQLException;
 import java.util.Locale;
 
 public class DeliveryPersonDAO extends personDAO {
-    public DeliveryPerson login(String username, String password) {
+    @Override
+    public DeliveryPerson login(String username, String password) throws Exception {
         Connection conn = null;
 
         try {
@@ -31,7 +32,7 @@ public class DeliveryPersonDAO extends personDAO {
                 String fName = rs.getString("fname");
                 String phone = rs.getString("PhoneNumber");
                 Gender gender = Gender.valueOf(rs.getString("Gender").toUpperCase(Locale.ROOT));
-                String deliveryArea = rs.getString("deliveryArea");
+                DeliveryArea deliveryArea = DeliveryArea.valueOf(rs.getString("deliveryArea"));
                 DeliveryStatus status = DeliveryStatus.valueOf(rs.getString("status").toUpperCase(Locale.ROOT));
                 return new DeliveryPerson(pid, lName, fName, phone, p, gender, deliveryArea, status);
             }
@@ -48,7 +49,7 @@ public class DeliveryPersonDAO extends personDAO {
         }
         return null;
     }
-    public boolean register(String PersonID, String LastName, String FirsName, String password, String PhoneNumber, Gender Gender, String deliveryArea) throws Exception {
+    public boolean register(String PersonID, String LastName, String FirsName, String password, String PhoneNumber, Gender Gender, DeliveryArea deliveryArea) throws Exception {
         Connection conn = null;
         try {
             conn = JDBCTool.getConnection();
@@ -65,7 +66,7 @@ public class DeliveryPersonDAO extends personDAO {
             query = "INSERT INTO deliveryperson (PersonID, DeliveryArea, Status) VALUES (?,?,?)";
             ps = conn.prepareStatement(query);
             ps.setString(1, PersonID);
-            ps.setString(2, deliveryArea);
+            ps.setString(2, deliveryArea.toString());
             ps.setString(3, DeliveryStatus.WAITING.toString());
             ps.executeUpdate();
             return true;
@@ -82,13 +83,13 @@ public class DeliveryPersonDAO extends personDAO {
             }
         }
     }
-    public boolean updateDeliveryArea(String PersonID, String deliveryArea) throws Exception {
+    public boolean updateDeliveryArea(String PersonID, DeliveryArea deliveryArea) throws Exception {
         Connection conn = null;
         try {
             conn = JDBCTool.getConnection();
             String query = "UPDATE user SET DeliveryArea=? WHERE PersonID=?";
             PreparedStatement ps = conn.prepareStatement(query);
-            ps.setString(1, deliveryArea);
+            ps.setString(1, deliveryArea.toString());
             ps.setString(2, PersonID);
             ps.executeUpdate();
             return true;
