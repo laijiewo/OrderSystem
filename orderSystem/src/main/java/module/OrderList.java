@@ -1,18 +1,18 @@
 package module;
 
 public class OrderList {
-    private final int orderId;
-    private final int DishId;
+    private final String orderId;
+    private final String DishId;
     private final String comments;
-    public OrderList(int orderId, int DishId, String comments) {
+    public OrderList(String orderId, String DishId, String comments) {
         this.orderId = orderId;
         this.DishId = DishId;
         this.comments = comments;
     }
-    public int getOrderId() {
+    public String getOrderId() {
         return orderId;
     }
-    public int getDishId() {
+    public String getDishId() {
         return DishId;
     }
     public String getComments() {
