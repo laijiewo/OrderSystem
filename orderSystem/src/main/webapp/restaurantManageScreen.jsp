@@ -48,12 +48,13 @@
     <link rel="stylesheet" href="RestaurantStyle.css">
 </head>
 <body>
+<%@ include file="exitButton.html" %>
 <div class="header">
     <h1 style="font: 50px hold"><% out.println(restaurantName); %></h1>
 </div>
 <div class="container">
     <div class="sidebar">
-        <h2 style="color: #f2f2f2">Restaurant Information:</h2>
+        <h2 style="color: rgb(70, 96, 117)">Restaurant Information:</h2>
         <div class="category">Restaurant Manager: </div>
         <div class="category1"><%out.print(restaurantManager.getFirsName() + " " + restaurantManager.getLastName());%></div>
         <div class="category">Start Management Date: </div>
@@ -64,6 +65,9 @@
         <div class="category1"><%out.print(restaurant.getRestaurantAddress());%></div>
         <div class="category">Business hours: </div>
         <div class="category1"><%out.print(restaurant.getBusiness_Hours());%></div>
+        <div>
+            <button class="update-button" onclick="location.href='updateRestaurant.jsp?restaurantID=<%= RestaurantID %>'">Update Restaurant Information</button>
+        </div>
     </div>
     <div class="content">
         <b><h2 style="font: 35px hold">DISHES:</h2></b>
@@ -72,17 +76,15 @@
                 for (Dish dish : dishList) {
             %>
             <div class="product">
-                <img src="photos/头像.jpg" alt="产品图片">
                 <div class="product-details">
                     <h3><%= dish.getDishName() %></h3>
                     <p>DishID: <%= dish.getDishId() %></p>
+                    <p>Is Dish Available: <%= dish.isDishAvailability() %></p>
                     <p class="price">￥<%= dish.getDishPrice() %></p>
                 </div>
-                <div class="update-Available-buttons">
-                    <button class="button" onclick="location.href='updateDish.jsp?dishID=<%= dish.getDishId() %>'">Update Dish</button>
-                </div>
-                <div class="delete-Dish-buttons">
-                    <button class="button" onclick="location.href='deleteDish.jsp?dishID=<%= dish.getDishId() %>'">Delete</button>
+                <div class="product-button-container">
+                    <button class="product-button" onclick="location.href='updateDish.jsp?dishID=<%= dish.getDishId() %>'">Update Dish</button>
+                    <button class="product-button" onclick="location.href='deleteDish.jsp?dishID=<%= dish.getDishId() %>'">Delete</button>
                 </div>
             </div>
             <%
@@ -93,6 +95,7 @@
 </div>
 <div class="button-container">
     <button class="button" onclick="location.href='addDish.jsp'">Add Dish</button>
+    <button class="button" onclick="location.href='orders.jsp'">Orders</button>
 </div>
 <%@ include file="footer.html" %>
 </body>

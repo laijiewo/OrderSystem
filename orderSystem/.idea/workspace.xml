@@ -10,18 +10,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3ddc0cf3-c706-4df5-9d3c-f0cb5a2ed8a3" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/addDish.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/addDishLogic.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/updateDish.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/updateDishLogic.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/deleteDish.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/exitButton.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/updateRestaurant.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/updateRestaurantLogic.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/dishDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/dishDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/RestaurantList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/RestaurantList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/RestaurantManagerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/RestaurantManagerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/restaurantDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/restaurantDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/restaurantDAOTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/RestaurantStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/RestaurantStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/restaurantManageScreen.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/restaurantManageScreen.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/restaurantManagerRegister.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/restaurantManagerRegister.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/restaurantManagerRegisterLogic.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/restaurantManagerRegisterLogic.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +33,7 @@
       <list>
         <option value="Class" />
         <option value="Jsp File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -59,6 +60,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -185,16 +187,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/webapp/updateDishLogic.jsp</url>
-          <line>26</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

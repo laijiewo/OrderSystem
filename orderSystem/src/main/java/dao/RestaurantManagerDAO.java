@@ -121,6 +121,26 @@ public class RestaurantManagerDAO extends personDAO {
         return null;
     }
 
+    public static String getManagerID(String restaurantID) {
+        String managerID = null;
+        try {
+            Connection conn = JDBCTool.getConnection();
+            String query = "SELECT M_PersonID FROM restaurant WHERE RestaurantID = ?";
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setString(1, restaurantID);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                managerID = rs.getString("M_PersonID");
+            }
+            rs.close();
+            pst.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return managerID;
+    }
     // Get start date of management by manager ID
     public static java.sql.Date getStartDate(int managerID) {
         java.sql.Date startDate = null;

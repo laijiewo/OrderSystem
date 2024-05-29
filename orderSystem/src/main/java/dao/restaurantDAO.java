@@ -105,51 +105,22 @@ public class restaurantDAO {
     }
 
 
-    // Update restaurant name
-    public static boolean updateRestaurantName(String restaurantID, String restaurantName) {
-        return updateRestaurantField(restaurantID, "RestaurantName", restaurantName);
-    }
-
-    // Update restaurant address
-    public static boolean updateRestaurantAddress(String restaurantID, String restaurantAddress) {
-        return updateRestaurantField(restaurantID, "Address", restaurantAddress);
-    }
-
-    // Update restaurant contact information
-    public static boolean updateContactInformation(String restaurantID, String contactInformation) {
-        return updateRestaurantField(restaurantID, "ContactInformation", contactInformation);
-    }
-
-    // Update restaurant business hours
-    public static boolean updateBusinessHours(String restaurantID, String businessHours) {
-        return updateRestaurantField(restaurantID, "BusinessHours", businessHours);
-    }
-
-    // Update restaurant manager person ID
-    public static boolean updateManagerPersonID(String restaurantID, String managerPersonID) {
-        return updateRestaurantField(restaurantID, "M_PersonID", managerPersonID);
-    }
-
-    // Helper method to update a specific field
-    private static boolean updateRestaurantField(String restaurantID, String fieldName, String fieldValue) {
-        boolean result = false;
-
+    public boolean updateRestaurant(Restaurant r)  {
         try {
             Connection conn = JDBCTool.getConnection();
-            String query = "UPDATE restaurant SET " + fieldName + " = ? WHERE RestaurantID = ?";
-            PreparedStatement pst = conn.prepareStatement(query);
-            pst.setString(1, fieldValue);
-            pst.setString(2, restaurantID);
-            int rowsAffected = pst.executeUpdate();
-            result = rowsAffected > 0;
-
-            pst.close();
-            conn.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
+            PreparedStatement ps = conn.prepareStatement("update restaurant set RestaurantName=?," +
+                                                                 "Address=?,ContactInformation=?,BusinessHours=?,M_PersonID=? where RestaurantID = ?");
+            ps.setString(1, r.getRestaurantName());
+            ps.setString(2,r.getRestaurantAddress());
+            ps.setString(3,r.getContact_Information());
+            ps.setString(4,r.getBusiness_Hours());
+            ps.setString(5,r.getM_PersonID());
+            ps.setString(6,r.getRestaurantID());
+            return ps.execute();
+        }catch (SQLException s){
+            s.printStackTrace();
+            return false;
         }
-
-        return result;
     }
 
     public static boolean deleteOwnRestaurant(String restaurantID, String userID) {

@@ -23,7 +23,6 @@
     String Address = request.getParameter("Address");
     String ContactInformation = request.getParameter("Contact Information");
     String BusinessHours = request.getParameter("Business Hours");
-    String DeliveryArea = request.getParameter("Delivery Area");
 
     out.print(personID);
     out.print(password);
@@ -36,7 +35,6 @@
     out.print(Address);
     out.print(ContactInformation);
     out.print(BusinessHours);
-    out.print(DeliveryArea);
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     String dateStr = sdf.format(new Date());
 
