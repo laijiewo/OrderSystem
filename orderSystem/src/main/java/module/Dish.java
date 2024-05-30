@@ -1,5 +1,7 @@
 package module;
 
+import java.util.List;
+
 public class Dish {
     private final String DishId;
     private String DishName;
@@ -14,6 +16,16 @@ public class Dish {
         this.DishPrice = DishPrice;
         this.DishAvailability = DishAvailability;
         this.D_RestaurantId = D_RestaurantId;
+    }
+
+    public int number_of_dishes(List<Dish> dishes){
+        int count = 0;
+        for(Dish d : dishes) {
+            if(d.equals(this)) {
+                count++;
+            }
+        }
+        return count;
     }
 
     public String getDishId() {

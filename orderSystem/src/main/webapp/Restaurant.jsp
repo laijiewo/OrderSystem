@@ -19,6 +19,7 @@
     String restaurantName = restaurantDAO.getRestaurantByID(RestaurantID).getRestaurantName();
     dishDAO dishDAO = new dishDAO();
     List<Dish> dishList = dishDAO.getDishesByRestaurantID(RestaurantID);
+    List<Dish> shoppingTrolley = new ArrayList<>();
 
 %>
 <!DOCTYPE html>
@@ -46,11 +47,12 @@
             <%
                 for (Dish dish : dishList) {
             %>
+            <button class="button" onclick="<%shoppingTrolley.add(dish);%>">
             <div class="product">
-                <img src="photos/头像.jpg" alt="产品图片">
                 <div class="product-details">
                     <h3><%= dish.getDishName() %></h3>
                     <p>DishID: <%= dish.getDishId() %></p>
+                    <p class="number" <%= dish.number_of_dishes(shoppingTrolley)%>>
                     <p class="price">￥<%= dish.getDishPrice() %></p>
                 </div>
             </div>
