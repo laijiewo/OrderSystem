@@ -14,7 +14,7 @@
     Date date = Date.valueOf(request.getParameter("date"));
     boolean paymentStatus = Boolean.parseBoolean(request.getParameter("paymentStatus"));
 
-    Order order = new Order(orderId, date, paymentStatus, personId);
+    Order order = new Order(orderId, date, personId);
     boolean success = false;
     try {
         success = orderDAO.insertOrder(order);

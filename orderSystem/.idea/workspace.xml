@@ -10,10 +10,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3ddc0cf3-c706-4df5-9d3c-f0cb5a2ed8a3" name="更改" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/delivery.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/restaurantManageStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/updateDeliveryStatus.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/updateOrderStatus.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/RestaurantListStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/RestaurantListStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/RestaurantStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/RestaurantStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/loginStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/loginStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DeliveryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DeliveryDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DeliveryPersonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DeliveryPersonDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/orderDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/orderDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module/enums/OderStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module/enums/OderStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Delivery.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Delivery.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/addOrder.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/addOrder.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/restaurantManageScreen.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/restaurantManageScreen.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,6 +35,7 @@
       <list>
         <option value="Class" />
         <option value="HTML File" />
+        <option value="CSS File" />
         <option value="Jsp File" />
       </list>
     </option>
@@ -43,6 +53,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2h8P2VmMA4tsvdNCLiPZDvztcoX" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -59,10 +72,12 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager">
@@ -164,6 +179,8 @@
       <option name="presentableId" value="Default" />
       <updated>1716972526089</updated>
       <workItem from="1716972527367" duration="510000" />
+      <workItem from="1717038170896" duration="1872000" />
+      <workItem from="1717053992846" duration="12600000" />
     </task>
     <servers />
   </component>

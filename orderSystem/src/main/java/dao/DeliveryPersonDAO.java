@@ -4,10 +4,10 @@ import JDBC.JDBCTool;
 import module.*;
 import module.enums.*;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Locale;
 
 public class DeliveryPersonDAO extends personDAO {
@@ -127,6 +127,30 @@ public class DeliveryPersonDAO extends personDAO {
                     e.printStackTrace();
                 }
             }
+        }
+    }
+    public List<Order> getOrders(String PersonID) throws Exception {
+        Connection conn = null;
+        try {
+            conn = JDBCTool.getConnection();
+            String query = "SELECT * FROM deliver as d " +
+                    "LEFT JOIN `order` as o ON d.OrderID = o.OrderID " +
+                    "WHERE d.Deli_PersonID=?";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1, PersonID);
+
+            ResultSet rs = ps.executeQuery();
+            List<Order> orders = new ArrayList<>();
+            while (rs.next()) {
+                String OrderID = rs.getString("OrderID");
+                String userID = rs.getString("PersonID");
+                Date date = rs.getDate("Date");
+                Order r = new Order(OrderID, date, userID);
+                orders.add(r);
+            }
+            return orders;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 }

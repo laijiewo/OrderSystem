@@ -45,10 +45,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><% out.println(restaurantName); %></title>
     <link rel="shortcut icon"  href="photos/bitbug_favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="RestaurantStyle.css">
+    <link rel="stylesheet" href="restaurantManageStyle.css">
 </head>
 <body>
 <%@ include file="exitButton.html" %>
+<img src="<%= request.getContextPath() + "/photos/logo.png" %>" alt="logo">
 <div class="header">
     <h1 style="font: 50px hold"><% out.println(restaurantName); %></h1>
     <img src="<%= request.getContextPath() + "/photos/logo.png" %>" alt="logo">
@@ -96,7 +97,8 @@
 </div>
 <div class="button-container">
     <button class="button" onclick="location.href='addDish.jsp'">Add Dish</button>
-    <button class="button" onclick="location.href='orders.jsp'">Orders</button>
+    <button class="button" onclick="location.href='OrderList.jsp'">Orders</button>
+    <button class="button" onclick="location.href='ReviewList.jsp'">Reviews</button>
 </div>
 <%@ include file="footer.html" %>
 </body>

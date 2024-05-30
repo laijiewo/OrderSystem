@@ -1,12 +1,23 @@
 <%@ page import="java.util.List" %>
 <%@ page import="dao.DeliveryDAO" %>
 <%@ page import="module.Deliver" %>
+<%@ page import="module.DeliveryPerson" %>
+<%@ page import="module.Order" %>
+<%@ page import="dao.DeliveryPersonDAO" %>
+<%@ page import="dao.userDAO" %>
+<%@ page import="module.enums.DeliveryArea" %>
 <%@ page import="module.enums.OderStatus" %>
 <%
     // Create an instance of DeliveryDAO
-    DeliveryDAO deliveryDAO = new DeliveryDAO();
+    DeliveryPersonDAO deliveryPersonDAO = new DeliveryPersonDAO();
     // Get all delivers
-    List<Deliver> delivers = deliveryDAO.getAllDelivers();
+    DeliveryPerson dp = (DeliveryPerson) session.getAttribute("deliveryPerson");
+    List<Order> orders;
+    try {
+        orders = deliveryPersonDAO.getOrders(dp.getPersonID());
+    } catch (Exception e) {
+        throw new RuntimeException(e);
+    }
 %>
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -14,143 +25,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delivery Personnel Dashboard</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: rgb(224, 210, 163);
-            margin: 0;
-            padding: 0;
-        }
-        .header {
-            background-color: rgb(92, 147, 148);
-            padding: 20px;
-            text-align: center;
-            color: #fff;
-        }
-        .header h1 {
-            margin: 0;
-        }
-        .container {
-            display: flex;
-            margin: 20px;
-        }
-        .sidebar {
-            width: 20%;
-            background-color: rgb(139, 166, 147);
-            padding: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .content {
-            width: 80%;
-            padding: 10px;
-        }
-        .profile {
-            margin-bottom: 20px;
-        }
-        .profile h2 {
-            margin-bottom: 10px;
-        }
-        .profile p {
-            margin: 5px 0;
-        }
-        .order-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1%;
-        }
-        .order-detail {
-            width: calc(50% - 10px);
-            height: 200px;
-            background-color: #ffffff;
-            padding: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-        .order-detail h3 {
-            margin: 10px 0;
-            color: rgb(70, 96, 117);
-        }
-        .order-detail p {
-            margin: 0 0 10px;
-        }
-        .order-detail .status {
-            color: rgb(92, 147, 148);
-            font-weight: bold;
-        }
-        .update-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-        .update-button {
-            padding: 10px;
-            background-color: rgb(92, 147, 148);
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-        }
-        .update-button:hover {
-            background-color: rgb(70, 96, 117);
-        }
-    </style>
-    <script>
-        function updateOrderStatus(orderId, newStatus) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "updateOrderStatus", true);
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    document.getElementById("status-" + orderId).innerText = "Status: " + newStatus;
-                } else if (xhr.readyState == 4) {
-                    alert("Failed to update order status.");
-                }
-            };
-
-            xhr.send("orderId=" + orderId + "&newStatus=" + newStatus);
-        }
-    </script>
+    <link rel="stylesheet" href="delivery.css">
+    <link rel="shortcut icon"  href="photos/bitbug_favicon.ico" type="image/x-icon" />
 </head>
 <body>
+<%@ include file="exitButton.html" %>
+<img src="<%= request.getContextPath() + "/photos/logo.png" %>" alt="logo">
 <div class="header">
     <h1>Delivery Personnel Dashboard</h1>
 </div>
 <div class="container">
     <div class="sidebar">
+        <%
+            DeliveryPerson deliveryPerson = (DeliveryPerson) session.getAttribute("deliveryPerson");
+        %>
         <div class="profile">
-            <h2>Profile</h2>
-            <p>Name: John Doe</p>
-            <p>Email: johndoe@example.com</p>
-            <p>Phone: 123-456-7890</p>
+            <h2 style="color: rgb(70, 96, 117)">Delivery Personal Information:</h2>
+            <div class="category">Delivery Person: </div>
+            <div class="category1"><%out.print(deliveryPerson.getFirsName() + " " + deliveryPerson.getLastName());%></div>
+            <div class="category">Delivery Area: </div>
+            <div class="category1"><%out.print(deliveryPerson.getDeliveryArea());%></div>
+            <button class="update-button" onclick="location.href='updateDeliveryArea.jsp?deliveryPersonID=<%= deliveryPerson.getPersonID() %>'">Update Delivery Area</button>
+            <div class="category">Phone Number: </div>
+            <div class="category1">Phone: <%out.print(deliveryPerson.getPhoneNumber());%></div>
+            <div class="category">Delivery Status: </div>
+            <div class="category1"><%out.print(deliveryPerson.getDeliveryStatus());%></div>
+            <button class="update-button" onclick="location.href='updateDeliveryStatus()'">Update Delivery Status</button>
         </div>
     </div>
     <div class="content">
         <h2>Active Orders</h2>
-        <div class="order-list">
+        <div class="products">
             <%
-                for (Deliver deliver : delivers) {
+                for (Order order : orders) {
+                    String orderID = order.getOrderId();
             %>
-            <div class="order-detail">
-                <h3>Order <%= deliver.getOrderID() %></h3>
-                <p>Delivery Person ID: <%= deliver.getDeli_PersonID() %></p>
-                <p id="status-<%= deliver.getOrderID() %>" class="status">Status: <%= deliver.getStatus() %></p>
-                <div class="update-buttons">
-                    <button class="update-button" onclick="updateOrderStatus('<%= deliver.getOrderID() %>', 'NOT_DELIVERED')">Mark as Not Delivered</button>
-                    <button class="update-button" onclick="updateOrderStatus('<%= deliver.getOrderID() %>', 'DELIVERING')">Mark as Delivering</button>
-                    <button class="update-button" onclick="updateOrderStatus('<%= deliver.getOrderID() %>', 'DELIVERED')">Mark as Delivered</button>
+            <div class="product">
+                <div class="product-details">
+                    <h3> <% out.print("Order " + orderID);%></h3>
+                    <p> Delivery Person ID: <% out.print(order.getU_PersonId());%></p>
+                    <%
+                        userDAO userDAO = new userDAO();
+                        DeliveryArea deliveryArea = userDAO.getAddress(order.getU_PersonId());
+                        String phoneNumber = userDAO.getPhoneNumber(order.getU_PersonId());
+                        DeliveryDAO deliveryDAO = new DeliveryDAO();
+                    %>
+                    <p> Address: <% out.print(deliveryArea);%></p>
+                    <p> Customer Phone Number: <% out.print(phoneNumber);%></p>
+                    <%
+                        if (deliveryDAO.getDeliverStatus(orderID) != OderStatus.ARRIVED) {
+                    %>
+                    <div class="product-button-container">
+                        <button class="update-button" onclick="location.href='updateOrderStatus.jsp?orderID=<%= orderID %>'">Arrived</button>
+                    </div>
+                    <%
+                        }
+                    %>
                 </div>
             </div>
             <%
                 }
             %>
         </div>
-    </div>
 </div>
 <%@ include file="footer.html" %>
 </body>

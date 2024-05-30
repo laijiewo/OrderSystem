@@ -22,8 +22,7 @@ public class orderDAO {
                 String OrderID = rs.getString("OrderID");
                 String PersonID = rs.getString("PersonID");
                 Date date = rs.getDate("Date");
-                Boolean PaymentStatus = rs.getBoolean("PaymentStatus");
-                Order r = new Order(OrderID, date, PaymentStatus, PersonID);
+                Order r = new Order(OrderID, date, PersonID);
                 orders.add(r);
             }
         } catch (SQLException e) {
@@ -50,8 +49,7 @@ public class orderDAO {
             if (rs.next()) {
                 String PersonID = rs.getString("PersonID");
                 Date date = rs.getDate("Date");
-                Boolean PaymentStatus = rs.getBoolean("PaymentStatus");
-                order = new Order(OrderID, date, PaymentStatus, PersonID);
+                order = new Order(OrderID, date, PersonID);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -78,8 +76,7 @@ public class orderDAO {
                 String OrderID = rs.getString("OrderID");
                 String PersonIDFetched = rs.getString("PersonID");
                 Date date = rs.getDate("Date");
-                Boolean PaymentStatus = rs.getBoolean("PaymentStatus");
-                Order o = new Order(OrderID, date, PaymentStatus, PersonIDFetched);
+                Order o = new Order(OrderID, date, PersonIDFetched);
                 orders.add(o);
             }
         } catch (SQLException e) {
@@ -97,12 +94,11 @@ public class orderDAO {
         PreparedStatement ps = null;
         try {
             conn = JDBCTool.getConnection();
-            String sql = "INSERT INTO `order` (OrderID, PersonID, Date, PaymentStatus) VALUES (?, ?, ?, ?)";
+            String sql = "INSERT INTO `order` (OrderID, PersonID, Date) VALUES (?, ?, ?)";
             ps = conn.prepareStatement(sql);
             ps.setString(1, o.getOrderId());
             ps.setString(2, o.getU_PersonId());
             ps.setDate(3, o.getOrderDate());
-            ps.setBoolean(4, o.isPaid());
             int rowsInserted = ps.executeUpdate();
             return rowsInserted > 0;
         } catch (SQLException s) {
@@ -119,12 +115,11 @@ public class orderDAO {
         PreparedStatement ps = null;
         try {
             conn = JDBCTool.getConnection();
-            String sql = "UPDATE `order` SET PersonID = ?, Date = ?, PaymentStatus = ? WHERE OrderID = ?";
+            String sql = "UPDATE `order` SET PersonID = ?, Date = ? WHERE OrderID = ?";
             ps = conn.prepareStatement(sql);
             ps.setString(1, o.getU_PersonId());
             ps.setDate(2, o.getOrderDate());
-            ps.setBoolean(3, o.isPaid());
-            ps.setString(4, o.getOrderId());
+            ps.setString(3, o.getOrderId());
             int rowsUpdated = ps.executeUpdate();
             return rowsUpdated > 0;
         } catch (SQLException s) {
