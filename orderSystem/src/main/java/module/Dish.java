@@ -21,7 +21,7 @@ public class Dish {
     public int number_of_dishes(List<Dish> dishes){
         int count = 0;
         for(Dish d : dishes) {
-            if(d.equals(this)) {
+            if(d.getDishId().equals(this.DishId)) {
                 count++;
             }
         }
