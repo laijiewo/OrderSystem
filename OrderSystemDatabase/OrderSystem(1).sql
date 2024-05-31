@@ -41,7 +41,7 @@ create table if not exists deliver
 (
     OrderID        char(8)                                                  not null
         primary key,
-    Deli_PersonID  char(6)                                                  not null,
+    Deli_PersonID  char(6),
     DeliveryStatus enum ('WAITING_FOR_DELIVERING', 'DELIVERING', 'ARRIVED') not null,
     constraint deliver_ibfk_1
         foreign key (OrderID) references `order` (OrderID)
@@ -139,9 +139,9 @@ create index RestaurantID
 
 create table if not exists user
 (
-    PersonID char(6)                                                                                                                               not null
+    PersonID char(6)   not null
         primary key,
-    Address  enum ('FIRST_TEACHING_BUILDING', 'SECOND_TEACHING_BUILDING', 'THIRD_TEACHING_BUILDING', 'FOURTH_TEACHING_BUILDING', 'GYM', 'LIBRARY') null,
+    Address  enum ('FIRST_TEACHING_BUILDING', 'SECOND_TEACHING_BUILDING', 'THIRD_TEACHING_BUILDING', 'FOURTH_TEACHING_BUILDING', 'GYM', 'LIBRARY') not null,
     constraint user_ibfk_1
         foreign key (PersonID) references person (PersonID)
             on update cascade on delete cascade
