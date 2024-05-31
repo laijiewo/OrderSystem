@@ -39,9 +39,8 @@ img {
     padding: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
-.sidebar .update-button {
-    background-color: rgb(92, 147, 148);
-    color: #fff;
+.update.button{
+    color: rgb(92, 147, 148);
     padding: 10px 20px;
     font: 15px bold;
     border-radius: 5px;
@@ -52,7 +51,8 @@ img {
     -webkit-appearance: none;
     box-shadow: none;
 }
-.sidebar .update-button:hover {
+
+.update.button:hover {
     transform: scale(1.05);
 }
 .sidebar h2 {
@@ -65,6 +65,12 @@ img {
 }
 .main {
     display: flex;
+    flex-flow: column wrap;
+    align-items: stretch;
+    align-content: space-between;
+}
+.restaurant{
+    display: flex;
     flex-direction: row;
     align-items: center;
 
@@ -75,35 +81,30 @@ img {
     border-radius: 10px;
     transition: transform 0.3s ease;
 }
-.main:hover {
+
+
+.product-button{
+    border-radius: 10px;
+}
+.product-button:hover {
     transform: scale(1.05);
 }
-.card {
-    background: rgb(139, 166, 147);
-    margin: 10px;
-    padding: 20px;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-    border-radius: 10px;
-    text-align: center;
-    flex: 1 1 calc(33% - 40px);
-    box-sizing: border-box;
-}
-
-.card-details {
+.product-details {
     margin-left: 20px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+
 }
-.card h3 {
+.product h3 {
     margin: 10px 0;
     color: rgb(255, 255, 255);
 }
-.card p {
+.product p {
     margin: 0 0 10px;
     color: rgb(255, 255, 255);
 }
-.card .information {
+.product .information {
     align-self: flex-end;
     color: rgb(255, 255, 255);
 

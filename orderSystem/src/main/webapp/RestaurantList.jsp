@@ -60,23 +60,22 @@
         <div class="category1"><%out.print(user.getPhoneNumber());%></div>
         <div class="category">Address: </div>
         <div class="category1"><%out.print(user.getAddress());%></div>
-        <div>
-            <button class="update-button" onclick="location.href='updateUser.jsp?userID=<%= user.getPersonID() %>'">Update User Information</button>
+        <div class="update">
+            <button class="button" onclick="location.href='updateUser.jsp?userID=<%= user.getPersonID() %>'">Update User Information</button>
         </div>
     </div>
     <div class="content">
         <div class="main">
             <% for (Restaurant restaurant : paginatedList) { %>
-            <button class="button" onclick="location.href='Restaurant.jsp?restaurantID=<%=restaurant.getRestaurantID()%>'">
-                <div class="card">
-                    <div class="card-details">
+            <button class="restaurant" onclick="location.href='Restaurant.jsp?restaurantID=<%=restaurant.getRestaurantID()%>'">
+                <div class="product">
+                    <div class="product-details">
                         <h3><%= restaurant.getRestaurantName() %></h3>
                         <p>Address: <%= restaurant.getRestaurantAddress() %></p>
                         <p class="information">Contact information: <%= restaurant.getContact_Information() %></p>
                     </div>
                 </div>
             </button>
-
             <% } %>
         </div>
     </div>

@@ -21,18 +21,6 @@ img {
     left: 130px;
     transform: translateX(-50%);
 }
-.button .place{
-    color: #fff;
-    padding: 10px 20px;
-    font: 15px bold;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: transform 0.3s ease;
-    border: none;
-    outline: none;
-    -webkit-appearance: none;
-    box-shadow: none;
-}
 .header h1 {
     margin: 0;
 }
@@ -47,14 +35,7 @@ img {
     padding: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
-.content {
-    color: #f2f2f2;
-    width: 200%;
-    padding: 20px;
-}
-.content h2 {
-    color: rgb(70, 96, 117)
-}
+
 .category {
     color: rgb(70, 96, 117);
     margin-bottom: 10px;
@@ -64,6 +45,26 @@ img {
     color: #f2f2f2;
     margin-bottom: 10px;
     font: 15px bold;
+}
+.content {
+    color: #f2f2f2;
+    width: 200%;
+    padding: 20px;
+}
+.content h2 {
+    color: rgb(70, 96, 117)
+}
+.place .button{
+    color: rgb(70, 96, 117);
+    padding: 10px 20px;
+    font: 15px bold;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+    box-shadow: none;
 }
 .products {
     display: flex;
@@ -84,7 +85,6 @@ img {
     transition: transform 0.3s ease;
 }
 .product-button{
-
     border-radius: 10px;
 }
 .product-button:hover {

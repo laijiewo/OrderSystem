@@ -74,7 +74,10 @@
     </div>
     <div class="content">
         <h2>HOT DISHES</h2>
-        <button name="place an order" class="place" type="button" onclick="location.href='order.jsp?orderID=<%=randomString.generateRandomOrderID(8)%>'">place an order</button>
+        <div class="place">
+            <button name="place an order" class="button" type="button" onclick="location.href='order.jsp?' +
+                    'orderID=<%=randomString.generateRandomOrderID(8)%>'">place an order</button>
+        </div>
         <div class="products">
             <%
                 for (Dish dish : dishList) {
