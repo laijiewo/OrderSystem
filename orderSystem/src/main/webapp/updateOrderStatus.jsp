@@ -11,7 +11,6 @@
 <%
     String orderID = request.getParameter("orderID");
     DeliveryDAO deliveryDAO = new DeliveryDAO();
-    System.out.println(orderID);
     deliveryDAO.updateDeliverStatus(orderID, OderStatus.ARRIVED);
     response.sendRedirect("Delivery.jsp");
 %>

@@ -1,6 +1,5 @@
 <%@ page import="java.util.List" %>
 <%@ page import="dao.DeliveryDAO" %>
-<%@ page import="module.Deliver" %>
 <%@ page import="module.DeliveryPerson" %>
 <%@ page import="module.Order" %>
 <%@ page import="dao.DeliveryPersonDAO" %>
@@ -50,11 +49,11 @@
             <div class="category1">Phone: <%out.print(deliveryPerson.getPhoneNumber());%></div>
             <div class="category">Delivery Status: </div>
             <div class="category1"><%out.print(deliveryPerson.getDeliveryStatus());%></div>
-            <button class="update-button" onclick="location.href='updateDeliveryStatus()'">Update Delivery Status</button>
+            <button class="update-button" onclick="location.href='updateDeliveryStatus.jsp?restaurant=<%=dp%>'">Update Delivery Status</button>
         </div>
     </div>
     <div class="content">
-        <h2>Active Orders</h2>
+        <h2>Orders</h2>
         <div class="products">
             <%
                 for (Order order : orders) {
@@ -72,16 +71,17 @@
                     %>
                     <p> Address: <% out.print(deliveryArea);%></p>
                     <p> Customer Phone Number: <% out.print(phoneNumber);%></p>
-                    <%
-                        if (deliveryDAO.getDeliverStatus(orderID) != OderStatus.ARRIVED) {
-                    %>
-                    <div class="product-button-container">
-                        <button class="update-button" onclick="location.href='updateOrderStatus.jsp?orderID=<%= orderID %>'">Arrived</button>
-                    </div>
-                    <%
-                        }
-                    %>
+                    <p> Order Status: <% out.print(deliveryDAO.getDeliverStatus(orderID));%></p>
                 </div>
+                <%
+                    if (deliveryDAO.getDeliverStatus(orderID) != OderStatus.ARRIVED) {
+                %>
+                <div class="product-button-container">
+                    <button class="update-button" onclick="location.href='updateOrderStatus.jsp?orderID=<%= orderID %>'">Arrived</button>
+                </div>
+                <%
+                    }
+                %>
             </div>
             <%
                 }

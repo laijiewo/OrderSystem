@@ -87,7 +87,7 @@ public class DeliveryPersonDAO extends personDAO {
         Connection conn = null;
         try {
             conn = JDBCTool.getConnection();
-            String query = "UPDATE user SET DeliveryArea=? WHERE PersonID=?";
+            String query = "UPDATE deliveryperson SET DeliveryArea=? WHERE PersonID=?";
             PreparedStatement ps = conn.prepareStatement(query);
             ps.setString(1, deliveryArea.toString());
             ps.setString(2, PersonID);
@@ -110,7 +110,7 @@ public class DeliveryPersonDAO extends personDAO {
         Connection conn = null;
         try {
             conn = JDBCTool.getConnection();
-            String query = "UPDATE user SET Status=? WHERE PersonID=?";
+            String query = "UPDATE deliveryperson SET Status=? WHERE PersonID=?";
             PreparedStatement ps = conn.prepareStatement(query);
             ps.setString(1, status.toString());
             ps.setString(2, PersonID);

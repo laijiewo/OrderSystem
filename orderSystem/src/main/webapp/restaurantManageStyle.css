@@ -8,15 +8,17 @@ img {
     margin-right: 20px;
     max-width: 250px;
     position: absolute;
-    top: 20px;
+    top: 5px;
     left: 130px;
     transform: translateX(-50%);
 }
 .header {
     background-color: rgb(92, 147, 148);
     padding: 20px;
-    height: 300px;
-    text-align: center;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: #fff;
 }
 .header h1 {
