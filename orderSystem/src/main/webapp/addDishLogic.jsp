@@ -11,7 +11,7 @@
 <%@ page import="module.Dish" %>
 <%@ page import="java.sql.SQLException" %>
 <%
-    String dishID = request.getParameter("DishID");
+    String dishID = request.getParameter("id");
     String dishName = request.getParameter("DishName");
     double dishPrice = Double.parseDouble(request.getParameter("Price"));
     boolean isAvailable = Boolean.parseBoolean(request.getParameter("Is Available"));

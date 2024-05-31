@@ -21,7 +21,7 @@
     } else if (deliveryArea.equals("THIRD_TEACHING_BUILDING")) {
         area = DeliveryArea.THIRD_TEACHING_BUILDING;
     } else if (deliveryArea.equals("FOURTH_TEACHING_BUILDING")) {
-        area = DeliveryArea.Fourth_TEACHING_BUILDING;
+        area = DeliveryArea.FOURTH_TEACHING_BUILDING;
     } else if (deliveryArea.equals("GYM")) {
         area = DeliveryArea.GYM;
     } else if (deliveryArea.equals("LIBRARY")) {

@@ -10,14 +10,35 @@
     // Create an instance of DeliveryDAO
     DeliveryPersonDAO deliveryPersonDAO = new DeliveryPersonDAO();
     // Get all delivers
-    DeliveryPerson dp = (DeliveryPerson) session.getAttribute("deliveryPerson");
+    DeliveryPerson deliveryPerson = (DeliveryPerson) session.getAttribute("deliveryPerson");
     List<Order> orders;
     try {
-        orders = deliveryPersonDAO.getOrders(dp.getPersonID());
+        orders = deliveryPersonDAO.getOrders(deliveryPerson.getPersonID());
     } catch (Exception e) {
         throw new RuntimeException(e);
     }
 %>
+<style>
+    .delete-button {
+        background-color: rgb(139, 166, 147);
+        color: #fff;
+        position: absolute;
+        top: 10px;
+        right: 100px;
+        padding: 10px 20px;
+        font: 15px bold;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: transform 0.3s ease;
+        border: none;
+        outline: none;
+        -webkit-appearance: none;
+        box-shadow: none;
+    }
+    .delete-button:hover {
+        transform: scale(1.05);
+    }
+</style>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -32,24 +53,25 @@
 <img src="<%= request.getContextPath() + "/photos/logo.png" %>" alt="logo">
 <div class="header">
     <h1>Delivery Personnel Dashboard</h1>
+    <button class="delete-button" onclick="location.href='deleteDeliveryPerson.jsp?deliveryPersonID=<%= deliveryPerson.getPersonID() %>'">Delete Delivery Person</button>
 </div>
 <div class="container">
     <div class="sidebar">
-        <%
-            DeliveryPerson deliveryPerson = (DeliveryPerson) session.getAttribute("deliveryPerson");
-        %>
         <div class="profile">
             <h2 style="color: rgb(70, 96, 117)">Delivery Personal Information:</h2>
             <div class="category">Delivery Person: </div>
             <div class="category1"><%out.print(deliveryPerson.getFirsName() + " " + deliveryPerson.getLastName());%></div>
+            <div class="category">Gender: </div>
+            <div class="category1"><%out.print(deliveryPerson.getGender());%></div>
+            <div class="category">Phone Number: </div>
+            <div class="category1"><%out.print(deliveryPerson.getPhoneNumber());%></div>
+            <button class="update-button" onclick="location.href='updateDeliveryPersonInformation.jsp?deliveryPersonID=<%= deliveryPerson.getPersonID() %>'">Update Person Information</button>
             <div class="category">Delivery Area: </div>
             <div class="category1"><%out.print(deliveryPerson.getDeliveryArea());%></div>
             <button class="update-button" onclick="location.href='updateDeliveryArea.jsp?deliveryPersonID=<%= deliveryPerson.getPersonID() %>'">Update Delivery Area</button>
-            <div class="category">Phone Number: </div>
-            <div class="category1">Phone: <%out.print(deliveryPerson.getPhoneNumber());%></div>
             <div class="category">Delivery Status: </div>
             <div class="category1"><%out.print(deliveryPerson.getDeliveryStatus());%></div>
-            <button class="update-button" onclick="location.href='updateDeliveryStatus.jsp?restaurant=<%=dp%>'">Update Delivery Status</button>
+            <button class="update-button" onclick="location.href='updateDeliveryStatus.jsp?restaurant=<%=deliveryPerson%>'">Update Delivery Status</button>
         </div>
     </div>
     <div class="content">

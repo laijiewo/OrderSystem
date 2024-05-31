@@ -9,12 +9,12 @@
 <%@ page import="dao.dishDAO" %>
 <%@ page import="java.util.List" %>
 <%@ page import="module.Dish" %>
-<%@ page import="java.util.*, javax.servlet.*, javax.servlet.http.*, javax.servlet.jsp.*" %>
 <%@ page import="dao.restaurantDAO" %>
 <%@ page import="module.randomString" %>
 <%@ page import="module.Restaurant" %>
 <%@ page import="dao.RestaurantManagerDAO" %>
 <%@ page import="module.RestaurantManager" %>
+<%@ page import="java.util.ArrayList" %>
 
 
 <%
@@ -76,7 +76,7 @@
         <h2>HOT DISHES</h2>
         <div class="place">
             <button name="place an order" class="button" type="button" onclick="location.href='order.jsp?' +
-                    'orderID=<%=randomString.generateRandomOrderID(8)%>'">place an order</button>
+                    'orderID=<%=randomString.generateRandomOrderID()%>'">place an order</button>
         </div>
         <div class="products">
             <%

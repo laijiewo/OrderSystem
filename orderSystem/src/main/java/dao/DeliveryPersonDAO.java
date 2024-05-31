@@ -106,6 +106,28 @@ public class DeliveryPersonDAO extends personDAO {
             }
         }
     }
+    public boolean deleteDeliveryPerson(String PersonID) throws Exception {
+        Connection conn = null;
+        try {
+            conn = JDBCTool.getConnection();
+            String query = "DELETE FROM person WHERE PersonID=?";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1, PersonID);
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        } finally {
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
     public boolean updateStatus(String PersonID, DeliveryStatus status) throws Exception {
         Connection conn = null;
         try {

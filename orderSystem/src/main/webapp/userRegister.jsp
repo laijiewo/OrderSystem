@@ -1,10 +1,13 @@
-<%--
+<%@ page import="module.randomString" %><%--
   Created by IntelliJ IDEA.
   User: 李京旺
   Date: 2024/5/28
   Time: 15:08
   To change this template use File | Settings | File Templates.
 --%>
+<%
+    String randomStr = randomString.generateRandomPersonID();
+%>
 <html>
 <head>
     <title>User Register</title>
@@ -24,7 +27,7 @@
         <form class="login-form" method="post" action="userRegisterLogic.jsp">
             <p class="title">Please enter the following information:</p>
             <div class="flex-container">
-                <div class="flex-item"><input type="text" placeholder="PeronID" name="PeronID" required/></div>
+                <div class="flex-item"><input type="text" placeholder="PeronID" name="PeronID" value="<%= randomStr %>" required/></div>
                 <div class="flex-item"><input type="password" placeholder="password" name="password" required/></div>
                 <div class="flex-item"><input type="text" placeholder="phoneNumber" name="phoneNumber" required/></div>
                 <div class="flex-item">

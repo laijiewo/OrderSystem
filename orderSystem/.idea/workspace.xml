@@ -10,17 +10,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3ddc0cf3-c706-4df5-9d3c-f0cb5a2ed8a3" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/updateDeliveryArea.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/updateDeliveryAreaLogic.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/updateDeliveryStatusLogic.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/deleteDeliveryPerson.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/updateDeliveryPersonInformation.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/updateDeliveryPersonInformationLogic.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/DeliveryPersonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DeliveryPersonDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module/randomString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module/randomString.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/Delivery.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Delivery.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/delivery.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/delivery.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/restaurantManageStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/restaurantManageStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/updateDeliveryStatus.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/updateDeliveryStatus.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/updateOrderStatus.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/updateOrderStatus.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Restaurant.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Restaurant.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/addDish.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/addDish.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/addDishLogic.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/addDishLogic.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/deliveryPersonRegister.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/deliveryPersonRegister.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/order.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/order.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/restaurantManagerRegister.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/restaurantManagerRegister.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/updateDeliveryAreaLogic.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/updateDeliveryAreaLogic.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/userRegister.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/userRegister.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,6 +188,7 @@
       <workItem from="1717080108279" duration="5185000" />
       <workItem from="1717085577538" duration="547000" />
       <workItem from="1717123271313" duration="1659000" />
+      <workItem from="1717131267712" duration="10781000" />
     </task>
     <servers />
   </component>

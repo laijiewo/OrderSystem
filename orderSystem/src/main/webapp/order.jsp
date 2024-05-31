@@ -14,7 +14,7 @@
 <%
     String OrderID = request.getParameter("orderID");
     if (OrderID == null) {
-        OrderID = randomString.generateRandomOrderID(8);
+        OrderID = randomString.generateRandomOrderID();
     }
     String DishID = request.getParameter("DishID");
     List<Dish> shoppingTrolley = (List<Dish>) session.getAttribute("ShoppingTrolley");
