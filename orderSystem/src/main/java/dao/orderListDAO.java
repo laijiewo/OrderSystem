@@ -114,6 +114,41 @@ public class orderListDAO {
         }
     }
 
+    public static List<OrderList> getOrderListByPersonID(String PersonID) throws SQLException {
+        List<OrderList> orderLists = new ArrayList<>();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            conn = JDBCTool.getConnection();
+            String sql = "SELECT *\n" +
+                    "FROM orderlist\n" +
+                    "WHERE OrderID IN (\n" +
+                    "    SELECT OrderID\n" +
+                    "    FROM `order`\n" +
+                    "    WHERE PersonID = ?\n" +
+                    ");";
+            ps = conn.prepareStatement(sql);
+            ps.setString(1,  PersonID);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                String OrderID = rs.getString("OrderID");
+                String dishIDFetched = rs.getString("DishID");
+                String Comment = rs.getString("Comment");
+                int number = rs.getInt("number");
+                OrderList o = new OrderList(OrderID, dishIDFetched, Comment,number);
+                orderLists.add(o);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) rs.close();
+            if (ps != null) ps.close();
+            if (conn != null) conn.close();
+        }
+        return orderLists;
+    }
+
     public static boolean updateOrderList(OrderList o) throws SQLException {
         Connection conn = null;
         PreparedStatement ps = null;

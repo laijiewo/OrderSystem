@@ -63,6 +63,9 @@
         <div class="update">
             <button class="button" onclick="location.href='updateUser.jsp?userID=<%= user.getPersonID() %>'">Update User Information</button>
         </div>
+        <div class="orders">
+            <button class="button" onclick="location.href='OrderList.jsp'">View Orders</button>
+        </div>
     </div>
     <div class="content">
         <div class="main">

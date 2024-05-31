@@ -14,9 +14,12 @@
 <%@ page import="dao.orderListDAO" %>
 <%@ page import="java.time.ZonedDateTime" %>
 <%@ page import="java.time.format.DateTimeFormatter" %>
+<%@ page import="module.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    String username = (String) session.getAttribute("username");
+    User user =(User) session.getAttribute("user");
+    String username = user.getPersonID();
+    session.setAttribute("user",user);
     List<Dish> shoppingTrolley = (List<Dish>) session.getAttribute("ShoppingTrolley");
     List<OrderList> newOrderList = new ArrayList<>();
     String OrderID = request.getParameter("orderID");

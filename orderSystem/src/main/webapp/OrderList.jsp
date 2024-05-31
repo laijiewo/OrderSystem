@@ -3,12 +3,18 @@
 <%@ page import="module.OrderList" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.sql.SQLException" %>
+<%@ page import="module.User" %>
+<%
+    User user =(User) session.getAttribute("user");
+    String userID = user.getPersonID();
+    List<OrderList> orderList=orderListDAO.getOrderListByPersonID(userID);
+%>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order List</title>
+    <title>My ORDERS</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -17,7 +23,7 @@
             padding: 0;
         }
         .header {
-            background-color: #007bff;
+            background-color: rgb(92, 147, 148);
             padding: 20px;
             text-align: center;
             color: #fff;
@@ -43,7 +49,7 @@
             background-color: #f2f2f2;
         }
         .footer {
-            background-color: #007bff;
+            background-color: rgb(92, 147, 148);
             padding: 10px;
             text-align: center;
             color: #fff;
@@ -59,25 +65,26 @@
 </div>
 <div class="container">
     <h2>List of Orders</h2>
+    <div>
+        <button class="product-button" onclick="location.href='ReviewList.jsp'">show review List</button>
+    </div>
     <table>
         <tr>
             <th>Order ID</th>
             <th>Dish ID</th>
             <th>Comments</th>
+            <th>Number</th>
         </tr>
         <%
-            List<OrderList> orderLists = null;
-            try {
-                orderLists = orderListDAO.getOrderList();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            if (orderLists != null) {
-                for (OrderList order : orderLists) {
+            if (orderList != null) {
+                for (OrderList orderlist : orderList) {
+                    System.out.println(orderlist.getDishId());
+                    System.out.println("show orderlist");
                     out.println("<tr>");
-                    out.println("<td>" + order.getOrderId() + "</td>");
-                    out.println("<td>" + order.getDishId() + "</td>");
-                    out.println("<td>" + order.getComment() + "</td>");
+                    out.println("<td>" + orderlist.getOrderId() + "</td>");
+                    out.println("<td>" + orderlist.getDishId() + "</td>");
+                    out.println("<td>" + orderlist.getComment() + "</td>");
+                    out.println("<td>" + orderlist.getNumber() + "</td>");
                     out.println("</tr>");
                 }
             }

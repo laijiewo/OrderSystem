@@ -63,6 +63,20 @@ img {
     display: flex;
     width: 100%;
 }
+.button{
+    background-color: rgb(92, 147, 148);
+    color: #fff;
+    padding: 10px 20px;
+    font: 15px bold;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+    box-shadow: none;
+}
+
 .main {
     display: flex;
     flex-flow: column wrap;
