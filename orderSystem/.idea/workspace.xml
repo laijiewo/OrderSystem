@@ -10,24 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3ddc0cf3-c706-4df5-9d3c-f0cb5a2ed8a3" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assignDelivery.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assignDeliveryToDeliveryPerson.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/restaurantOrder.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DeliveryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DeliveryDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DeliveryPersonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DeliveryPersonDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/orderDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/orderDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/orderListDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/orderListDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/restaurantDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/restaurantDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module/enums/OderStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module/enums/OderStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/OrderList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/OrderList.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/ReviewList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ReviewList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/addOrder.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/addOrder.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/addReview.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/addReview.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/restaurantManageScreen.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/restaurantManageScreen.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/updateDeliveryPersonInformation.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/updateDeliveryPersonInformation.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/updateOrderStatus.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/updateOrderStatus.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/updateUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/updateUser.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/deleteReview.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/managerReviewList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/managerReviewList.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,6 +176,9 @@
       <workItem from="1717085577538" duration="547000" />
       <workItem from="1717123271313" duration="1659000" />
       <workItem from="1717131267712" duration="10781000" />
+      <workItem from="1717166611896" duration="2921000" />
+      <workItem from="1717172632920" duration="947000" />
+      <workItem from="1717174910947" duration="1370000" />
     </task>
     <servers />
   </component>
@@ -206,5 +195,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/dao/DeliveryDAO.java</url>
+          <line>136</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

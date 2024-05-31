@@ -102,13 +102,6 @@
                 <td><%= review.getReviewContent() %></td>
                 <td><%= review.getR_RestaurantID() %></td>
                 <td><%= restaurant.getRestaurantName() %></td>
-                <td>
-                    <form action="deleteReview.jsp" method="post" style="display:inline;">
-                        <input type="hidden" name="personId" value="<%= review.getR_PersonID() %>">
-                        <input type="hidden" name="date" value="<%= review.getR_Date() %>">
-                        <input type="submit" value="Delete">
-                    </form>
-                </td>
             </tr>
             <%
                     }
