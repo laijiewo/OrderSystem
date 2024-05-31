@@ -120,7 +120,7 @@ img {
     gap: 10px;
 }
 
-.product-button {
+.product-button-container .update-button {
     background-color: rgb(92, 147, 148);
     color: #fff;
     padding: 10px 20px;
@@ -133,6 +133,9 @@ img {
     outline: none;
     -webkit-appearance: none;
     box-shadow: none;
+}
+.product-button-container .update-button:hover {
+    transform: scale(1.05);
 }
 
 .button-container {

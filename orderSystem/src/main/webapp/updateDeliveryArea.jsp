@@ -1,17 +1,14 @@
-<%@ page import="module.DeliveryPerson" %>
-<%@ page import="dao.DeliveryPersonDAO" %>
-<%@ page import="module.enums.DeliveryStatus" %>
-<%@ page import="java.util.Objects" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: 李京旺
   Date: 2024/5/30
-  Time: 16:17
+  Time: 23:55
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Delivery Status Update</title>
+    <title>Delivery Area Update</title>
     <link rel="shortcut icon" href="photos/bitbug_favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="managerRegisterStyle.css">
 </head>
@@ -20,20 +17,23 @@
 <div class="container">
     <div class="info">
         <h2>COMP2004J Group 14 Order System</h2>
-        <h2>Delivery Status Update Page</h2>
+        <h2>Delivery Area Update Page</h2>
     </div>
 </div>
 <div class="jump-to-register-page">
     <div class="form">
-        <form class="login-form" method="post" action="updateDeliveryStatusLogic.jsp">
+        <form class="login-form" method="post" action="updateDeliveryAreaLogic.jsp">
             <p class="title">Please enter the following information:</p>
             <div class="flex-container">
                 <label>
-                    <select name="DeliveryStatus" required>
-                        <option value="">Select Status</option>
-                        <option value="DELIVERING">Delivering</option>
-                        <option value="WAITING">Waiting</option>
-                        <option value="RESTING">Resting</option>
+                    <select name="DeliveryArea" required>
+                        <option value="">Select Delivery Area</option>
+                        <option value="FIRST_TEACHING_BUILDING">First Teaching Building</option>
+                        <option value="SECOND_TEACHING_BUILDING">Second Teaching Building</option>
+                        <option value="THIRD_TEACHING_BUILDING">Third Teaching Building</option>
+                        <option value="FOURTH_TEACHING_BUILDING">Fourth Teaching Building</option>
+                        <option value="GYM">Gym</option>
+                        <option value="LIBRARY">Library</option>
                     </select>
                 </label>
             </div>
@@ -44,3 +44,4 @@
 <%@ include file="footer.html" %>
 </body>
 </html>
+
