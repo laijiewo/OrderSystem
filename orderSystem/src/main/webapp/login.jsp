@@ -19,6 +19,7 @@
     personDAO personDAO = new personDAO();
     String username = request.getParameter("username");
     String password = request.getParameter("password");
+    session.setAttribute("username",username);
 
     out.print(username);
     out.print(password);

@@ -10,8 +10,11 @@
 <%@ page import="dao.restaurantDAO" %>
 <%@ page import="module.Restaurant" %>
 <%@ page import="java.util.*, javax.servlet.*, javax.servlet.http.*, javax.servlet.jsp.*" %>
+<%@ page import="javax.swing.*" %>
+<%@ page import="module.User" %>
 
 <%
+    User user = (User)session.getAttribute("user");
     int currentPage = 1;  // 修改变量名称
     int recordsPerPage = 6;
     String searchName = request.getParameter("searchName") != null ? request.getParameter("searchName") : "";
@@ -48,12 +51,18 @@
     </div>
     <div class="content">
         <div class="sidebar">
-            <h2>Classes</h2>
-            <ul>
-                <li>Class1</li>
-                <li>Class2</li>
-                <li>Class3</li>
-            </ul>
+            <h2>User Information</h2>
+            <div class="category">User: </div>
+            <div class="category1"><%out.print(user.getFirsName() + " " + user.getLastName());%></div>
+            <div class="category">Gender: </div>
+            <div class="category1"><%out.print(user.getGender());%></div>
+            <div class="category">phone number: </div>
+            <div class="category1"><%out.print(user.getPhoneNumber());%></div>
+            <div class="category">Address: </div>
+            <div class="category1">Address: <%out.print(user.getAddress());%></div>
+            <div>
+                <button class="update-button" onclick="location.href='updateUser.jsp?userID=<%= user.getPersonID() %>'">Update User Information</button>
+            </div>
         </div>
 
         <div class="main">

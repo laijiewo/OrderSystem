@@ -16,7 +16,7 @@
     if (OrderID == null) {
         OrderID = randomString.generateRandomOrderID(8);
     }
-    String DishID = request.getParameter("dishID");
+    String DishID = request.getParameter("DishID");
     List<Dish> shoppingTrolley = (List<Dish>) session.getAttribute("ShoppingTrolley");
     if (DishID != null) {
         if (shoppingTrolley != null) {
@@ -92,9 +92,12 @@
         }
         .footer {
             background-color: rgb(92, 147, 148);
-            padding: 20px;
+            color: white;
             text-align: center;
-            color: #fff;
+            padding: 10px 0;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
         }
     </style>
 </head>
@@ -129,20 +132,11 @@
             <%}%>
 
         </table>
-        <h2>Add New Order</h2>
-        <form action="addOrder.jsp" method="post">
-            <label for="orderId">Order ID:</label>
-            <input type="text" id="orderId" name="orderId" required><br>
-            <label for="personId">Person ID:</label>
-            <input type="text" id="personId" name="personId" required><br>
-            <label for="date">Date:</label>
-            <input type="date" id="date" name="date" required><br>
-            <label for="paymentStatus">Payment Status:</label>
-            <select id="paymentStatus" name="paymentStatus" required>
-                <option value="true">Paid</option>
-                <option value="false">Unpaid</option>
-            </select><br>
-            <input type="submit" value="Add Order">
+        <h2>Pay for the </h2>
+        <form action="addOrder.jsp?orderID=<%=OrderID%>" method="post" name="PAY">
+            <label for="comment">Comment:</label>
+            <input type="text" id="comment" name="comment" required><br>
+            <input type="submit" value="PAY">
         </form>
     </div>
 </div>

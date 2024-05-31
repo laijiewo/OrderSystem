@@ -77,7 +77,7 @@
                     out.println("<tr>");
                     out.println("<td>" + order.getOrderId() + "</td>");
                     out.println("<td>" + order.getDishId() + "</td>");
-                    out.println("<td>" + order.getComments() + "</td>");
+                    out.println("<td>" + order.getComment() + "</td>");
                     out.println("</tr>");
                 }
             }

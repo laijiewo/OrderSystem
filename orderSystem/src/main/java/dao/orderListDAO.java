@@ -21,9 +21,9 @@ public class orderListDAO {
             while (rs.next()) {
                 String OrderID = rs.getString("OrderID");
                 String DishID = rs.getString("DishID");
-                String Comments = rs.getString("Comments");
+                String Comment = rs.getString("Comment");
                 int number = rs.getInt("number");
-                OrderList r = new OrderList(OrderID, DishID, Comments,number);
+                OrderList r = new OrderList(OrderID, DishID, Comment,number);
                 orderLists.add(r);
             }
         } catch (SQLException e) {
@@ -49,9 +49,9 @@ public class orderListDAO {
             rs = ps.executeQuery();
             if (rs.next()) {
                 String DishID = rs.getString("DishID");
-                String Comments = rs.getString("Comments");
+                String Comment = rs.getString("Comment");
                 int number = rs.getInt("number");
-                orderList = new OrderList(OrderID, DishID, Comments,number);
+                orderList = new OrderList(OrderID, DishID, Comment,number);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -77,9 +77,9 @@ public class orderListDAO {
             while (rs.next()) {
                 String OrderID = rs.getString("OrderID");
                 String dishIDFetched = rs.getString("DishID");
-                String Comments = rs.getString("Comments");
+                String Comment = rs.getString("Comment");
                 int number = rs.getInt("number");
-                OrderList o = new OrderList(OrderID, dishIDFetched, Comments,number);
+                OrderList o = new OrderList(OrderID, dishIDFetched, Comment,number);
                 orderLists.add(o);
             }
         } catch (SQLException e) {
@@ -97,11 +97,12 @@ public class orderListDAO {
         PreparedStatement ps = null;
         try {
             conn = JDBCTool.getConnection();
-            String sql = "INSERT INTO orderlist (OrderID, DishID, Comments) VALUES (?, ?, ?)";
+            String sql = "INSERT INTO orderlist (OrderID, DishID, Comment,number) VALUES (?, ?, ?,?)";
             ps = conn.prepareStatement(sql);
             ps.setString(1, o.getOrderId());
             ps.setString(2, o.getDishId());
-            ps.setString(3, o.getComments());
+            ps.setString(3, o.getComment());
+            ps.setInt(4, o.getNumber());
             int rowsInserted = ps.executeUpdate();
             return rowsInserted > 0;
         } catch (SQLException s) {
@@ -118,10 +119,10 @@ public class orderListDAO {
         PreparedStatement ps = null;
         try {
             conn = JDBCTool.getConnection();
-            String sql = "UPDATE orderlist SET DishID = ?, Comments = ? WHERE OrderID = ?";
+            String sql = "UPDATE orderlist SET DishID = ?, Comment = ? WHERE OrderID = ?";
             ps = conn.prepareStatement(sql);
             ps.setString(1, o.getDishId());
-            ps.setString(2, o.getComments());
+            ps.setString(2, o.getComment());
             ps.setString(3, o.getOrderId());
             int rowsUpdated = ps.executeUpdate();
             return rowsUpdated > 0;

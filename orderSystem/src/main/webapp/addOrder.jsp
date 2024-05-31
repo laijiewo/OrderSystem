@@ -7,26 +7,46 @@
 --%>
 <%@ page import="java.sql.Date, dao.orderDAO, module.Order" %>
 <%@ page import="java.sql.SQLException" %>
+<%@ page import="module.Dish" %>
+<%@ page import="java.util.List" %>
+<%@ page import="module.OrderList" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="dao.orderListDAO" %>
+<%@ page import="java.time.ZonedDateTime" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    String orderId = request.getParameter("orderId");
-    String personId = request.getParameter("personId");
-    Date date = Date.valueOf(request.getParameter("date"));
-    boolean paymentStatus = Boolean.parseBoolean(request.getParameter("paymentStatus"));
+    String username = (String) session.getAttribute("username");
+    List<Dish> shoppingTrolley = (List<Dish>) session.getAttribute("ShoppingTrolley");
+    List<OrderList> newOrderList = new ArrayList<>();
+    String OrderID = request.getParameter("orderID");
+    String comment = request.getParameter("comment");
 
-    Order order = new Order(orderId, date, personId);
-    boolean success = false;
-    try {
-        success = orderDAO.insertOrder(order);
-    } catch (SQLException e) {
-        e.printStackTrace();
+    java.util.Date utilDate = new java.util.Date();
+    java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+    out.println("Order added successfully!");
+    Order order = new Order(OrderID,sqlDate, username );
+    orderDAO.insertOrder(order);
+
+
+    for (Dish dish : shoppingTrolley) {
+        boolean newOrder = true;
+        for (OrderList orderList:newOrderList){
+            if(dish.getDishId().equals(orderList.getDishId())){
+                orderList.increaseNumber();
+                newOrder = false;
+            }
+        }
+        OrderList  orderList = new OrderList(OrderID, dish.getDishId(),"",1);
+        if(newOrder){
+            newOrderList.add(orderList);
+        }
+    }
+    for (OrderList orderList:newOrderList) {
+        orderList.setComments(comment);
+        orderListDAO.insertOrderList(orderList);
     }
 
-    if (success) {
-        out.println("Order added successfully!");
-    } else {
-        out.println("Failed to add order.");
-    }
 %>
 <br>
-<a href="OrderList.jsp">Back to Order List</a>
+<a href="RestaurantList.jsp">Back to Restaurant List</a>
