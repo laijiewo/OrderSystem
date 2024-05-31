@@ -146,5 +146,3 @@ create table if not exists user
         foreign key (PersonID) references person (PersonID)
             on update cascade on delete cascade
 );
-
-    q`w1`
