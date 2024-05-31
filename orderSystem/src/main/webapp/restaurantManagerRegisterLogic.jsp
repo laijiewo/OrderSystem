@@ -40,7 +40,7 @@
 
     RestaurantManagerDAO restaurantManagerDAO = new RestaurantManagerDAO();
     try {
-        if (restaurantManagerDAO.register(personID, LName, FName, password, phoneNumber, module.enums.Gender.valueOf(gender), RestaurantID, RestaurantName, Address, ContactInformation, BusinessHours, java.sql.Date.valueOf(dateStr))) {
+        if (restaurantManagerDAO.register(personID, LName, FName, phoneNumber, password, module.enums.Gender.valueOf(gender), RestaurantID, RestaurantName, Address, ContactInformation, BusinessHours, java.sql.Date.valueOf(dateStr))) {
             response.sendRedirect("index.jsp");
         } else {
             System.out.println("wrong input");
