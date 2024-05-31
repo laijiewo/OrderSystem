@@ -15,6 +15,7 @@
 <%@ page import="java.time.ZonedDateTime" %>
 <%@ page import="java.time.format.DateTimeFormatter" %>
 <%@ page import="module.User" %>
+<%@ page import="dao.DeliveryDAO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     User user =(User) session.getAttribute("user");
@@ -30,7 +31,8 @@
     out.println("Order added successfully!");
     Order order = new Order(OrderID,sqlDate, username );
     orderDAO.insertOrder(order);
-
+    DeliveryDAO deliveryDAO = new DeliveryDAO();
+    deliveryDAO.addOrder(OrderID);
 
     for (Dish dish : shoppingTrolley) {
         boolean newOrder = true;

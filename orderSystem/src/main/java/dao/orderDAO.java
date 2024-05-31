@@ -6,18 +6,27 @@ import java.util.List;
 
 import JDBC.JDBCTool;
 import module.Order;
+import module.Restaurant;
 
 public class orderDAO {
 
-    public static List<Order> getOrderList() throws SQLException {
+    public static List<Order> getRestaurantOrderList(String RestaurantID) throws SQLException {
         List<Order> orders = new ArrayList<>();
         Connection conn = null;
         Statement st = null;
+        PreparedStatement ps;
         ResultSet rs = null;
         try {
             conn = JDBCTool.getConnection();
             st = conn.createStatement();
-            rs = st.executeQuery("SELECT * FROM `order`");
+            String sql = "SELECT DISTINCT o.OrderID, Date, PersonID FROM `order` as o " +
+                    "LEFT JOIN orderlist as ol ON o.OrderID = ol.OrderID " +
+                    "LEFT JOIN dish as d ON ol.DishID = d.DishID " +
+                    "LEFT JOIN restaurant as r ON d.D_RestaurantID = r.RestaurantID " +
+                    "         WHERE r.RestaurantID = ?";
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, RestaurantID);
+            rs = ps.executeQuery();
             while (rs.next()) {
                 String OrderID = rs.getString("OrderID");
                 String PersonID = rs.getString("PersonID");
@@ -60,7 +69,25 @@ public class orderDAO {
         }
         return order;
     }
-
+    public static Restaurant getRestaurantByOrderID(String OrderID) {
+        try {
+            String sql = "SELECT * FROM `order` as o LEFT JOIN orderlist as ol ON o.OrderID = ol.OrderID " +
+                    "LEFT JOIN dish as d ON ol.DishID = d.DishID WHERE o.OrderID = ?";
+            Connection conn = JDBCTool.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, OrderID);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                String RestaurantID = rs.getString("D_RestaurantID");
+                restaurantDAO rdao = new restaurantDAO();
+                Restaurant r = rdao.getRestaurantByID(RestaurantID);
+                return r;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
     public static List<Order> getOrdersByPersonID(String PersonID) throws SQLException {
         List<Order> orders = new ArrayList<>();
         Connection conn = null;
@@ -101,27 +128,6 @@ public class orderDAO {
             ps.setDate(3, o.getOrderDate());
             int rowsInserted = ps.executeUpdate();
             return rowsInserted > 0;
-        } catch (SQLException s) {
-            s.printStackTrace();
-            return false;
-        } finally {
-            if (ps != null) ps.close();
-            if (conn != null) conn.close();
-        }
-    }
-
-    public static boolean updateOrder(Order o) throws SQLException {
-        Connection conn = null;
-        PreparedStatement ps = null;
-        try {
-            conn = JDBCTool.getConnection();
-            String sql = "UPDATE `order` SET PersonID = ?, Date = ? WHERE OrderID = ?";
-            ps = conn.prepareStatement(sql);
-            ps.setString(1, o.getU_PersonId());
-            ps.setDate(2, o.getOrderDate());
-            ps.setString(3, o.getOrderId());
-            int rowsUpdated = ps.executeUpdate();
-            return rowsUpdated > 0;
         } catch (SQLException s) {
             s.printStackTrace();
             return false;

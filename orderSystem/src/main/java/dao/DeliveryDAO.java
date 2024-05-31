@@ -2,10 +2,6 @@ package dao;
 
 import JDBC.JDBCTool;
 import module.Deliver;
-import module.DeliveryPerson;
-import module.enums.DeliveryArea;
-import module.enums.DeliveryStatus;
-import module.enums.Gender;
 import module.enums.OderStatus;
 
 import java.sql.*;
@@ -42,8 +38,70 @@ public class DeliveryDAO {
 
         return delivers;
     }
+    public static void addOrder(String orderId) {
+        try {
+            // Establish database connection
+            Connection connection = JDBCTool.getConnection();
+            // Create a prepared statement
+            String sql = "INSERT INTO deliver (OrderID, Deli_PersonID, DeliveryStatus) VALUES (?, NULL, 'WAITING_FOR_DELIVERING')";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, orderId);
 
-    public boolean updateDeliverStatus(String orderId, OderStatus status) {
+            // Execute update
+            statement.executeUpdate();
+
+            // Close connections
+            statement.close();
+            connection.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static String getDeliverPersonID(String orderId) {
+        String id = null;
+        try {
+            // Establish database connection
+            Connection connection = JDBCTool.getConnection();
+            // Create a prepared statement
+            String sql = "SELECT * FROM deliver WHERE OrderID = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, orderId);
+
+            // Execute update
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                id = resultSet.getString("Deli_PersonID");
+            }
+            // Close connections
+            statement.close();
+            connection.close();
+            return id;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return id;
+    }
+    public static void addDeliver(String orderId, String deliPersonId) {
+        try {
+            // Establish database connection
+            Connection connection = JDBCTool.getConnection();
+            // Create a prepared statement
+            String sql = "UPDATE deliver SET Deli_PersonID = ? WHERE OrderID = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, deliPersonId);
+            statement.setString(2, orderId);
+
+            // Execute update
+            statement.executeUpdate();
+
+            // Close connections
+            statement.close();
+            connection.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static boolean updateDeliverStatus(String orderId, OderStatus status) {
         boolean updated = false;
 
         try {

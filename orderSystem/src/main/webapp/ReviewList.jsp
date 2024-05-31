@@ -14,6 +14,10 @@
 --%>
 <%@ page import="java.sql.Date, java.util.List, dao.reviewDAO, module.Review" %>
 <%@ page import="java.sql.SQLException" %>
+<%@ page import="module.User" %>
+<%@ page import="module.Order" %>
+<%@ page import="module.Restaurant" %>
+<%@ page import="dao.restaurantDAO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -73,12 +77,11 @@
         <h2>Review List</h2>
         <table>
             <tr>
-                <th>Person ID</th>
                 <th>Date</th>
                 <th>Rating</th>
                 <th>Review Content</th>
                 <th>Restaurant ID</th>
-                <th>Actions</th>
+                <th>Restaurant Name</th>
             </tr>
             <%
                 List<Review> reviews = null;
@@ -91,11 +94,14 @@
                     for (Review review : reviews) {
             %>
             <tr>
-                <td><%= review.getR_PersonID() %></td>
+                <%
+                    Restaurant restaurant = restaurantDAO.getRestaurantByID(review.getR_RestaurantID());
+                %>
                 <td><%= review.getR_Date() %></td>
                 <td><%= review.getRating() %></td>
                 <td><%= review.getReviewContent() %></td>
                 <td><%= review.getR_RestaurantID() %></td>
+                <td><%= restaurant.getRestaurantName() %></td>
                 <td>
                     <form action="deleteReview.jsp" method="post" style="display:inline;">
                         <input type="hidden" name="personId" value="<%= review.getR_PersonID() %>">
@@ -110,17 +116,11 @@
             %>
         </table>
         <h2>Add New Review</h2>
-        <form action="addReview.jsp" method="post">
-            <label for="personId">Person ID:</label>
-            <input type="text" id="personId" name="personId" required><br>
-            <label for="date">Date:</label>
-            <input type="date" id="date" name="date" required><br>
+        <form action="addReview.jsp?orderID=<%= request.getParameter("order") %>" method="post">
             <label for="rating">Rating:</label>
             <input type="number" step="0.1" id="rating" name="rating" required><br>
             <label for="reviewContent">Review Content:</label>
             <input type="text" id="reviewContent" name="reviewContent" required><br>
-            <label for="restaurantId">Restaurant ID:</label>
-            <input type="text" id="restaurantId" name="restaurantId" required><br>
             <input type="submit" value="Add Review">
         </form>
     </div>

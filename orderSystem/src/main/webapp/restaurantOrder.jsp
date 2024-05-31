@@ -1,20 +1,24 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: 李京旺
+  Date: 2024/5/31
+  Time: 19:18
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="dao.orderListDAO" %>
-<%@ page import="module.OrderList" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.sql.SQLException" %>
-<%@ page import="module.User" %>
-<%@ page import="module.Order" %>
 <%@ page import="dao.dishDAO" %>
-<%@ page import="module.Dish" %>
 <%@ page import="dao.orderDAO" %>
 <%@ page import="dao.DeliveryDAO" %>
 <%@ page import="module.enums.OderStatus" %>
 <%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="module.*" %>
 <%
-    User user = (User) session.getAttribute("user");
-    String userID = user.getPersonID();
-    List<Order> orders = orderDAO.getOrdersByPersonID(userID);
+    RestaurantManager rm = (RestaurantManager) session.getAttribute("restaurantManager");
+    String restaurantID = rm.getRestaurantID();
+    List<Order> orders = orderDAO.getRestaurantOrderList(restaurantID);
     dishDAO dishDAO = new dishDAO();
     DeliveryDAO deliveryDAO = new DeliveryDAO();
 %>
@@ -23,7 +27,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My ORDERS</title>
+    <title>RESTAURANT ORDERS</title>
+    <link rel="shortcut icon"  href="photos/bitbug_favicon.ico" type="image/x-icon" />
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -128,6 +133,7 @@
 <body>
 <div class="header">
     <h1>Order List</h1>
+    <button class="button" onclick="location.href='restaurantManageScreen.jsp'">Back</button>
 </div>
 <div class="container">
     <h2>List of Orders</h2>
@@ -159,10 +165,10 @@
             <p class="price">¥<%= totalPrice %>
             </p>
             <%
-                if (deliveryDAO.getDeliverStatus(o.getOrderId()).equals(OderStatus.ARRIVED)) {
+                if (deliveryDAO.getDeliverStatus(o.getOrderId()).equals(OderStatus.WAITING_FOR_DELIVERING  )) {
             %>
             <div class="review-button">
-                <button class="review-button" onclick="location.href='ReviewList.jsp?order=<%= o.getOrderId() %>'">Add Review</button>
+                <button class="review-button" onclick="location.href='assignDelivery.jsp?order=<%= o.getOrderId() %>'">Assign Delivery</button>
             </div>
             <%
                 }
@@ -179,3 +185,4 @@
 </div>
 </body>
 </html>
+

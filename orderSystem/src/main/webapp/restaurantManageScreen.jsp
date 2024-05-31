@@ -97,7 +97,7 @@
 </div>
 <div class="button-container">
     <button class="button" onclick="location.href='addDish.jsp'">Add Dish</button>
-    <button class="button" onclick="location.href='OrderList.jsp'">Orders</button>
+    <button class="button" onclick="location.href='restaurantOrder.jsp'">Orders</button>
     <button class="button" onclick="location.href='ReviewList.jsp'">Reviews</button>
 </div>
 <%@ include file="footer.html" %>

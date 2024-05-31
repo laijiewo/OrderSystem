@@ -175,4 +175,40 @@ public class DeliveryPersonDAO extends personDAO {
             throw new RuntimeException(e);
         }
     }
+    public static List<DeliveryPerson> getAllDeliveryPersonsDeliveryTo(DeliveryArea deliveryArea) throws Exception {
+        Connection conn = null;
+        try {
+            conn = JDBCTool.getConnection();
+            String query = "SELECT * FROM person AS p " +
+                    "RIGHT JOIN deliveryperson AS dp ON p.PersonID = dp.PersonID " +
+                    "WHERE dp.DeliveryArea=?";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1, deliveryArea.toString());
+
+            ResultSet rs = ps.executeQuery();
+            List<DeliveryPerson> deliveryPersons = new LinkedList<>();
+            while (rs.next()) {
+                String pid = rs.getString("PersonID");
+                String p = rs.getString("password");
+                String lName = rs.getString("lname");
+                String fName = rs.getString("fname");
+                String phone = rs.getString("PhoneNumber");
+                Gender gender = Gender.valueOf(rs.getString("Gender").toUpperCase(Locale.ROOT));
+                DeliveryArea da = DeliveryArea.valueOf(rs.getString("deliveryArea"));
+                DeliveryStatus status = DeliveryStatus.valueOf(rs.getString("status").toUpperCase(Locale.ROOT));
+                deliveryPersons.add(new DeliveryPerson(pid, lName, fName, phone, p, gender, da, status));
+            }
+            return deliveryPersons;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 }

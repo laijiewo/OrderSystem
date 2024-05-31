@@ -19,7 +19,7 @@
     <div class="info">
         <h2>COMP2004J Group 14 Order System</h2>
         <h2>User Information Update Page</h2>
-        .</div>
+    </div>
     <div class="jump-to-register-page">
         <div class="form">
             <form class="login-form" method="post" action="updateDeliveryPersonInformationLogic.jsp">
@@ -34,6 +34,7 @@
             </form>
         </div>
     </div>
-    <%@ include file="footer.html" %>
+</div>
+<%@ include file="footer.html" %>
 </body>
 </html>

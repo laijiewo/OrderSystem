@@ -1,29 +1,35 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: 李京旺
+  Date: 2024/5/31
+  Time: 19:18
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="dao.orderListDAO" %>
-<%@ page import="module.OrderList" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.sql.SQLException" %>
-<%@ page import="module.User" %>
-<%@ page import="module.Order" %>
-<%@ page import="dao.dishDAO" %>
-<%@ page import="module.Dish" %>
-<%@ page import="dao.orderDAO" %>
-<%@ page import="dao.DeliveryDAO" %>
 <%@ page import="module.enums.OderStatus" %>
 <%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="module.*" %>
+<%@ page import="dao.*" %>
+<%@ page import="module.enums.DeliveryArea" %>
+<%@ page import="module.enums.DeliveryStatus" %>
 <%
-    User user = (User) session.getAttribute("user");
-    String userID = user.getPersonID();
-    List<Order> orders = orderDAO.getOrdersByPersonID(userID);
-    dishDAO dishDAO = new dishDAO();
-    DeliveryDAO deliveryDAO = new DeliveryDAO();
+    String orderID = request.getParameter("order");
+    session.setAttribute("orderID", orderID);
+    orderDAO orderDao = new orderDAO();
+    Order order = orderDao.getOrderByID(orderID);
+    userDAO userDAO = new userDAO();
+    DeliveryArea deliveryArea = userDAO.getAddress(order.getU_PersonId());
+    List<DeliveryPerson> deliveryPersons = DeliveryPersonDAO.getAllDeliveryPersonsDeliveryTo(deliveryArea);
 %>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My ORDERS</title>
+    <title>Assign Delivery To Delivery Person</title>
+    <link rel="shortcut icon"  href="photos/bitbug_favicon.ico" type="image/x-icon" />
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -128,54 +134,48 @@
 <body>
 <div class="header">
     <h1>Order List</h1>
+    <button class="button" onclick="location.href='restaurantManageScreen.jsp'">Back</button>
 </div>
 <div class="container">
-    <h2>List of Orders</h2>
+    <h2>List of Delivery Persons</h2>
     <div class="products">
         <%
-            double totalPrice = 0d;
-            for (Order o : orders) {
-                List<OrderList> dishes = orderListDAO.getOrderListByOrderID(o.getOrderId());
+            for (DeliveryPerson dp : deliveryPersons) {
         %>
         <button type="submit" class="button">
             <div class="product">
                 <div class="product-details">
-                    <h3><%= o.getOrderId() %>
+                    <h3><%= dp.getPersonID() %>
                     </h3>
-                    <%
-                        for (OrderList ol : dishes) {
-                            Dish dish = dishDAO.getDishByID(ol.getDishId());
-                            int number = ol.getNumber();
-                            double price = dish.getDishPrice() * number;
-                            totalPrice += price;
-                    %>
-                    <p>Dish Name: <%= dish.getDishName() + " count: " + number + "    comment: " + ol.getComment() + "    price: ￥" + price %>
+                    <p> Delivery Person Name: <%= dp.getFirsName() + " " + dp.getLastName() %>
                     </p>
-                    <%
-                        }
-                    %>
+                    <p>Gender: <%= dp.getGender() %>
+                    </p>
+                    <p>Phone Number: <%= dp.getPhoneNumber() %>
+                    </p>
+                    <p>Delivery Status: <%= dp.getDeliveryStatus() %>
+                    </p>
+                    <p>Delivery Area: <%= deliveryArea.toString() %>
+                    </p>
                 </div>
             </div>
-            <p class="price">¥<%= totalPrice %>
-            </p>
             <%
-                if (deliveryDAO.getDeliverStatus(o.getOrderId()).equals(OderStatus.ARRIVED)) {
+                if (dp.getDeliveryStatus().equals(DeliveryStatus.WAITING)) {
             %>
             <div class="review-button">
-                <button class="review-button" onclick="location.href='ReviewList.jsp?order=<%= o.getOrderId() %>'">Add Review</button>
+                <button class="review-button" onclick="location.href='assignDeliveryToDeliveryPerson.jsp?personID=<%= dp.getPersonID() %>&orderID=<%= orderID %>'">Assign Delivery To This Person</button>
             </div>
             <%
                 }
             %>
         </button>
         <%
-                totalPrice = 0d;
             }
         %>
     </div>
 </div>
-<div class="footer">
-    <p>&copy; 2024 Order System</p>
-</div>
+<%@ include file="footer.html" %>
 </body>
 </html>
+
+

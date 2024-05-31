@@ -10,23 +10,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3ddc0cf3-c706-4df5-9d3c-f0cb5a2ed8a3" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/deleteDeliveryPerson.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/updateDeliveryPersonInformation.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/updateDeliveryPersonInformationLogic.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assignDelivery.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assignDeliveryToDeliveryPerson.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/restaurantOrder.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DeliveryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DeliveryDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/DeliveryPersonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DeliveryPersonDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module/randomString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module/randomString.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Delivery.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Delivery.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Restaurant.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Restaurant.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/addDish.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/addDish.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/addDishLogic.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/addDishLogic.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/deliveryPersonRegister.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/deliveryPersonRegister.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/order.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/order.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/restaurantManagerRegister.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/restaurantManagerRegister.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/updateDeliveryAreaLogic.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/updateDeliveryAreaLogic.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/userRegister.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/userRegister.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/orderDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/orderDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/orderListDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/orderListDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/restaurantDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/restaurantDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module/enums/OderStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module/enums/OderStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/OrderList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/OrderList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/ReviewList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ReviewList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/addOrder.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/addOrder.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/addReview.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/addReview.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/restaurantManageScreen.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/restaurantManageScreen.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/updateDeliveryPersonInformation.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/updateDeliveryPersonInformation.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/updateOrderStatus.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/updateOrderStatus.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/updateUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/updateUser.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

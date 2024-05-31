@@ -38,7 +38,7 @@ public class restaurantDAO {
         return restaurants;
     }
 
-    public Restaurant getRestaurantByID(String RestaurantID) throws SQLException {
+    public static Restaurant getRestaurantByID(String RestaurantID) throws SQLException {
         List<Restaurant> restaurants = getRestaurantList();
         Restaurant restaurant = null;
         for(Restaurant r : restaurants) {

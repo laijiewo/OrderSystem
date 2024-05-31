@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import JDBC.JDBCTool;
+import module.Dish;
 import module.OrderList;
 
 public class orderListDAO {
@@ -36,6 +37,36 @@ public class orderListDAO {
         return orderLists;
     }
 
+    public static List<OrderList> getOrderListByOrderID(String id) throws SQLException {
+        List<OrderList> orderLists = new ArrayList<>();
+        Connection conn = null;
+        Statement st = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            conn = JDBCTool.getConnection();
+            st = conn.createStatement();
+            String sql = "SELECT * FROM orderlist WHERE OrderID = ?";
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                String OrderID = rs.getString("OrderID");
+                String DishID = rs.getString("DishID");
+                String Comment = rs.getString("Comment");
+                int number = rs.getInt("number");
+                OrderList r = new OrderList(OrderID, DishID, Comment,number);
+                orderLists.add(r);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) rs.close();
+            if (st != null) st.close();
+            if (conn != null) conn.close();
+        }
+        return orderLists;
+    }
     public static OrderList getOrderByID(String OrderID) throws SQLException {
         OrderList orderList = null;
         Connection conn = null;

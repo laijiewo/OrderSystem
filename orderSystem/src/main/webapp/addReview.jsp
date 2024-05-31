@@ -6,15 +6,23 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page import="java.sql.Date, java.sql.SQLException, dao.reviewDAO, module.Review" %>
+<%@ page import="module.Order" %>
+<%@ page import="module.Restaurant" %>
+<%@ page import="dao.orderDAO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    String personId = request.getParameter("personId");
-    Date date = Date.valueOf(request.getParameter("date"));
+    String orderId = request.getParameter("orderID");
+    System.out.println(orderId);
+    Order order = orderDAO.getOrderByID(orderId);
+    String personId = order.getU_PersonId();
+    java.util.Date utilDate = new java.util.Date();
+    java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
     float rating = Float.parseFloat(request.getParameter("rating"));
     String reviewContent = request.getParameter("reviewContent");
-    String restaurantId = request.getParameter("restaurantId");
+    Restaurant restaurant = orderDAO.getRestaurantByOrderID(order.getOrderId());
+    String restaurantId = restaurant.getRestaurantID();
 
-    Review review = new Review(personId, date, rating, reviewContent, restaurantId);
+    Review review = new Review(personId, sqlDate, rating, reviewContent, restaurantId);
     boolean success = false;
     try {
         success = reviewDAO.insertReview(review);

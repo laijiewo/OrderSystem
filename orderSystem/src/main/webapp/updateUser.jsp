@@ -23,7 +23,8 @@
     <div class="info">
         <h2>COMP2004J Group 14 Order System</h2>
         <h2>User Information Update Page</h2>
-.</div>
+    </div>
+</div>
 <div class="jump-to-register-page">
     <div class="form">
         <form class="login-form" method="post" action="updateUserLogic.jsp">
@@ -50,7 +51,6 @@
             <button type="submit">update</button>
         </form>
     </div>
-</div>
 </div>
 <%@ include file="footer.html" %>
 </body>
