@@ -123,6 +123,29 @@ public class restaurantDAO {
         }
     }
 
+    public String getRestaurantManagerID(String restaurantID) throws SQLException {
+        String restaurantManagerID = "";
+        try {
+            Connection conn = JDBCTool.getConnection();
+            Statement st = conn.createStatement();
+
+            String query = "SELECT M_PersonID FROM restaurant WHERE RestaurantID = ?";
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setString(1, restaurantID);
+            ResultSet rs = pst.executeQuery();
+
+            while(rs.next()) {
+                restaurantManagerID = rs.getString("M_PersonID");
+            }
+            rs.close();
+            st.close();
+            conn.close();
+            return restaurantManagerID;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return restaurantManagerID;
+    }
     public static boolean deleteOwnRestaurant(String restaurantID, String userID) {
         boolean result = false;
 

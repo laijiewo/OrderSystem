@@ -3,8 +3,8 @@ import module.enums.Gender;
 import module.enums.personEnum;
 public class Person {
     private final String PersonID;
-    private final String LastName;
-    private final String FirsName;
+    private String LastName;
+    private String FirsName;
     private String PhoneNumber;
     private String password;
     private final Gender Gender;
@@ -29,6 +29,12 @@ public class Person {
     }
     public String getLastName() {
         return LastName;
+    }
+    public void setFirstName(String firstName) {
+        FirsName= firstName;
+    }
+    public void setLastName(String lastName) {
+        LastName = lastName;
     }
 
     public String getFirsName() {

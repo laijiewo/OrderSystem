@@ -4,12 +4,22 @@ body {
     margin: 0;
     padding: 0;
 }
-
 .header {
     background-color: rgb(92, 147, 148);
     padding: 20px;
-    text-align: center;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: #fff;
+}
+img {
+    margin-right: 20px;
+    max-width: 250px;
+    position: absolute;
+    top: 10px;
+    left: 130px;
+    transform: translateX(-50%);
 }
 .header h1 {
     margin: 0;

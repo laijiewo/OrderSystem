@@ -120,8 +120,39 @@ public class RestaurantManagerDAO extends personDAO {
 
         return null;
     }
+    public RestaurantManager getManager(String managerID) {
+        RestaurantManager manager = null;
+        try {
+            Connection conn = JDBCTool.getConnection();
+            String query = "SELECT * FROM person AS p " +
+                    "RIGHT JOIN restaurantmanager AS u ON p.PersonID = u.PersonID " +
+                    "WHERE p.PersonID=?";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1, managerID);
 
-    public static String getManagerID(String restaurantID) {
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                String pid = rs.getString("PersonID");
+                String p = rs.getString("password");
+                String lName = rs.getString("lname");
+                String fName = rs.getString("fname");
+                String phone = rs.getString("PhoneNumber");
+                Gender gender = Gender.valueOf(rs.getString("Gender").toUpperCase());
+                String RestaurantID = rs.getString("RestaurantID");
+                Date dateOfStartManager = rs.getDate("DateOfStartManager");
+                manager = new RestaurantManager(pid, lName, fName, phone, p, gender, RestaurantID, dateOfStartManager);
+            }
+            rs.close();
+            ps.close();
+            conn.close();
+            return manager;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return manager;
+    }
+        public static String getManagerID(String restaurantID) {
         String managerID = null;
         try {
             Connection conn = JDBCTool.getConnection();

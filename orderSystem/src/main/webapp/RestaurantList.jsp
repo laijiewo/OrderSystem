@@ -36,19 +36,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant List</title>
-    <link rel="stylesheet" href="RestaurantListStyle.css">
+    <link rel="stylesheet" href="RestaurantStyle.css">
+    <link rel="shortcut icon"  href="photos/bitbug_favicon.ico" type="image/x-icon" />
 </head>
 <body>
 <%@ include file="exitButton.html" %>
 <img src="<%= request.getContextPath() + "/photos/logo.png" %>" alt="logo">
+<div class="header">
+    <h1>Restaurants</h1>
+    <form method="GET" action="RestaurantList.jsp">
+        <input type="text" name="searchName" value="<%= searchName %>" placeholder="Search Restaurants">
+        <button type="submit">Search</button>
+    </form>
+</div>
 <div class="container">
-    <div class="header">
-        <h1>Restaurants</h1>
-        <form method="GET" action="RestaurantList.jsp">
-            <input type="text" name="searchName" value="<%= searchName %>" placeholder="Search Restaurants">
-            <button type="submit">Search</button>
-        </form>
-    </div>
     <div class="content">
         <div class="sidebar">
             <h2>User Information</h2>

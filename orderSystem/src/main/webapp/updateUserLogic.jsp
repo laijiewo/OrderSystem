@@ -11,12 +11,14 @@
 <%@ page import="module.Restaurant" %>
 <%@ page import="module.User" %>
 <%@ page import="java.util.List" %>
+<%@ page import="module.enums.DeliveryArea" %>
 <%
     User user =(User) session.getAttribute("user");
     String FirstName = request.getParameter("FirstName");
     String LastName = request.getParameter("LastName");
-    String Address = request.getParameter("Address");
+    String Address = request.getParameter("address");
     String PhoneNumber = request.getParameter("PhoneNumber");
+    String password = request.getParameter("Password");
 
 
 
@@ -26,10 +28,15 @@
     out.print(Address);
     out.print(PhoneNumber);
 
+    user.setFirstName(FirstName);
+    user.setLastName(LastName);
+    user.setAddress(DeliveryArea.valueOf(Address));
+    user.setPhoneNumber(PhoneNumber);
+    user.setPassword(password);
     userDAO UserDAO = new userDAO();
-    String personID = RestaurantManagerDAO.getManagerID(RestaurantID);
-    Restaurant rest = new Restaurant(RestaurantID, RestaurantName, Address, ContactInformation, BusinessHours, personID);
-    restDAO.updateRestaurant(rest);
+    UserDAO.setAddress(user.getPersonID(), DeliveryArea.valueOf(Address));
+    personDAO personDAO = new personDAO();
+    personDAO.updateInformation(user);
     response.sendRedirect("RestaurantList.jsp");
 %>
 <html>

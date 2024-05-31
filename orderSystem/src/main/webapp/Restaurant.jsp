@@ -12,12 +12,19 @@
 <%@ page import="java.util.*, javax.servlet.*, javax.servlet.http.*, javax.servlet.jsp.*" %>
 <%@ page import="dao.restaurantDAO" %>
 <%@ page import="module.randomString" %>
+<%@ page import="module.Restaurant" %>
+<%@ page import="dao.RestaurantManagerDAO" %>
+<%@ page import="module.RestaurantManager" %>
 
 
 <%
     String RestaurantID = request.getParameter("restaurantID");
     restaurantDAO restaurantDAO = new restaurantDAO();
-    String restaurantName = restaurantDAO.getRestaurantByID(RestaurantID).getRestaurantName();
+    Restaurant restaurant = restaurantDAO.getRestaurantByID(RestaurantID);
+    RestaurantManagerDAO restaurantManagerDAO = new RestaurantManagerDAO();
+    String restaurantManagerID = restaurantDAO.getRestaurantManagerID(RestaurantID);
+    RestaurantManager restaurantManager = restaurantManagerDAO.getManager(restaurantManagerID);
+    String restaurantName = restaurant.getRestaurantName();
     dishDAO dishDAO = new dishDAO();
     List<Dish> dishList = dishDAO.getDishesByRestaurantID(RestaurantID);
 
@@ -46,15 +53,24 @@
     <link rel="stylesheet" href="RestaurantStyle.css">
 </head>
 <body>
+<%@ include file="exitButton.html" %>
+<img src="<%= request.getContextPath() + "/photos/logo.png" %>" alt="logo">
 <div class="header">
     <h1><% out.println(restaurantName); %></h1>
 </div>
 <div class="container">
     <div class="sidebar">
-        <h2>Classes</h2>
-        <div class="category">Class1</div>
-        <div class="category">Class2</div>
-        <div class="category">Class3</div>
+        <h2 style="color: rgb(70, 96, 117)">Restaurant Information:</h2>
+        <div class="category">Restaurant Manager: </div>
+        <div class="category1"><%out.print(restaurantManager.getFirsName() + " " + restaurantManager.getLastName());%></div>
+        <div class="category">Start Management Date: </div>
+        <div class="category1"><%out.print(restaurantManager.getStartManagementDate());%></div>
+        <div class="category">Contact Information: </div>
+        <div class="category1">Phone: <%out.print(restaurant.getContact_Information());%></div>
+        <div class="category">Restaurant Address: </div>
+        <div class="category1"><%out.print(restaurant.getRestaurantAddress());%></div>
+        <div class="category">Business hours: </div>
+        <div class="category1"><%out.print(restaurant.getBusiness_Hours());%></div>
     </div>
     <div class="content">
         <h2>HOT DISHES</h2>

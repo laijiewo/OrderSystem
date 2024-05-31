@@ -141,4 +141,31 @@ public class personDAO {
         }
         return null;
     }
+    public boolean updateInformation(Person person) {
+        Connection conn = null;
+        try {
+            conn = JDBCTool.getConnection();
+            String query = "UPDATE person SET lname=?, fname=?, gender=?, password=? WHERE PersonID=?";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1, person.getLastName());
+            ps.setString(2, person.getFirsName());
+            ps.setString(3, person.getGender().toString());
+            ps.setString(4, person.getPassword());
+            ps.setString(5, person.getPersonID());
+            ps.executeUpdate();
+            setPhoneNumber(person.getPersonID(), person.getPhoneNumber());
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 }
