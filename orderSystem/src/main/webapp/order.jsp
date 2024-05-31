@@ -6,7 +6,49 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page import="java.sql.Date, java.sql.SQLException, java.util.List, dao.orderDAO, module.Order" %>
+<%@ page import="module.Dish" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="module.randomString" %>
+<%@ page import="module.OrderList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String OrderID = request.getParameter("orderID");
+    if (OrderID == null) {
+        OrderID = randomString.generateRandomOrderID(8);
+    }
+    String DishID = request.getParameter("dishID");
+    List<Dish> shoppingTrolley = (List<Dish>) session.getAttribute("ShoppingTrolley");
+    if (DishID != null) {
+        if (shoppingTrolley != null) {
+            for (Dish dish : shoppingTrolley) {
+                if (dish.getDishId().equals(DishID)) {
+                    shoppingTrolley.remove(dish);
+                    break;
+                }
+            }
+            session.setAttribute("ShoppingTrolley", shoppingTrolley);
+        }
+    }else{
+        if (shoppingTrolley == null) {
+            shoppingTrolley = new ArrayList<>();
+            session.setAttribute("ShoppingTrolley", shoppingTrolley);
+        }
+    }
+    List<OrderList> newOrderList = new ArrayList<>();
+    for (Dish dish : shoppingTrolley) {
+        boolean newOrder = true;
+        for (OrderList orderList:newOrderList){
+            if(dish.getDishId().equals(orderList.getDishId())){
+                orderList.increaseNumber();
+                newOrder = false;
+            }
+        }
+        OrderList orderList = new OrderList(OrderID, dish.getDishId(),"",1);
+        if(newOrder){
+            newOrderList.add(orderList);
+        }
+    }
+%>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -58,44 +100,34 @@
 </head>
 <body>
 <div class="header">
-    <h1>Orders</h1>
+    <h1>Order List</h1>
 </div>
 <div class="container">
     <div class="content">
-        <h2>Order List</h2>
+        <h2>Dishes</h2>
         <table>
             <tr>
                 <th>Order ID</th>
                 <th>Dish ID</th>
+                <th>number</th>
                 <th>Comments</th>
                 <th>Actions</th>
             </tr>
-            <%
-                List<Order> orders = null;
-                try {
-                    orders = orderDAO.getOrderList();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-                if (orders != null) {
-                    for (Order order : orders) {
-            %>
+            <% for (OrderList orderList:newOrderList){%>
             <tr>
-                <td><%= order.getOrderId() %></td>
-                <td><%= order.getU_PersonId() %></td>
-                <td><%= order.getOrderDate() %></td>
-                <td><%= order.isPaid() %></td>
+                <td><%= orderList.getOrderId() %></td>
+                <td><%= orderList.getDishId() %></td>
+                <td><%= orderList.getNumber() %></td>
+                <td></td>
                 <td>
-                    <form action="deleteOrder.jsp" method="post" style="display:inline;">
-                        <input type="hidden" name="orderId" value="<%= order.getOrderId() %>">
+                    <form method="post" action="order.jsp?orderID=<%=OrderID%>" style="display: inline">
+                        <input type="hidden" name="DishID" value="<%= orderList.getDishId() %>">
                         <input type="submit" value="Delete">
                     </form>
                 </td>
             </tr>
-            <%
-                    }
-                }
-            %>
+            <%}%>
+
         </table>
         <h2>Add New Order</h2>
         <form action="addOrder.jsp" method="post">

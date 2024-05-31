@@ -22,7 +22,8 @@ public class orderListDAO {
                 String OrderID = rs.getString("OrderID");
                 String DishID = rs.getString("DishID");
                 String Comments = rs.getString("Comments");
-                OrderList r = new OrderList(OrderID, DishID, Comments);
+                int number = rs.getInt("number");
+                OrderList r = new OrderList(OrderID, DishID, Comments,number);
                 orderLists.add(r);
             }
         } catch (SQLException e) {
@@ -49,7 +50,8 @@ public class orderListDAO {
             if (rs.next()) {
                 String DishID = rs.getString("DishID");
                 String Comments = rs.getString("Comments");
-                orderList = new OrderList(OrderID, DishID, Comments);
+                int number = rs.getInt("number");
+                orderList = new OrderList(OrderID, DishID, Comments,number);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -76,7 +78,8 @@ public class orderListDAO {
                 String OrderID = rs.getString("OrderID");
                 String dishIDFetched = rs.getString("DishID");
                 String Comments = rs.getString("Comments");
-                OrderList o = new OrderList(OrderID, dishIDFetched, Comments);
+                int number = rs.getInt("number");
+                OrderList o = new OrderList(OrderID, dishIDFetched, Comments,number);
                 orderLists.add(o);
             }
         } catch (SQLException e) {

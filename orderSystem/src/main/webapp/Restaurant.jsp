@@ -11,6 +11,7 @@
 <%@ page import="module.Dish" %>
 <%@ page import="java.util.*, javax.servlet.*, javax.servlet.http.*, javax.servlet.jsp.*" %>
 <%@ page import="dao.restaurantDAO" %>
+<%@ page import="module.randomString" %>
 
 
 <%
@@ -19,8 +20,22 @@
     String restaurantName = restaurantDAO.getRestaurantByID(RestaurantID).getRestaurantName();
     dishDAO dishDAO = new dishDAO();
     List<Dish> dishList = dishDAO.getDishesByRestaurantID(RestaurantID);
-    List<Dish> shoppingTrolley = new ArrayList<>();
 
+
+    List<Dish> shoppingTrolley = (List<Dish>) session.getAttribute("ShoppingTrolley");
+    if (shoppingTrolley == null) {
+        shoppingTrolley = new ArrayList<>();
+        session.setAttribute("ShoppingTrolley", shoppingTrolley);
+    }
+
+    String dishID = request.getParameter("DishID");
+    Dish newdish;
+    if (dishID!=null) {
+        if(!dishID.isEmpty()) {
+            newdish = dishDAO.getDishByID(dishID);
+            shoppingTrolley.add(newdish);
+        }
+    }
 %>
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -43,19 +58,24 @@
     </div>
     <div class="content">
         <h2>HOT DISHES</h2>
+        <button name="place an order" type="button" onclick="location.href='order.jsp?orderID=<%=randomString.generateRandomOrderID(8)%>'">
         <div class="products">
             <%
                 for (Dish dish : dishList) {
             %>
-            <button class="button" onclick="<%shoppingTrolley.add(dish);%>">
-            <div class="product">
-                <div class="product-details">
-                    <h3><%= dish.getDishName() %></h3>
-                    <p>DishID: <%= dish.getDishId() %></p>
-                    <p class="number" <%= dish.number_of_dishes(shoppingTrolley)%>>
-                    <p class="price">￥<%= dish.getDishPrice() %></p>
-                </div>
-            </div>
+            <form method="post" action="Restaurant.jsp?restaurantID=<%=RestaurantID%>">
+                <button type="submit" class="button">
+                    <div class="product">
+                        <div class="product-details">
+                            <h3><%= dish.getDishName() %></h3>
+                            <p>DishID: <%= dish.getDishId() %></p>
+                            <p class="number"><%= dish.number_of_dishes(shoppingTrolley) %></p>
+                            <p class="price">¥<%= dish.getDishPrice() %></p>
+                        </div>
+                    </div>
+                </button>
+                <input type="hidden" name="DishID" value="<%= dish.getDishId() %>">
+            </form>
             <%
                 }
             %>

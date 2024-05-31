@@ -8,6 +8,7 @@
 <%@ page import="java.sql.SQLException, dao.orderDAO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
+
   String orderId = request.getParameter("orderId");
   boolean success = false;
   try {
@@ -23,5 +24,5 @@
   }
 %>
 <br>
-<a href="OrderList.jsp">Back to Order List</a>
+<a href="OrderList.jsp?=<%=orderId%>">Back to Order List</a>
 

@@ -67,76 +67,57 @@ body {
     display: flex;
     flex-flow: column wrap;
     align-items: stretch;
+    align-content: space-between;
 }
 .product {
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 80%;
-    margin: 1%;
-    background-color: rgb(139, 166, 147);
-    padding: 10px;
+
+    width: 800px;
+    background-color: white;
+    padding: 0px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     border-radius: 10px;
     transition: transform 0.3s ease;
 }
-.product:hover {
-    transform: scale(1.05);
-}
+.product-button{
 
+    border-radius: 10px;
+}
 .product-button:hover {
     transform: scale(1.05);
 }
 .product-details {
     margin-left: 20px;
-
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+
 }
 .product h3 {
+    align-self: flex-start;
     margin: 10px 0;
     color: rgb(70, 96, 117);
 }
 .product p {
+    align-self: flex-start;
     margin: 0 0 10px;
 }
-
-.product .number {
-    align-self: flex-end;
-    color: rgb(70, 96, 117);
+.product .number{align-self: flex-end;
+    color: royalblue;
     font-weight: bold;
+    margin-right: 10px;
 }
+
+
 .product .price {
     align-self: flex-end;
     color: rgb(70, 96, 117);
     font-weight: bold;
+    margin-right: 10px;
 }
-.button-container {
-    position: fixed;
-    bottom: 80px;
-    width: 300px;
-    gap: 10px;
-    display: flex;
-    justify-content: center;
-    boarder-radius: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-.button {
-    background-color: rgb(92, 147, 148);
-    color: #fff;
-    padding: 10px 20px;
-    width: 120px;
-    font: 15px bold;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: transform 0.3s ease;
-    border: none;
-    outline: none;
-    -webkit-appearance: none;
-    box-shadow: none;
-}
+
 .button:hover {
     transform: scale(1.05);
 }
