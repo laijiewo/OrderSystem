@@ -125,8 +125,6 @@
         </form>
     </div>
 </div>
-<div class="footer">
-    <p>&copy; 2024 Reviews</p>
-</div>
+<%@ include file="footer.html" %>
 </body>
 </html>

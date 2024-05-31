@@ -14,7 +14,9 @@
     <title>User Information Update</title>
     <link rel="shortcut icon"  href="photos/bitbug_favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="registerStyle.css">
+
 </head>
+
 <body>
 <img src="<%= request.getContextPath() + "/photos/logo.png" %>" alt="logo">
 <div class="container">
@@ -49,6 +51,8 @@
         </form>
     </div>
 </div>
+</div>
 <%@ include file="footer.html" %>
 </body>
+
 </html>

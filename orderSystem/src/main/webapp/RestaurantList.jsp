@@ -50,22 +50,21 @@
     </form>
 </div>
 <div class="container">
-    <div class="content">
-        <div class="sidebar">
-            <h2>User Information</h2>
-            <div class="category">User: </div>
-            <div class="category1"><%out.print(user.getFirsName() + " " + user.getLastName());%></div>
-            <div class="category">Gender: </div>
-            <div class="category1"><%out.print(user.getGender());%></div>
-            <div class="category">phone number: </div>
-            <div class="category1"><%out.print(user.getPhoneNumber());%></div>
-            <div class="category">Address: </div>
-            <div class="category1">Address: <%out.print(user.getAddress());%></div>
-            <div>
-                <button class="update-button" onclick="location.href='updateUser.jsp?userID=<%= user.getPersonID() %>'">Update User Information</button>
-            </div>
+    <div class="sidebar">
+        <h2>User Information</h2>
+        <div class="category">User: </div>
+        <div class="category1"><%out.print(user.getFirsName() + " " + user.getLastName());%></div>
+        <div class="category">Gender: </div>
+        <div class="category1"><%out.print(user.getGender());%></div>
+        <div class="category">phone number: </div>
+        <div class="category1"><%out.print(user.getPhoneNumber());%></div>
+        <div class="category">Address: </div>
+        <div class="category1"><%out.print(user.getAddress());%></div>
+        <div>
+            <button class="update-button" onclick="location.href='updateUser.jsp?userID=<%= user.getPersonID() %>'">Update User Information</button>
         </div>
-
+    </div>
+    <div class="content">
         <div class="main">
             <% for (Restaurant restaurant : paginatedList) { %>
             <button class="button" onclick="location.href='Restaurant.jsp?restaurantID=<%=restaurant.getRestaurantID()%>'">

@@ -134,3 +134,12 @@ img {
     margin: 0;
     color: #FFFFFF;
 }
+.footer {
+    background-color: rgb(92, 147, 148);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
